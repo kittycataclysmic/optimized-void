@@ -231,12 +231,184 @@
                 max-height: 40vh;
             }
         }
+        /* Homepage */
+        .homepage {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .homepage::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.04) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .enter-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            padding: 0.85rem 2.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+        }
+
+        .enter-btn:hover {
+            background: var(--gold);
+            color: var(--bg);
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-left: 2px solid var(--gold);
+            padding: 1rem 1.25rem;
+            border-radius: 2px;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-12px); }
+        }
+
+        .fade-out {
+            animation: fadeOut 0.4s ease forwards;
+        }
+
+        .main-site {
+            display: none;
+        }
+
+        .main-site.visible {
+            display: block;
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
+    <!-- HOMEPAGE -->
+    <div id="homepage" class="homepage">
+        <div style="max-width: 860px; margin: 0 auto; width: 100%;">
+
+            <!-- Top label -->
+            <p style="font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 2rem;">KITTYCATACLYSMIC.COM — INTELLECTUAL PROJECTS</p>
+
+            <!-- Title -->
+            <div style="margin-bottom: 1.5rem;">
+                <div class="gold-rule-short" style="margin-bottom: 1.5rem;"></div>
+                <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 700; line-height: 0.95; color: var(--text-primary); margin-bottom: 1rem;">The Optimized<br/>Void</h1>
+                <div class="gold-rule-short" style="margin-top: 1.5rem;"></div>
+            </div>
+
+            <!-- Subtitle -->
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--text-secondary); font-style: italic; margin-bottom: 3rem; line-height: 1.6; max-width: 600px;">
+                80 Penguin Little Black Classics. Audited through five lenses. One GB practitioner with no patience for systems that were never designed to work.
+            </p>
+
+            <!-- What this is -->
+            <div style="margin-bottom: 3rem; max-width: 680px;">
+                <p style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1rem;">WHAT THIS IS</p>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 2;">
+                    This is not a book review site. There are no stars, no recommendations, no reading lists. This is a process audit — applied to literature that was never asking to be audited. Every text gets the same treatment: four questions, five lenses, one verdict. The goal is not to celebrate these works. The goal is to understand why the systems they describe failed, who they failed, and whether anyone designed them to fail on purpose.
+                </p>
+            </div>
+
+            <!-- The five lenses -->
+            <div style="margin-bottom: 3rem;">
+                <p style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1.25rem;">THE FIVE LENSES — APPLIED IN ORDER</p>
+                <div style="display: grid; gap: 0.6rem;">
+                    <div class="project-card">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <span style="font-size: 0.6rem; color: var(--gold); letter-spacing: 0.15em;">LENS 01</span>
+                            <span style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary);">LSS Audit</span>
+                        </div>
+                        <p style="font-size: 0.65rem; color: var(--text-secondary); margin-top: 0.4rem;">What is the process. Where is the waste. What is the failure mode. The constitution — present in every project on this site.</p>
+                    </div>
+                    <div class="project-card">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <span style="font-size: 0.6rem; color: var(--gold); letter-spacing: 0.15em;">LENS 02</span>
+                            <span style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary);">Foucault</span>
+                        </div>
+                        <p style="font-size: 0.65rem; color: var(--text-secondary); margin-top: 0.4rem;">What does this system normalize. What does it make invisible. Who built the conditions that made everything else inevitable.</p>
+                    </div>
+                    <div class="project-card">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <span style="font-size: 0.6rem; color: var(--gold); letter-spacing: 0.15em;">LENS 03</span>
+                            <span style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary);">Nietzsche</span>
+                        </div>
+                        <p style="font-size: 0.65rem; color: var(--text-secondary); margin-top: 0.4rem;">Who is asserting will and to what end. What happens when the will to power meets a system that was never designed to contain it.</p>
+                    </div>
+                    <div class="project-card">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <span style="font-size: 0.6rem; color: var(--gold); letter-spacing: 0.15em;">LENS 04</span>
+                            <span style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary);">Jungian Archetypes</span>
+                        </div>
+                        <p style="font-size: 0.65rem; color: var(--text-secondary); margin-top: 0.4rem;">What roles are the players locked into. Who is the Shadow. What the system officially contains but structurally enables.</p>
+                    </div>
+                    <div class="project-card">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <span style="font-size: 0.6rem; color: var(--gold); letter-spacing: 0.15em;">LENS 05</span>
+                            <span style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary);">Cognitive Bias</span>
+                        </div>
+                        <p style="font-size: 0.65rem; color: var(--text-secondary); margin-top: 0.4rem;">What psychological mechanism ensures nobody escapes. The final audit finding — why the system perpetuates even after the defect is visible.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coming projects -->
+            <div style="margin-bottom: 3.5rem;">
+                <p style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1.25rem;">OTHER PROJECTS ON THIS SITE</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.6rem;">
+                    <div style="padding: 0.85rem; border: 1px solid var(--border-subtle); border-radius: 2px;">
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.3rem;">The Cipher</p>
+                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.7;">Complete works of Shakespeare. 20 plays. LSS × Dr. Dre × Eminem × Snoop Dogg × 50 Cent. Coming.</p>
+                    </div>
+                    <div style="padding: 0.85rem; border: 1px solid var(--border-subtle); border-radius: 2px;">
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.3rem;">Beautiful Defects</p>
+                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.7;">Japanese Literature. Dazai. Soseki. Kawabata. Mishima. LSS × mono no aware. Coming.</p>
+                    </div>
+                    <div style="padding: 0.85rem; border: 1px solid var(--border-subtle); border-radius: 2px;">
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.3rem;">The Null Hypothesis</p>
+                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.7;">Belief Systems Under Collapse. Lewis. Dostoevsky. Kafka. Bukowski. Hemingway. In that order, for a reason. LSS × Camus. Coming.</p>
+                    </div>
+                    <div style="padding: 0.85rem; border: 1px solid var(--border-subtle); border-radius: 2px;">
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.3rem;">The Prince Variations</p>
+                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.7;">Political Figures. Adolf Hitler. Genghis Khan. Che Guevara. Rasputin. Stalin. LSS × Machiavelli × Orwell. Coming.</p>
+                    </div>
+                    <div style="padding: 0.85rem; border: 1px solid var(--border-subtle); border-radius: 2px;">
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.3rem;">The Original Spec</p>
+                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.7;">Sacred Texts. The Bible. The Bhagavad Gita. The Quran. LSS × Kierkegaard. Coming.</p>
+                    </div>
+                    <div style="padding: 0.85rem; border: 1px solid var(--border-subtle); border-radius: 2px;">
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.3rem;">The Single Point of Failure</p>
+                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.7;">Cult Leaders. Jim Jones. David Koresh. Charles Manson. Sun Myung Moon. Shoko Asahara. LSS × Cialdini × Fromm. Coming.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enter button -->
+            <div style="display: flex; align-items: center; gap: 2rem;">
+                <button class="enter-btn" onclick="enterSite()">ENTER THE VOID →</button>
+                <span style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em;">03 / 80 AUDITED — UPDATED EVERY SUNDAY</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MAIN SITE (hidden until Enter clicked) -->
+    <div id="main-site" class="main-site">
     <header class="site-header px-6 md:px-10 py-5">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
@@ -320,7 +492,24 @@
         <p class="text-xs mt-4" style="color: var(--text-secondary);">GB Practitioner — @kittycataclysmic — The Optimized Void</p>
     </footer>
 
+    </div><!-- end main-site -->
+
     <script>
+    // ─────────────────────────────────────────────
+    // HOMEPAGE ENTER
+    // ─────────────────────────────────────────────
+
+    function enterSite() {
+        const homepage = document.getElementById('homepage');
+        const mainSite = document.getElementById('main-site');
+        homepage.classList.add('fade-out');
+        setTimeout(() => {
+            homepage.style.display = 'none';
+            mainSite.classList.add('visible');
+            window.scrollTo(0, 0);
+        }, 400);
+    }
+
     // ─────────────────────────────────────────────
     // BOOK DATA
     // ─────────────────────────────────────────────
