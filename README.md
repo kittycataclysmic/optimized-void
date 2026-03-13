@@ -1,6 +1,6 @@
 # kittycataclysmic.com
 
-Personal intellectual project site. [@kittycataclysmic](https://kittycataclysmic.com)
+Personal intellectual project site. [kittycataclysmic.com](https://kittycataclysmic.com)
 
 ---
 
@@ -12,13 +12,23 @@ The methodology stays constant. The lenses rotate. The texts don't get to opt ou
 
 ---
 
+## Pages
+
+| Nav Label | Page | Description |
+|-----------|------|-------------|
+| **The Index** | Homepage | Practitioner identity, CATACLYSM acrostic, project registry |
+| **The Auditor** | About | 9-paragraph profile of the methodology and the person behind it |
+| **Submit Findings** | Contact | hey@kittycataclysmic.com |
+
+---
+
 ## Projects
 
 | # | Project | Corpus | Lens Stack | Status |
 |---|---------|--------|------------|--------|
 | 01 | **The Optimized Void** | 80 Penguin Little Black Classics | LSS × Foucault × Nietzsche × Jungian Archetypes × Cognitive Bias | Active |
 | 02 | **The Cipher** | Shakespeare — 20 plays | LSS × Dr. Dre × Eminem × Snoop Dogg × 50 Cent | Coming |
-| 03 | **Beautiful Defects** | Japanese Literature — Dazai, Soseki, Kawabata, Mishima | LSS × mono no aware | Coming |
+| 03 | **The Decay Index** | Japanese Literature — Dazai, Soseki, Kawabata, Mishima | LSS × mono no aware | Coming |
 | 04 | **The Null Hypothesis** | Belief Systems Under Collapse — Lewis, Dostoevsky, Kafka, Bukowski, Hemingway | LSS × Camus | Coming |
 | 05 | **The Prince Variations** | Political Figures — Hitler, Genghis Khan, Che Guevara, Rasputin, Stalin | LSS × Machiavelli × Orwell | Coming |
 | 06 | **The Original Spec** | Sacred Texts — The Bible, The Bhagavad Gita, The Quran | LSS × Kierkegaard | Coming |
@@ -33,6 +43,7 @@ The methodology stays constant. The lenses rotate. The texts don't get to opt ou
 - Auto-deploys on push to `main`
 - Charts rendered with Chart.js
 - Fonts: Cormorant Garamond + DM Mono
+- Favicon: embedded base64 PNG — no separate file needed
 
 ## Deployment
 
