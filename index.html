@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Optimized Void — LSS Audit of 80 Little Black Classics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0A0A0A;
+            --bg-card: #111111;
+            --bg-card-hover: #161616;
+            --text-primary: #F5F0E8;
+            --text-secondary: #8A8A8A;
+            --gold: #C9A84C;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+            --red-verdict: #8B2A2A;
+            --border: rgba(201, 168, 76, 0.2);
+            --border-subtle: rgba(245, 240, 232, 0.08);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Mono', monospace;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+        /* Header */
+        .site-header {
+            background: var(--bg);
+            border-bottom: 1px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .gold-rule {
+            height: 1px;
+            background: var(--gold);
+            width: 100%;
+        }
+
+        .gold-rule-short {
+            height: 1px;
+            background: var(--gold);
+            width: 80%;
+        }
+
+        /* Registry */
+        .registry-sidebar {
+            background: #0D0D0D;
+            border-right: 1px solid var(--border);
+            height: calc(100vh - 80px);
+            position: sticky;
+            top: 80px;
+            overflow-y: auto;
+        }
+
+        .cell-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #0A0A0A;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .book-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .book-item:hover {
+            background: var(--bg-card-hover);
+            border-left-color: var(--gold);
+        }
+
+        .book-item.active {
+            background: var(--gold-dim);
+            border-left-color: var(--gold);
+        }
+
+        .book-item.pending {
+            opacity: 0.45;
+            cursor: default;
+        }
+
+        .book-item.pending:hover {
+            background: transparent;
+            border-left-color: transparent;
+        }
+
+        /* Status badges */
+        .badge-audited {
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 1px 5px;
+            border-radius: 2px;
+        }
+
+        .badge-pending {
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 1px 5px;
+            border-radius: 2px;
+        }
+
+        /* Detail panel */
+        .detail-panel {
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Lens cards */
+        .lens-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            padding: 1.25rem;
+        }
+
+        .lens-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Verdict scorecard */
+        .verdict-card {
+            background: var(--bg-card);
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            padding: 1.5rem;
+        }
+
+        .verdict-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .verdict-row:last-child {
+            border-bottom: none;
+        }
+
+        .score-HIGH { color: #C0392B; }
+        .score-MID { color: #D4AC0D; }
+        .score-PASS { color: #7D9B76; }
+
+        /* GB Provocation box */
+        .provocation-box {
+            background: #0D0D0D;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        /* Chart container */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+        }
+
+        .dashboard-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            padding: 1.25rem;
+        }
+
+        /* Pending state */
+        .pending-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        /* Mobile */
+        @media (max-width: 1024px) {
+            .registry-sidebar {
+                height: auto;
+                position: relative;
+                top: 0;
+                max-height: 40vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header px-6 md:px-10 py-5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <p class="text-xs tracking-widest" style="color: var(--gold); letter-spacing: 0.25em;">LSS × FOUCAULT × NIETZSCHE × JUNGIAN ARCHETYPES × COGNITIVE BIAS</p>
+                <h1 class="text-3xl md:text-4xl mt-1" style="font-family: 'Cormorant Garamond', serif; font-weight: 700; color: var(--text-primary);">The Optimized Void</h1>
+                <p class="text-xs mt-1" style="color: var(--text-secondary);">80 Little Black Classics. One GB practitioner. Five lenses. No mercy.</p>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="text-right">
+                    <div class="text-xs" style="color: var(--text-secondary); letter-spacing: 0.1em;">AUDITED</div>
+                    <div class="text-2xl font-bold" style="color: var(--gold); font-family: 'DM Mono', monospace;" id="audit-count">01 / 80</div>
+                </div>
+                <div style="width: 1px; height: 40px; background: var(--border);"></div>
+                <div class="text-right">
+                    <div class="text-xs" style="color: var(--text-secondary); letter-spacing: 0.1em;">DEFECTS FOUND</div>
+                    <div class="text-2xl font-bold" style="color: var(--text-primary); font-family: 'DM Mono', monospace;">∞</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto flex flex-col lg:flex-row">
+
+        <!-- REGISTRY SIDEBAR -->
+        <aside class="w-full lg:w-80 xl:w-96 registry-sidebar flex-shrink-0">
+            <div class="px-4 py-3" style="background: #0A0A0A; border-bottom: 1px solid var(--border);">
+                <span class="text-xs" style="color: var(--text-secondary); letter-spacing: 0.15em;">VALUE STREAM REGISTRY</span>
+            </div>
+            <div id="registry-container"></div>
+        </aside>
+
+        <!-- DETAIL PANEL -->
+        <section class="flex-grow detail-panel p-6 md:p-10" id="detail-panel">
+
+            <!-- EMPTY STATE -->
+            <div id="state-empty" class="flex flex-col items-center justify-center h-full py-32 gap-6 text-center">
+                <div class="gold-rule-short"></div>
+                <h2 class="text-3xl" style="font-family: 'Cormorant Garamond', serif; color: var(--text-secondary);">Select a document from the registry.</h2>
+                <p class="text-xs" style="color: var(--text-secondary); letter-spacing: 0.1em; max-width: 300px;">Audited texts are available for full inspection. Pending texts are queued for processing.</p>
+                <div class="gold-rule-short"></div>
+            </div>
+
+            <!-- ACTIVE AUDIT STATE -->
+            <div id="state-active" class="hidden fade-in">
+
+                <!-- Book header -->
+                <div class="mb-8 pb-6" style="border-bottom: 1px solid var(--border);">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-xs font-bold" style="color: var(--bg); background: var(--gold); padding: 2px 8px; border-radius: 2px; letter-spacing: 0.1em;" id="v-id">ID: 001</span>
+                        <span class="text-xs" style="color: var(--gold); border: 1px solid var(--gold); padding: 2px 8px; border-radius: 2px; letter-spacing: 0.1em;" id="v-status">AUDITED</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl mb-2" style="font-family: 'Cormorant Garamond', serif; font-weight: 700; line-height: 1.1;" id="v-title">Title</h2>
+                    <p class="text-sm italic" style="color: var(--text-secondary);" id="v-author">Author</p>
+                </div>
+
+                <!-- Four Lenses Grid -->
+                <div id="v-lenses" class="space-y-6"></div>
+
+            </div>
+
+            <!-- PENDING STATE -->
+            <div id="state-pending" class="hidden fade-in">
+                <div class="pending-state">
+                    <div class="gold-rule-short"></div>
+                    <p class="text-xs" style="color: var(--gold); letter-spacing: 0.2em;">QUEUED FOR PROCESSING</p>
+                    <h2 class="text-3xl" style="font-family: 'Cormorant Garamond', serif; color: var(--text-secondary);" id="p-title">Title</h2>
+                    <p class="text-sm italic" style="color: var(--text-secondary);" id="p-author">Author</p>
+                    <p class="text-xs" style="color: var(--text-secondary); max-width: 320px; line-height: 1.8;">This audit has not yet been conducted. One book per week, every Sunday. The system is running. Check back.</p>
+                    <div class="gold-rule-short"></div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="px-6 py-12 text-center mt-20" style="border-top: 1px solid var(--border);">
+        <p class="text-xs" style="color: var(--text-secondary); letter-spacing: 0.3em; text-transform: uppercase;">Quality System: Running</p>
+        <div class="gold-rule-short mx-auto my-4"></div>
+        <p class="text-xl" style="font-family: 'Cormorant Garamond', serif; color: var(--text-primary);">80 documents. Five lenses. One practitioner.</p>
+        <p class="text-xs mt-4" style="color: var(--text-secondary);">GB Practitioner — @kittycataclysmic — The Optimized Void</p>
+    </footer>
+
+    <script>
+    // ─────────────────────────────────────────────
+    // BOOK DATA
+    // ─────────────────────────────────────────────
+
+    const BOOKS = [
+        {
+            id: "001",
+            title: "Mrs Rosie and the Priest",
+            author: "Giovanni Boccaccio, ~1353",
+            status: "audited",
+            cell: "Foundations",
+            lss: {
+                process: "Religious authority as a social control system.",
+                input: "Community trust in the Church",
+                intended: "Moral order. Social stability.",
+                actual: "Exploitation. Workarounds. Elaborate deception.",
+                waste: [
+                    { type: "Overprocessing", detail: "Elaborate moral codes nobody follows" },
+                    { type: "Defects", detail: "Priests extracting personal value using institutional trust" },
+                    { type: "Waiting", detail: "Women and laborers waiting for accountability that never arrives" },
+                    { type: "Non-utilized talent", detail: "The real intelligence belongs to the people the system ignores" }
+                ],
+                failure: "The system had no external audit mechanism. Accountability was self-reported — priests confessing to priests. No voice of the customer. No independent verification. No escalation path outside the chain of command. You cannot inspect quality into a process. Boccaccio knew this in 1353.",
+                verdict: {
+                    systemDesign: { score: "2/5", note: "Built for those running it. Not those depending on it." },
+                    wasteProfile: { score: "HIGH", note: "Multiple waste categories active simultaneously.", cls: "score-HIGH" },
+                    scalability: { score: "0/5", note: "Entirely dependent on individual virtue — a.k.a. heroics." },
+                    savingGrace: "Human workarounds functioning as informal countermeasures."
+                }
+            },
+            nietzsche: {
+                concept: "Slave Morality / The Death of God",
+                analysis: "The Church in this story operates as a Nietzschean master morality system that has quietly inverted. The priest, who holds institutional power, uses it not to enforce values but to extract value. Boccaccio doesn't moralize — he observes. Which is exactly what Nietzsche would do five centuries later. The system doesn't fail because the priest is evil. It fails because it was never designed to survive contact with human nature. The will to power finds every crack."
+            },
+            archetype: {
+                primary: "The Trickster — Rosie",
+                shadow: "The Shadow — The Priest",
+                analysis: "Rosie doesn't fight the system. She routes around it. Uses the system's own logic against itself. In Jungian terms, the Trickster doesn't destroy corrupt order — she exposes its hollowness by surviving it. The Priest is the institution's repressed nature made visible. Not a villain. A Shadow — the thing the system officially contains but structurally enables."
+            },
+            bias: {
+                primary: "Authority Bias",
+                secondary: "Moral Licensing",
+                analysis: "The congregation defers to the priest's institutional authority despite visible evidence of failure. The uniform — the collar, the confessional — overrides direct observation. This is not stupidity. It is the predictable output of a system designed to produce deference. Meanwhile, the priest's role as moral arbiter licenses behavior that contradicts that role. Moral licensing isn't a character flaw. It's a structural feature."
+            },
+            foucault: {
+                concept: "Discipline and Punish / The Confessional as Surveillance Architecture",
+                normalizes: "Spiritual guilt as a renewable resource — continuously produced, never fully absolved, always requiring the priest as intermediary.",
+                invisible: "That the confessional is a data extraction mechanism. The penitent volunteers information. The priest logs it, holds it, uses it. The architecture produces obedience not through force but through the internalized belief that one is always being observed — and always found wanting.",
+                analysis: "Foucault wrote about the confessional specifically. In *The History of Sexuality*, he identifies it as the founding technology of Western self-surveillance: compulsory truth-telling to an authority who interprets and judges. Boccaccio's priest isn't aberrant. He's operating the machine exactly as designed. The system doesn't require corrupt priests — it simply does not prevent them, because prevention was never the architectural goal. The goal was compliance. Compliance was achieved."
+            },
+            provocation: "If the system's failure mode was predictable from its design, and the design was intentional, whose defect is it — the priest's, or the architect's?",
+            chart: {
+                type: "pareto",
+                label: "DEFECT DISTRIBUTION — WASTE BY CATEGORY",
+                data: {
+                    labels: ["Defects", "Non-util. Talent", "Waiting", "Overprocessing"],
+                    values: [42, 30, 18, 10],
+                    cumulative: [42, 72, 90, 100]
+                }
+            },
+            synthesis: {
+                score: "5/5",
+                explanation: "All five lenses converge without argument. LSS finds no external audit mechanism. Foucault explains why — the confessional was never designed to be audited. Nietzsche confirms the will to power fills every unmonitored gap. Jung identifies the Shadow operating openly because the institution has no mirror. Cognitive Bias explains why the congregation keeps showing up anyway. Five frameworks, one root cause: the system was designed to serve itself. The failure mode is the feature."
+            }
+        },
+        {
+            id: "002",
+            title: "As kingfishers catch fire",
+            author: "Gerard Manley Hopkins, ~1877",
+            status: "audited",
+            cell: "Foundations",
+            lss: {
+                process: "Existence as a quality system.",
+                input: "A being with an inherent nature",
+                intended: "Full, authentic expression of that nature.",
+                actual: "Suppression. Deviation. Output that doesn't reflect the thing producing it.",
+                waste: [
+                    { type: "Non-utilized talent", detail: "A system that never expresses its designed purpose" },
+                    { type: "Overprocessing", detail: "External conditions layered onto something that already knows what it should be" },
+                    { type: "Defects", detail: "Any output that doesn't reflect the true nature of the thing producing it" }
+                ],
+                failure: "Hopkins identifies the failure with precision. He does not build a corrective system. His answer is theological — grace restores authentic selfhood. Beautiful diagnosis. No CAPA. No control plan. Useful if you believe it. Not scalable if you're running an organization.",
+                verdict: {
+                    systemDesign: { score: "5/5", note: "Radical clarity about what authentic output looks like." },
+                    wasteProfile: { score: "MODERATE", note: "Waste exists only where suppression is present.", cls: "score-MID" },
+                    scalability: { score: "1/5", note: "No mechanism to sustain authentic expression at scale." },
+                    savingGrace: "The diagnostic lens is exceptional. Hopkins is extraordinary at naming the defect."
+                }
+            },
+            nietzsche: {
+                concept: "Becoming Who You Are / Amor Fati",
+                analysis: "Hopkins calls it 'selving.' Nietzsche calls it becoming what you are. Both argue that deviation from authentic nature is the fundamental defect. Where they diverge: Hopkins locates the corrective in divine grace. Nietzsche locates it in the individual will. Neither builds a control plan. But Hopkins gets closer to Nietzsche than most theologians would be comfortable admitting."
+            },
+            archetype: {
+                primary: "The Self — The Integrated Whole",
+                shadow: "The Persona — The Performed Self",
+                analysis: "Hopkins's poem is about the Self in its truest Jungian sense — the archetype of wholeness, authentic expression, full realization. The failure mode he identifies is the Persona taking over: the performed version of the self crowding out the actual one. The kingfisher catching fire is Self. The stone that doesn't ring is Persona."
+            },
+            bias: {
+                primary: "Conformity Bias",
+                secondary: "Self-discrepancy Theory (Higgins)",
+                analysis: "The suppression Hopkins identifies has a psychological mechanism: conformity bias. Systems pressure individuals toward outputs that serve the system, not the individual's nature. The gap between actual self and ought self — what Higgins calls self-discrepancy — is Hopkins's defect formalized. The audit finding is the same. The corrective action is different."
+            },
+            foucault: {
+                concept: "Normalization / The Production of the Docile Subject",
+                normalizes: "The suppression of authentic expression as spiritual discipline. Deviation from the norm is reframed as moral failure — not as a measurement problem.",
+                invisible: "That 'normal' selfhood was constructed by the institution, not discovered by the individual. The standard against which 'selving' is measured was set by a power structure, not by nature.",
+                analysis: "Hopkins believes in an authentic self waiting to be expressed. Foucault would immediately ask: who defined authentic? The Church's normalization apparatus produces the very concept of spiritual deviation that Hopkins is trying to correct. The poem diagnoses a real defect — suppression of authentic output — but cannot see that the measurement standard is itself a product of power. Hopkins is auditing the process but has accepted the spec sheet without questioning who wrote it."
+            },
+            provocation: "If you cannot define what 'selving' looks like for the people in your system, what exactly are you measuring deviation from?",
+            chart: {
+                type: "radar",
+                label: "SYSTEM CAPABILITY PROFILE",
+                data: {
+                    labels: ["Defect Definition", "Root Cause", "Control Plan", "Scalability", "Voice of Customer"],
+                    values: [10, 7, 2, 2, 4]
+                }
+            },
+            synthesis: {
+                score: "2/5",
+                explanation: "The lenses do not agree and the disagreement is productive. LSS and Foucault converge — both find the measurement standard itself is the problem, not the deviation from it. But Nietzsche and Jung fight to a draw: Nietzsche says become yourself through will, Jung says the Self is suppressed by the Persona, and neither accounts for the fact that Hopkins's 'authentic self' was defined inside a theological power structure Foucault already dismantled. Cognitive Bias watches from the sidelines and laughs — conformity bias explains why Hopkins could diagnose suppression while remaining fully inside the system producing it. The framework almost breaks here. Hopkins is the most internally contradictory audit in the series."
+            }
+        },
+        {
+            id: "003",
+            title: "The Saga of Gunnlaug Serpent-tongue",
+            author: "Anonymous, ~1300s Iceland",
+            status: "audited",
+            cell: "Foundations",
+            lss: {
+                process: "Viking honor and dispute resolution as a governance system.",
+                input: "Competing claims — status, betrothal contracts, poetic reputation",
+                intended: "Resolution through formal channels: assemblies, arbitration, structured duels.",
+                actual: "Two preventable deaths. Helga unserved at every stage.",
+                waste: [
+                    { type: "Defects passed downstream", detail: "Gunnlaug's broken promise triggers every subsequent failure" },
+                    { type: "Overprocessing", detail: "Three years of escalation for a missed deadline" },
+                    { type: "Motion", detail: "Gunnlaug crosses Europe to prove status instead of fixing the root cause" },
+                    { type: "Waiting", detail: "Helga is reassigned, waits again. Customer unserved throughout." }
+                ],
+                failure: "The betrothal contract was verbal, conditional, and time-bound — with no contingency clause. When Gunnlaug missed the deadline, there was no escalation path between submission and mortal combat. No middle tier. No Tier 1 review. Binary outcomes are always a design failure.",
+                verdict: {
+                    systemDesign: { score: "1/5", note: "Verbal. Conditional. No contingency. No verification." },
+                    wasteProfile: { score: "HIGH", note: "Every waste type present across the full narrative arc.", cls: "score-HIGH" },
+                    scalability: { score: "1/5", note: "Escalation path binary only. Submit or fight." },
+                    savingGrace: "An exceptional failure mode map. Every scene shows you exactly where to put a control."
+                }
+            },
+            nietzsche: {
+                concept: "Will to Power / Eternal Recurrence",
+                analysis: "The saga runs on will to power. Every action Gunnlaug takes is an assertion of status — not love, not reason, not justice. Pure will. Nietzsche would read this not as tragedy but as inevitability. When a system's only currency is honor and the only transaction is dominance, the outcome is predetermined. The eternal recurrence question: if this system ran forever, would anything change? The saga answers: no."
+            },
+            archetype: {
+                primary: "The Hero — Gunnlaug",
+                shadow: "The Anima — Helga",
+                analysis: "Gunnlaug is a textbook Hero archetype — except the Hero's journey here serves only the Hero's ego, not the community. Helga functions as the Anima — the externalized ideal, projected onto and fought over, never consulted. The tragedy isn't romantic. It's that the system never had a mechanism to hear from the one person who mattered most."
+            },
+            bias: {
+                primary: "Sunk Cost Fallacy",
+                secondary: "In-group Bias / Status Quo Bias",
+                analysis: "Every escalation in the saga is driven by sunk cost. Gunnlaug has already invested three years and a continent of travel — backing down now would make the investment meaningless. This is not honor. This is cognitive bias wearing honor's clothing. The dispute resolution system enables this by providing no off-ramp. Systems that remove exit options are systems that manufacture sunk costs."
+            },
+            foucault: {
+                concept: "Genealogy of Power / Sovereign Power vs. Disciplinary Power",
+                normalizes: "Male honor as the only valid currency of dispute. The system renders Helga's voice structurally inaudible — not by silencing her, but by never designing an input mechanism for her in the first place.",
+                invisible: "That the Althing (assembly) and the duel are not neutral dispute mechanisms. They are architectures that reproduce specific power distributions. Every 'legitimate' process in the saga is accessible only to men of status. The process itself is the politics.",
+                analysis: "This saga is a Foucauldian case study in sovereign power — visible, spectacular, exercised through the body. The duel is power made flesh. But what Foucault would find more interesting is how the system produces its own subjects: Gunnlaug doesn't choose to value honor above all else, he is produced by a system that offers no other identity. The saga's real subject isn't the love triangle. It's the technology of subject-formation that makes the love triangle inevitable."
+            },
+            provocation: "A process with no intermediate escalation path will always resolve at the most extreme option available. Who designed this process, and what did they want it to produce?",
+            chart: {
+                type: "cycle",
+                label: "CYCLE TIME ANALYSIS — ESCALATION ARC",
+                data: {
+                    labels: ["Year 0", "Year 1", "Year 2", "Year 3", "Resolution"],
+                    values: [0, 25, 70, 90, 0]
+                }
+            },
+            synthesis: {
+                score: "4/5",
+                explanation: "Four lenses align cleanly, one dissents usefully. LSS, Foucault, Jung, and Cognitive Bias all reach the same finding through different routes: the system was never designed to hear Helga, and every participant's behavior was predictable output of that design. Where Nietzsche breaks rank: he would not call this a failure. He would call it will to power operating exactly as it should — the strongest will prevailed, the outcome was determined by the architecture of dominance, and Helga's silence is not a bug but the system performing within spec. That dissent is the most important audit finding in this text. The saga doesn't fail by Nietzsche's standard. Which means Nietzsche's standard is the defect."
+            }
+        },
+        { id: "004", title: "On Murder Considered as One of the Fine Arts", author: "Thomas De Quincey", status: "pending", cell: "Foundations" },
+        { id: "005", title: "Aphorisms on Love and Hate", author: "Friedrich Nietzsche", status: "pending", cell: "Foundations" },
+        { id: "006", title: "Traffic", author: "John Ruskin", status: "pending", cell: "Foundations" },
+        { id: "007", title: "Goblin Market", author: "Christina Rossetti", status: "pending", cell: "Foundations" },
+        { id: "008", title: "The Atheist's Mass", author: "Honoré de Balzac", status: "pending", cell: "Foundations" },
+        { id: "009", title: "The Yellow Wall-Paper", author: "Charlotte Perkins Gilman", status: "pending", cell: "Foundations" },
+        { id: "010", title: "Lord Arthur Savile's Crime", author: "Oscar Wilde", status: "pending", cell: "Foundations" },
+        { id: "011", title: "The Dhammapada", author: "Anon", status: "pending", cell: "Foundations" },
+        { id: "012", title: "On the Shortness of Life", author: "Seneca", status: "pending", cell: "Foundations" },
+        { id: "013", title: "The Great Winglebury Duel", author: "Charles Dickens", status: "pending", cell: "Foundations" },
+        { id: "014", title: "The Nose", author: "Nikolai Gogol", status: "pending", cell: "Process Variation" },
+        { id: "015", title: "The Cameleon", author: "Anton Chekhov", status: "pending", cell: "Process Variation" },
+        { id: "016", title: "How Much Land Does a Man Need?", author: "Leo Tolstoy", status: "pending", cell: "Process Variation" },
+        { id: "017", title: "The Raven", author: "Edgar Allan Poe", status: "pending", cell: "Process Variation" },
+        { id: "018", title: "A Gentle Spirit", author: "Fyodor Dostoevsky", status: "pending", cell: "Process Variation" },
+        { id: "019", title: "The Gate of the Hundred Sorrows", author: "Rudyard Kipling", status: "pending", cell: "Process Variation" },
+        { id: "020", title: "The Murders in the Rue Morgue", author: "Edgar Allan Poe", status: "pending", cell: "Process Variation" },
+        { id: "021", title: "Caligula", author: "Suetonius", status: "pending", cell: "Process Variation" },
+        { id: "022", title: "The Prophet", author: "Alexander Pushkin", status: "pending", cell: "Process Variation" },
+        { id: "023", title: "The Tell-Tale Heart", author: "Edgar Allan Poe", status: "pending", cell: "Process Variation" },
+        { id: "024", title: "The Terrors of the Night", author: "Thomas Nashe", status: "pending", cell: "Process Variation" },
+        { id: "025", title: "The Tinderbox", author: "Hans Christian Andersen", status: "pending", cell: "Process Variation" },
+        { id: "026", title: "The Great Fire of London", author: "Samuel Pepys", status: "pending", cell: "Process Variation" },
+        { id: "027", title: "The Word of the Buddha", author: "Anon", status: "pending", cell: "Just-In-Time" },
+        { id: "028", title: "The Old Man in the Moon", author: "Shen Fu", status: "pending", cell: "Just-In-Time" },
+        { id: "029", title: "The Wife of Bath", author: "Geoffrey Chaucer", status: "pending", cell: "Just-In-Time" },
+        { id: "030", title: "Antigone", author: "Sophocles", status: "pending", cell: "Just-In-Time" },
+        { id: "031", title: "The Life of a Stupid Man", author: "Ryūnosuke Akutagawa", status: "pending", cell: "Just-In-Time" },
+        { id: "032", title: "The Death of Ivan Ilyich", author: "Leo Tolstoy", status: "pending", cell: "Just-In-Time" },
+        { id: "033", title: "To Be Read at Dusk", author: "Charles Dickens", status: "pending", cell: "Just-In-Time" },
+        { id: "034", title: "The White Nights", author: "Fyodor Dostoevsky", status: "pending", cell: "Just-In-Time" },
+        { id: "035", title: "The Eve of St Agnes", author: "John Keats", status: "pending", cell: "Just-In-Time" },
+        { id: "036", title: "The Figure in the Carpet", author: "Henry James", status: "pending", cell: "Just-In-Time" },
+        { id: "037", title: "Secretest Defence", author: "Wilfred Owen", status: "pending", cell: "Just-In-Time" },
+        { id: "038", title: "The Beauties of the Night", author: "Flaiano", status: "pending", cell: "Just-In-Time" },
+        { id: "039", title: "The Great Fire of London", author: "Samuel Pepys", status: "pending", cell: "Just-In-Time" },
+        { id: "040", title: "Edith Wharton's Letters", author: "Edith Wharton", status: "pending", cell: "Overprocessing" },
+        { id: "041", title: "Goblin Market", author: "Christina Rossetti", status: "pending", cell: "Overprocessing" },
+        { id: "042", title: "Marco Polo", author: "Marco Polo", status: "pending", cell: "Overprocessing" },
+        { id: "043", title: "The Beautiful Cassandra", author: "Jane Austen", status: "pending", cell: "Overprocessing" },
+        { id: "044", title: "Jason and Medea", author: "Apollonius of Rhodes", status: "pending", cell: "Overprocessing" },
+        { id: "045", title: "Women much praised", author: "Thomas Hardy", status: "pending", cell: "Overprocessing" },
+        { id: "046", title: "Femme Fatales", author: "Various", status: "pending", cell: "Overprocessing" },
+        { id: "047", title: "A Modest Proposal", author: "Jonathan Swift", status: "pending", cell: "Overprocessing" },
+        { id: "048", title: "Tract in the Trees", author: "Guy de Maupassant", status: "pending", cell: "Overprocessing" },
+        { id: "049", title: "The Communist Manifesto", author: "Marx & Engels", status: "pending", cell: "Overprocessing" },
+        { id: "050", title: "On War", author: "Carl von Clausewitz", status: "pending", cell: "Overprocessing" },
+        { id: "051", title: "A Simple Heart", author: "Gustave Flaubert", status: "pending", cell: "Overprocessing" },
+        { id: "052", title: "Dante's Inferno (Extract)", author: "Dante", status: "pending", cell: "Overprocessing" },
+        { id: "053", title: "The Rectory Umbrella", author: "Lewis Carroll", status: "pending", cell: "Bottleneck" },
+        { id: "054", title: "The Horrors of War", author: "Francisco Goya", status: "pending", cell: "Bottleneck" },
+        { id: "055", title: "The Old Man in the Sea", author: "Ernest Hemingway", status: "pending", cell: "Bottleneck" },
+        { id: "056", title: "The Voyeur", author: "Apollonius", status: "pending", cell: "Bottleneck" },
+        { id: "057", title: "The Ghost Ship", author: "Thomas Middleton", status: "pending", cell: "Bottleneck" },
+        { id: "058", title: "The Woman Much Missed", author: "Thomas Hardy", status: "pending", cell: "Bottleneck" },
+        { id: "059", title: "Sorrow of the Pagan Outcast", author: "Various", status: "pending", cell: "Bottleneck" },
+        { id: "060", title: "Sketches by Boz", author: "Charles Dickens", status: "pending", cell: "Bottleneck" },
+        { id: "061", title: "The Old Man in the Corner", author: "Baroness Orczy", status: "pending", cell: "Bottleneck" },
+        { id: "062", title: "Moll Flanders (Extract)", author: "Daniel Defoe", status: "pending", cell: "Bottleneck" },
+        { id: "063", title: "The Battle of the Books", author: "Jonathan Swift", status: "pending", cell: "Bottleneck" },
+        { id: "064", title: "A Hippo Banquet", author: "Various", status: "pending", cell: "Bottleneck" },
+        { id: "065", title: "Cartes-de-visite of the Hundred Sorrows", author: "Various", status: "pending", cell: "Bottleneck" },
+        { id: "066", title: "Remember, Body", author: "C.P. Cavafy", status: "pending", cell: "8th Waste" },
+        { id: "067", title: "Il Duro", author: "D.H. Lawrence", status: "pending", cell: "8th Waste" },
+        { id: "068", title: "It was snowing butterflies", author: "Charles Darwin", status: "pending", cell: "8th Waste" },
+        { id: "069", title: "The Robber Bridegroom", author: "Brothers Grimm", status: "pending", cell: "8th Waste" },
+        { id: "070", title: "I Hate and I Love", author: "Catullus", status: "pending", cell: "8th Waste" },
+        { id: "071", title: "Circe and the Cyclops", author: "Homer", status: "pending", cell: "8th Waste" },
+        { id: "072", title: "Miss Brill", author: "Katherine Mansfield", status: "pending", cell: "8th Waste" },
+        { id: "073", title: "The Fall of Icarus", author: "Ovid", status: "pending", cell: "8th Waste" },
+        { id: "074", title: "Come Close", author: "Sappho", status: "pending", cell: "8th Waste" },
+        { id: "075", title: "Kasyan from the Beautiful Lands", author: "Ivan Turgenev", status: "pending", cell: "8th Waste" },
+        { id: "076", title: "O Cruel Alexis", author: "Virgil", status: "pending", cell: "8th Waste" },
+        { id: "077", title: "A Slip under the Microscope", author: "H.G. Wells", status: "pending", cell: "8th Waste" },
+        { id: "078", title: "The Madness of Cambyses", author: "Herodotus", status: "pending", cell: "8th Waste" },
+        { id: "079", title: "Speaking of Śiva", author: "Anon", status: "pending", cell: "8th Waste" },
+        { id: "080", title: "The Dhammapada", author: "Anon", status: "pending", cell: "8th Waste" }
+    ];
+
+    // ─────────────────────────────────────────────
+    // RENDER REGISTRY
+    // ─────────────────────────────────────────────
+
+    function renderRegistry() {
+        const container = document.getElementById('registry-container');
+        let currentCell = null;
+
+        BOOKS.forEach(book => {
+            if (book.cell !== currentCell) {
+                currentCell = book.cell;
+                const header = document.createElement('div');
+                header.className = 'cell-header';
+                header.textContent = currentCell;
+                container.appendChild(header);
+            }
+
+            const item = document.createElement('div');
+            item.className = `book-item ${book.status === 'pending' ? 'pending' : ''}`;
+            item.innerHTML = `
+                <div class="flex justify-between items-center mb-1">
+                    <span style="font-size: 0.6rem; color: var(--text-secondary); font-family: 'DM Mono', monospace;">Nº ${book.id}</span>
+                    <span class="${book.status === 'audited' ? 'badge-audited' : 'badge-pending'}">${book.status === 'audited' ? 'AUDITED' : 'PENDING'}</span>
+                </div>
+                <div style="font-size: 0.75rem; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${book.title}</div>
+                <div style="font-size: 0.65rem; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${book.author}</div>
+            `;
+
+            if (book.status === 'audited') {
+                item.onclick = () => {
+                    document.querySelectorAll('.book-item').forEach(el => el.classList.remove('active'));
+                    item.classList.add('active');
+                    renderAudit(book);
+                    if (window.innerWidth < 1024) {
+                        document.getElementById('detail-panel').scrollIntoView({ behavior: 'smooth' });
+                    }
+                };
+            } else {
+                item.onclick = () => {
+                    document.querySelectorAll('.book-item').forEach(el => el.classList.remove('active'));
+                    item.classList.add('active');
+                    renderPending(book);
+                };
+            }
+
+            container.appendChild(item);
+        });
+
+        const auditedCount = BOOKS.filter(b => b.status === 'audited').length;
+        document.getElementById('audit-count').textContent = `${String(auditedCount).padStart(2,'0')} / 80`;
+    }
+
+    // ─────────────────────────────────────────────
+    // RENDER PENDING
+    // ─────────────────────────────────────────────
+
+    function renderPending(book) {
+        document.getElementById('state-empty').classList.add('hidden');
+        document.getElementById('state-active').classList.add('hidden');
+        document.getElementById('state-pending').classList.remove('hidden');
+        document.getElementById('state-pending').classList.add('fade-in');
+        document.getElementById('p-title').textContent = book.title;
+        document.getElementById('p-author').textContent = book.author;
+    }
+
+    // ─────────────────────────────────────────────
+    // RENDER FULL AUDIT
+    // ─────────────────────────────────────────────
+
+    function renderAudit(book) {
+        document.getElementById('state-empty').classList.add('hidden');
+        document.getElementById('state-pending').classList.add('hidden');
+        document.getElementById('state-active').classList.remove('hidden');
+        document.getElementById('state-active').classList.add('fade-in');
+
+        document.getElementById('v-id').textContent = `Nº ${book.id}`;
+        document.getElementById('v-status').textContent = 'AUDITED';
+        document.getElementById('v-title').textContent = book.title;
+        document.getElementById('v-author').textContent = book.author;
+
+        const lensContainer = document.getElementById('v-lenses');
+        lensContainer.innerHTML = '';
+
+        // ── LENS 1: LSS AUDIT ──
+        const lssSection = document.createElement('div');
+        lssSection.innerHTML = `
+            <div style="margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span class="lens-label" style="margin-bottom: 0;">LENS 01 — LSS AUDIT</span>
+                    <div style="flex: 1; height: 1px; background: var(--gold); opacity: 0.3;"></div>
+                </div>
+
+                <div class="lens-card" style="margin-bottom: 1rem;">
+                    <span class="lens-label">Process Identified</span>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 1rem;">${book.lss.process}</p>
+                    <div style="display: grid; gap: 0.5rem; font-size: 0.7rem; color: var(--text-secondary);">
+                        <div><span style="color: var(--gold);">Input →</span> ${book.lss.input}</div>
+                        <div><span style="color: var(--gold);">Intended →</span> ${book.lss.intended}</div>
+                        <div><span style="color: var(--gold);">Actual →</span> ${book.lss.actual}</div>
+                    </div>
+                </div>
+
+                <div class="lens-card" style="margin-bottom: 1rem;">
+                    <span class="lens-label">Waste Found</span>
+                    <div style="display: grid; gap: 0.6rem;">
+                        ${book.lss.waste.map(w => `
+                            <div style="display: flex; gap: 0.75rem; font-size: 0.7rem;">
+                                <span style="color: var(--gold); flex-shrink: 0;">→</span>
+                                <div><strong style="color: var(--text-primary);">${w.type}:</strong> <span style="color: var(--text-secondary);">${w.detail}</span></div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="lens-card" style="margin-bottom: 1rem;">
+                    <span class="lens-label">Failure Mode</span>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.8;">${book.lss.failure}</p>
+                </div>
+
+                <div class="verdict-card">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <span style="font-size: 0.65rem; letter-spacing: 0.2em; color: var(--gold); font-family: 'DM Mono', monospace;">LSS AUDIT VERDICT — Nº ${book.id}</span>
+                        <div style="flex: 1; height: 1px; background: var(--gold); opacity: 0.4;"></div>
+                    </div>
+                    <div class="verdict-row">
+                        <span style="font-size: 0.7rem; color: var(--text-secondary);">System Design</span>
+                        <div style="text-align: right;">
+                            <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-primary);">${book.lss.verdict.systemDesign.score}</div>
+                            <div style="font-size: 0.65rem; color: var(--text-secondary); max-width: 200px;">${book.lss.verdict.systemDesign.note}</div>
+                        </div>
+                    </div>
+                    <div class="verdict-row">
+                        <span style="font-size: 0.7rem; color: var(--text-secondary);">Waste Profile</span>
+                        <div style="text-align: right;">
+                            <div style="font-size: 0.8rem; font-weight: 600;" class="${book.lss.verdict.wasteProfile.cls}">${book.lss.verdict.wasteProfile.score}</div>
+                            <div style="font-size: 0.65rem; color: var(--text-secondary); max-width: 200px;">${book.lss.verdict.wasteProfile.note}</div>
+                        </div>
+                    </div>
+                    <div class="verdict-row">
+                        <span style="font-size: 0.7rem; color: var(--text-secondary);">Scalability</span>
+                        <div style="text-align: right;">
+                            <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-primary);">${book.lss.verdict.scalability.score}</div>
+                            <div style="font-size: 0.65rem; color: var(--text-secondary); max-width: 200px;">${book.lss.verdict.scalability.note}</div>
+                        </div>
+                    </div>
+                    <div class="verdict-row" style="padding-top: 0.8rem;">
+                        <span style="font-size: 0.6rem; letter-spacing: 0.1em; color: var(--gold);">SAVING GRACE</span>
+                        <span style="font-size: 0.7rem; color: var(--text-secondary); max-width: 250px; text-align: right; font-style: italic;">${book.lss.verdict.savingGrace}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        lensContainer.appendChild(lssSection);
+
+        // ── PROCESS DASHBOARD ──
+        if (book.chart) {
+            const chartSection = document.createElement('div');
+            chartSection.innerHTML = `
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <span class="lens-label" style="margin-bottom: 0;">PROCESS DASHBOARD</span>
+                        <div style="flex: 1; height: 1px; background: var(--gold); opacity: 0.3;"></div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div style="font-size: 0.6rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 1rem;">${book.chart.label}</div>
+                        <div class="chart-container">
+                            <canvas id="chart-${book.id}"></canvas>
+                        </div>
+                    </div>
+                </div>
+            `;
+            lensContainer.appendChild(chartSection);
+            setTimeout(() => renderBookChart(book), 50);
+        }
+
+        // ── LENS 2: FOUCAULT ──
+        const foucaultSection = document.createElement('div');
+        foucaultSection.innerHTML = `
+            <div style="margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span class="lens-label" style="margin-bottom: 0;">LENS 02 — FOUCAULT</span>
+                    <div style="flex: 1; height: 1px; background: var(--gold); opacity: 0.3;"></div>
+                </div>
+                <div class="lens-card">
+                    <span class="lens-label">Concept Applied</span>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 1rem; font-style: italic;">${book.foucault.concept}</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div>
+                            <span class="lens-label">What This System Normalizes</span>
+                            <p style="font-size: 0.7rem; color: var(--text-secondary); line-height: 1.8;">${book.foucault.normalizes}</p>
+                        </div>
+                        <div>
+                            <span class="lens-label">What It Makes Invisible</span>
+                            <p style="font-size: 0.7rem; color: var(--text-secondary); line-height: 1.8;">${book.foucault.invisible}</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.9; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">${book.foucault.analysis}</p>
+                </div>
+            </div>
+        `;
+        lensContainer.appendChild(foucaultSection);
+
+        // ── LENS 3: NIETZSCHE ──
+        const nietzscheSection = document.createElement('div');
+        nietzscheSection.innerHTML = `
+            <div style="margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span class="lens-label" style="margin-bottom: 0;">LENS 03 — NIETZSCHE</span>
+                    <div style="flex: 1; height: 1px; background: var(--gold); opacity: 0.3;"></div>
+                </div>
+                <div class="lens-card">
+                    <span class="lens-label">Concept Applied</span>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 0.75rem; font-style: italic;">${book.nietzsche.concept}</p>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.9;">${book.nietzsche.analysis}</p>
+                </div>
+            </div>
+        `;
+        lensContainer.appendChild(nietzscheSection);
+
+        // ── LENS 4: ARCHETYPE ──
+        const archetypeSection = document.createElement('div');
+        archetypeSection.innerHTML = `
+            <div style="margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span class="lens-label" style="margin-bottom: 0;">LENS 04 — JUNGIAN ARCHETYPES</span>
+                    <div style="flex: 1; height: 1px; background: var(--gold); opacity: 0.3;"></div>
+                </div>
+                <div class="lens-card">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div>
+                            <span class="lens-label">Primary Archetype</span>
+                            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary);">${book.archetype.primary}</p>
+                        </div>
+                        <div>
+                            <span class="lens-label">Shadow</span>
+                            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary);">${book.archetype.shadow}</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.9;">${book.archetype.analysis}</p>
+                </div>
+            </div>
+        `;
+        lensContainer.appendChild(archetypeSection);
+
+        // ── LENS 5: COGNITIVE BIAS ──
+        const biasSection = document.createElement('div');
+        biasSection.innerHTML = `
+            <div style="margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span class="lens-label" style="margin-bottom: 0;">LENS 05 — COGNITIVE BIAS</span>
+                    <div style="flex: 1; height: 1px; background: var(--gold); opacity: 0.3;"></div>
+                </div>
+                <div class="lens-card">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div>
+                            <span class="lens-label">Primary Bias</span>
+                            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary);">${book.bias.primary}</p>
+                        </div>
+                        <div>
+                            <span class="lens-label">Secondary Bias</span>
+                            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-primary);">${book.bias.secondary}</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.9;">${book.bias.analysis}</p>
+                </div>
+            </div>
+        `;
+        lensContainer.appendChild(biasSection);
+
+        // ── GB PROVOCATION ──
+        const provSection = document.createElement('div');
+        provSection.innerHTML = `
+            <div style="margin-bottom: 3rem;">
+                <div class="provocation-box">
+                    <span class="lens-label">GREEN BELT PROVOCATION</span>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--text-primary); line-height: 1.6;">"${book.provocation}"</p>
+                </div>
+            </div>
+        `;
+        lensContainer.appendChild(provSection);
+
+        // ── SYNTHESIS COLLAPSE ──
+        if (book.synthesis) {
+            const synthSection = document.createElement('div');
+            synthSection.innerHTML = `
+                <div style="margin-bottom: 3rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <span class="lens-label" style="margin-bottom: 0;">SYNTHESIS COLLAPSE</span>
+                        <div style="flex: 1; height: 1px; background: var(--gold); opacity: 0.3;"></div>
+                    </div>
+                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem;">
+                        <div style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                            <span class="lens-label" style="margin-bottom: 0; flex-shrink: 0;">CONVERGENCE SCORE</span>
+                            <span style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1;">${book.synthesis.score}</span>
+                            <span style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em; align-self: center;">
+                                ${getSynthesisLabel(book.synthesis.score)}
+                            </span>
+                        </div>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 2;">${book.synthesis.explanation}</p>
+                    </div>
+                </div>
+            `;
+            lensContainer.appendChild(synthSection);
+        }
+    }
+
+    function getSynthesisLabel(score) {
+        const s = score.split('/')[0];
+        if (s === '5') return 'ALL LENSES CONVERGE — TOTAL SYSTEM FAILURE CONFIRMED';
+        if (s === '4') return 'STRONG CONVERGENCE — ONE LENS DISSENTS PRODUCTIVELY';
+        if (s === '3') return 'PARTIAL CONVERGENCE — LENSES IN ACTIVE TENSION';
+        if (s === '2') return 'FRAMEWORK UNDER STRESS — TEXT RESISTS THE METHODOLOGY';
+        if (s === '1') return 'NEAR COLLAPSE — LENSES CONTRADICT EACH OTHER';
+        return 'FRAMEWORK BREAKS — THE TEXT WINS';
+    }
+
+    // ─────────────────────────────────────────────
+    // CHART RENDERING
+    // ─────────────────────────────────────────────
+
+    let activeChart = null;
+
+    function renderBookChart(book) {
+        if (activeChart) { activeChart.destroy(); activeChart = null; }
+
+        const canvas = document.getElementById(`chart-${book.id}`);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        const GOLD = '#C9A84C';
+        const GOLD_DIM = 'rgba(201,168,76,0.15)';
+        const RED = '#8B2A2A';
+        const RED_DIM = 'rgba(139,42,42,0.15)';
+        const TEXT = '#8A8A8A';
+        const GRID = 'rgba(245,240,232,0.06)';
+
+        const baseOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#111111',
+                    borderColor: GOLD,
+                    borderWidth: 1,
+                    titleColor: GOLD,
+                    bodyColor: '#F5F0E8',
+                    titleFont: { family: 'DM Mono' },
+                    bodyFont: { family: 'DM Mono' }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: TEXT, font: { family: 'DM Mono', size: 10 } },
+                    grid: { color: GRID },
+                    border: { color: GRID }
+                },
+                y: {
+                    ticks: { color: TEXT, font: { family: 'DM Mono', size: 10 } },
+                    grid: { color: GRID },
+                    border: { color: GRID },
+                    beginAtZero: true
+                }
+            }
+        };
+
+        if (book.chart.type === 'pareto') {
+            activeChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: book.chart.data.labels,
+                    datasets: [
+                        {
+                            type: 'bar',
+                            data: book.chart.data.values,
+                            backgroundColor: [GOLD, GOLD_DIM, GOLD_DIM, GOLD_DIM],
+                            borderColor: GOLD,
+                            borderWidth: 1,
+                            yAxisID: 'y'
+                        },
+                        {
+                            type: 'line',
+                            data: book.chart.data.cumulative,
+                            borderColor: RED,
+                            borderWidth: 2,
+                            pointBackgroundColor: RED,
+                            pointRadius: 3,
+                            fill: false,
+                            tension: 0.1,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    ...baseOptions,
+                    scales: {
+                        ...baseOptions.scales,
+                        y: { ...baseOptions.scales.y, max: 60 },
+                        y1: {
+                            position: 'right',
+                            ticks: { color: RED, font: { family: 'DM Mono', size: 10 }, callback: v => v + '%' },
+                            grid: { display: false },
+                            border: { color: GRID },
+                            max: 100,
+                            min: 0
+                        }
+                    }
+                }
+            });
+        } else if (book.chart.type === 'radar') {
+            activeChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: book.chart.data.labels,
+                    datasets: [{
+                        data: book.chart.data.values,
+                        borderColor: GOLD,
+                        backgroundColor: GOLD_DIM,
+                        pointBackgroundColor: GOLD,
+                        pointRadius: 3,
+                        borderWidth: 1.5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false }, tooltip: baseOptions.plugins.tooltip },
+                    scales: {
+                        r: {
+                            ticks: { color: TEXT, font: { family: 'DM Mono', size: 9 }, backdropColor: 'transparent' },
+                            grid: { color: GRID },
+                            pointLabels: { color: TEXT, font: { family: 'DM Mono', size: 9 } },
+                            angleLines: { color: GRID },
+                            min: 0, max: 10
+                        }
+                    }
+                }
+            });
+        } else if (book.chart.type === 'cycle') {
+            activeChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: book.chart.data.labels,
+                    datasets: [{
+                        data: book.chart.data.values,
+                        borderColor: GOLD,
+                        backgroundColor: GOLD_DIM,
+                        fill: true,
+                        tension: 0.3,
+                        pointBackgroundColor: GOLD,
+                        pointRadius: 4,
+                        borderWidth: 2
+                    }]
+                },
+                options: baseOptions
+            });
+        }
+    }
+
+    // ─────────────────────────────────────────────
+    // INIT
+    // ─────────────────────────────────────────────
+    window.onload = () => {
+        renderRegistry();
+    };
+
+    </script>
+</body>
+</html>
