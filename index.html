@@ -232,13 +232,98 @@
                 max-height: 40vh;
             }
         }
+
+        /* Navigation */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10,10,10,0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(201,168,76,0.15);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--gold);
+        }
+
+        .page-section {
+            display: none;
+            min-height: 100vh;
+            padding: 7rem 2rem 4rem;
+        }
+
+        .page-section.visible {
+            display: block;
+        }
+
+        .about-body {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .about-body p {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            line-height: 2.4;
+            margin-bottom: 2rem;
+        }
+
+        .about-body p:first-child::first-letter {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            float: left;
+            line-height: 0.75;
+            margin-right: 0.1em;
+            margin-top: 0.1em;
+        }
+
         /* Homepage */
         .homepage {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 4rem 2rem;
+            padding: 6rem 2rem 4rem;
             position: relative;
             overflow: hidden;
         }
@@ -299,6 +384,16 @@
 
 <body>
 
+    <!-- NAVIGATION -->
+    <nav class="site-nav" id="main-nav">
+        <button class="nav-logo" onclick="showPage('home')">Kittycataclysmic</button>
+        <div class="nav-links">
+            <button class="nav-link active" id="nav-home" onclick="showPage('home')">The Index</button>
+            <button class="nav-link" id="nav-about" onclick="showPage('about')">The Auditor</button>
+            <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Submit Findings</button>
+        </div>
+    </nav>
+
     <!-- HOMEPAGE -->
     <div id="homepage" class="homepage">
         <div style="max-width: 900px; margin: 0 auto; width: 100%;">
@@ -335,8 +430,8 @@
 
             <!-- About -->
             <div style="margin-bottom: 3.5rem; max-width: 700px;">
-                <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 2.2;">
-                    This site is a long-term audit of everything I find interesting enough to take apart. I use Lean Six Sigma as the primary lens — not because it was designed for this, but because no methodology should only ever be applied to the things it was designed for. I apply it to medieval literature, sacred texts, political monsters, belief systems in freefall, and cult leaders who built empires out of other people's fear. Then I add a second lens. Sometimes a third. The lenses are chosen the same way the subjects are chosen — because the combination produces a finding nobody was expecting. The methodology stays constant. The lenses rotate. The texts don't get to opt out.
+                <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 2.4;">
+                    I cannot encounter a system without needing to know exactly where it breaks. LSS did not teach me how to think — it handed me vocabulary for a process that had been running without anyone's permission. I read a book and open a case file. The architects always knew. I have very little patience for authority that has not been earned. No subject is exempt because no subject deserves exemption. The lenses rotate because no single framework captures the full topology of a failure. I am not here to be fair to these works. I will keep auditing until the data says otherwise.
                 </p>
             </div>
 
@@ -424,6 +519,37 @@
             <div style="width: 60px; height: 1px; background: var(--border); margin-bottom: 1.5rem;"></div>
             <p style="font-size: 0.55rem; color: var(--text-secondary); letter-spacing: 0.15em;">LSS IS THE SPINE. EVERYTHING ELSE IS A SCALPEL.</p>
 
+        </div>
+    </div>
+
+
+    <!-- ABOUT PAGE -->
+    <div id="about-page" class="page-section">
+        <div class="about-body">
+            <p style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 3rem;">THE AUDITOR</p>
+            <p>I don't read for pleasure. I read because I cannot encounter a system without needing to know exactly where it breaks — and I have never, not once, encountered a system that didn't.</p>
+            <p>This is not a personality trait I developed. It is an architectural feature I was born with. The INTJ does not experience the world as a collection of moments. The INTJ experiences it as a collection of structures — some elegant, most defective, all auditable. I mapped systems before I knew what mapping was. I identified failure modes before I had language for them. Lean Six Sigma did not teach me how to think. It handed me the vocabulary for a process that had been running in the background my entire life without anyone's permission.</p>
+            <p>Most people read a book and feel something. I read a book and open a case file.</p>
+            <p>The question is never what the author intended. Intention is the least interesting data point in any system audit. The question is what the system actually produced, who absorbed the defect, and whether the gap between intended and actual output was a design flaw or a design feature. It is almost always a design feature. The architects knew. They always know.</p>
+            <p>I have very little patience for authority that has not been earned and even less for institutions that mistake their own survival for proof of their legitimacy. A system that has existed for a thousand years is not a system that works. It is a system that has successfully externalized its failure costs onto the people least equipped to refuse them. That is not longevity. That is a very efficient transfer of waste.</p>
+            <p>This site is what happens when that cognitive architecture is applied without restriction and without apology. No subject is exempt because no subject deserves exemption. The Little Black Classics did not ask to be audited. Neither did Shakespeare, or the sacred texts, or the political monsters, or the cult leaders who built empires out of other people's terror. That is precisely why they are here. The texts that most insist on being read a certain way are the ones that most need to be read differently.</p>
+            <p>The lenses rotate because the INTJ understands that no single framework captures the full topology of a failure. You need the process lens to see what broke. You need the power lens to see who built it broken. You need the philosophical lens to see why people kept believing in it anyway. You need the psychological lens to see why they still do.</p>
+            <p>I am not here to be fair to these works. Fairness is a courtesy extended to systems that have earned it. I am here to find the defect, name it precisely, and move on to the next file.</p>
+            <p>The findings are rarely comfortable. I am not uncomfortable about that.</p>
+            <div style="width: 60px; height: 1px; background: var(--gold); margin-top: 3rem;"></div>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact-page" class="page-section">
+        <div style="max-width: 680px; margin: 0 auto;">
+            <p style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 3rem;">SUBMIT FINDINGS</p>
+            <div style="border-left: 2px solid var(--gold); padding-left: 1.5rem; margin-bottom: 3rem;">
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--text-primary); line-height: 1.5; font-style: italic;">The audit is open. Submit your findings here:</p>
+            </div>
+            <a href="mailto:hey@kittycataclysmic.com" style="font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--gold); letter-spacing: 0.1em; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">hey@kittycataclysmic.com</a>
+            <div style="width: 60px; height: 1px; background: var(--border); margin-top: 4rem;"></div>
+            <p style="font-size: 0.55rem; color: var(--text-secondary); letter-spacing: 0.15em; margin-top: 1.5rem;">NO GUARANTEES. BUT THE CASE FILE STAYS OPEN.</p>
         </div>
     </div>
 
@@ -521,29 +647,46 @@
     // HOMEPAGE ENTER
     // ─────────────────────────────────────────────
 
+    function showPage(page) {
+        // Hide all sections
+        document.getElementById('homepage').style.display = 'none';
+        document.getElementById('about-page').classList.remove('visible');
+        document.getElementById('contact-page').classList.remove('visible');
+        document.getElementById('main-site').classList.remove('visible');
+        document.getElementById('main-nav').style.display = 'flex';
+
+        // Update nav active state
+        ['home','about','contact'].forEach(p => {
+            const el = document.getElementById('nav-' + p);
+            if (el) el.classList.remove('active');
+        });
+
+        if (page === 'home') {
+            document.getElementById('homepage').style.display = 'flex';
+            document.getElementById('nav-home').classList.add('active');
+        } else if (page === 'about') {
+            document.getElementById('about-page').classList.add('visible');
+            document.getElementById('nav-about').classList.add('active');
+        } else if (page === 'contact') {
+            document.getElementById('contact-page').classList.add('visible');
+            document.getElementById('nav-contact').classList.add('active');
+        }
+        window.scrollTo(0, 0);
+    }
+
     function enterSite() {
-        const homepage = document.getElementById('homepage');
-        const mainSite = document.getElementById('main-site');
-        homepage.classList.add('fade-out');
-        setTimeout(() => {
-            homepage.style.display = 'none';
-            mainSite.classList.add('visible');
-            window.scrollTo(0, 0);
-        }, 400);
+        document.getElementById('homepage').style.display = 'none';
+        document.getElementById('about-page').classList.remove('visible');
+        document.getElementById('contact-page').classList.remove('visible');
+        document.getElementById('main-nav').style.display = 'none';
+        document.getElementById('main-site').classList.add('visible');
+        window.scrollTo(0, 0);
     }
 
     function returnHome() {
-        const homepage = document.getElementById('homepage');
-        const mainSite = document.getElementById('main-site');
-        mainSite.classList.remove('visible');
-        homepage.style.display = 'flex';
-        homepage.style.opacity = '0';
-        homepage.classList.remove('fade-out');
-        setTimeout(() => {
-            homepage.style.transition = 'opacity 0.4s ease';
-            homepage.style.opacity = '1';
-            window.scrollTo(0, 0);
-        }, 20);
+        document.getElementById('main-site').classList.remove('visible');
+        document.getElementById('main-nav').style.display = 'flex';
+        showPage('home');
     }
 
     // ─────────────────────────────────────────────
