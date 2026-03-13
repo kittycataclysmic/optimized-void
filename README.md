@@ -1,38 +1,43 @@
 # kittycataclysmic.com
 
-Personal intellectual projects. LSS is the constant spine. Everything else rotates.
+Personal intellectual project site. [@kittycataclysmic](https://kittycataclysmic.com)
 
 ---
 
-## The Optimized Void
-**80 Penguin Little Black Classics. Five lenses. No mercy.**
+## What this is
 
-Every text audited through:
-1. LSS — What is the process and where does it fail
-2. Foucault — What does this system normalize and what does it make invisible
-3. Nietzsche — Who is asserting will and to what end
-4. Jungian Archetypes — What roles are the players locked into
-5. Cognitive Bias — What psychological mechanism ensures nobody escapes
+A long-term body of work applying Lean Six Sigma to texts that were never designed to be audited. LSS is the constant spine across every project. The secondary lenses rotate per project depending on what the subject demands.
 
-One audit per week. Every Sunday.
+The methodology stays constant. The lenses rotate. The texts don't get to opt out.
 
 ---
 
-## Coming
+## Projects
 
-**[TBD]** — Complete works of Shakespeare.
-LSS × Machiavelli × Eminem × Dr. Dre × Snoop Dogg × 50 Cent.
-Working title: *The Cipher*.
-
-**[TBD]** — Japanese literature. Dazai and others.
-LSS × mono no aware. The lens that interrogates the other lenses.
-
-**[TBD]** — Belief systems under collapse.
-Lewis. Dostoevsky. Kafka. Bukowski.
-
-**[TBD]** — Political figures and their texts.
-Mein Kampf. Genghis Khan. Che Guevara. Rasputin.
+| # | Project | Corpus | Lens Stack | Status |
+|---|---------|--------|------------|--------|
+| 01 | **The Optimized Void** | 80 Penguin Little Black Classics | LSS × Foucault × Nietzsche × Jungian Archetypes × Cognitive Bias | Active |
+| 02 | **The Cipher** | Shakespeare — 20 plays | LSS × Dr. Dre × Eminem × Snoop Dogg × 50 Cent | Coming |
+| 03 | **Beautiful Defects** | Japanese Literature — Dazai, Soseki, Kawabata, Mishima | LSS × mono no aware | Coming |
+| 04 | **The Null Hypothesis** | Belief Systems Under Collapse — Lewis, Dostoevsky, Kafka, Bukowski, Hemingway | LSS × Camus | Coming |
+| 05 | **The Prince Variations** | Political Figures — Hitler, Genghis Khan, Che Guevara, Rasputin, Stalin | LSS × Machiavelli × Orwell | Coming |
+| 06 | **The Original Spec** | Sacred Texts — The Bible, The Bhagavad Gita, The Quran | LSS × Kierkegaard | Coming |
+| 07 | **The Single Point of Failure** | Cult Leaders — Jim Jones, David Koresh, Charles Manson, Sun Myung Moon, Shoko Asahara | LSS × Cialdini × Fromm | Coming |
 
 ---
 
-*GB Practitioner. Becoming BB. @kittycataclysmic.*
+## Tech stack
+
+- Single `index.html` file — no build tools, no dependencies beyond CDN
+- Hosted on Cloudflare Workers (static assets)
+- Auto-deploys on push to `main`
+- Charts rendered with Chart.js
+- Fonts: Cormorant Garamond + DM Mono
+
+## Deployment
+
+Push `index.html` to `main`. Cloudflare deploys automatically within 60 seconds. No configuration required.
+
+---
+
+*LSS is the spine. Everything else is a scalpel.*
