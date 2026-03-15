@@ -33,7 +33,7 @@ The methodology stays constant. The lenses rotate. The texts don't get to opt ou
 | 05 | **The Prince Variations** | Political Figures — Hitler, Genghis Khan, Che Guevara, Rasputin, Stalin | LSS × Machiavelli × Orwell | Coming |
 | 06 | **The Original Spec** | Sacred Texts — The Bible, The Bhagavad Gita, The Quran | LSS × Kierkegaard | Coming |
 | 07 | **The Single Point of Failure** | Cult Leaders — Jim Jones, David Koresh, Charles Manson, Sun Myung Moon, Shoko Asahara | LSS × Cialdini × Fromm | Coming |
-| 08 | **The Externality** | Historical Empires & Institutions — Rome, The British Empire, Modern Corporations, Religious Institutions | LSS × Marx × Chomsky | Coming |
+| 08 | **The Externality** | Historical Empires & Institutions — Rome, The British Empire, Modern Corporations, Religious Institutions | LSS × Marx × Chomsky × Kaczynski | Coming |
 | 09 | **The Diagnostic** | Psychological & Personality Frameworks — MBTI, Enneagram, Big Five, CBT, IFS | LSS × Adler × Kahneman | Coming |
 
 ---
