@@ -363,6 +363,21 @@
             border-radius: 2px;
         }
 
+
+        @media (max-width: 640px) {
+            .site-nav {
+                padding: 1rem;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            .nav-link {
+                font-size: 0.5rem;
+            }
+        }
         @keyframes fadeOut {
             from { opacity: 1; transform: translateY(0); }
             to { opacity: 0; transform: translateY(-12px); }
@@ -388,7 +403,9 @@
     <nav class="site-nav" id="main-nav">
         <button class="nav-logo" onclick="showPage('home')">Kittycataclysmic</button>
         <div class="nav-links">
-            <button class="nav-link active" id="nav-home" onclick="showPage('home')">The Index</button>
+            <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+            <button class="nav-link" id="nav-index" onclick="showPage('index')">The Index</button>
+            <button class="nav-link" id="nav-stillcase" onclick="showPage('stillcase')">The Still Case</button>
             <button class="nav-link" id="nav-about" onclick="showPage('about')">The Auditor</button>
             <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Submit Findings</button>
         </div>
@@ -435,113 +452,268 @@
                 </p>
             </div>
 
-            <!-- Projects -->
-            <div style="margin-bottom: 3rem;">
-                <p style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1.5rem;">PROJECTS</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem;">
 
-                    <!-- Project 01 — ACTIVE -->
-                    <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border); border-top: 2px solid var(--gold); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 01</span>
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--gold); background: rgba(201,168,76,0.1); padding: 2px 8px; border-radius: 2px;">ACTIVE</span>
-                        </div>
-                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Optimized Void</p>
-                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">80 Penguin Little Black Classics.<br/>LSS × Foucault × Nietzsche × Jungian Archetypes × Cognitive Bias.</p>
-                        <p style="font-size: 0.55rem; color: var(--text-secondary); letter-spacing: 0.1em;">03 / 80 AUDITED — UPDATED EVERY SUNDAY</p>
-                        <button class="enter-btn" style="margin-top: 0.4rem; padding: 0.65rem 1.25rem; font-size: 0.6rem;" onclick="enterSite()">ENTER →</button>
-                    </div>
-
-                    <!-- Project 02 -->
-                    <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 02</span>
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
-                        </div>
-                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Cipher</p>
-                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Shakespeare. 20 plays.<br/>LSS × Dr. Dre × Eminem × Snoop Dogg × 50 Cent.</p>
-                    </div>
-
-                    <!-- Project 03 -->
-                    <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 03</span>
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
-                        </div>
-                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Acceptable Loss</p>
-                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Japanese Literature. Dazai. Soseki. Kawabata. Mishima.<br/>LSS × mono no aware.</p>
-                    </div>
-
-                    <!-- Project 04 -->
-                    <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 04</span>
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
-                        </div>
-                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Null Hypothesis</p>
-                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Belief Systems Under Collapse. Lewis. Dostoevsky. Kafka. Bukowski. Hemingway. In that order, for a reason.<br/>LSS × Camus.</p>
-                    </div>
-
-                    <!-- Project 05 -->
-                    <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 05</span>
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
-                        </div>
-                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Prince Variations</p>
-                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Political Figures. Adolf Hitler. Genghis Khan. Che Guevara. Rasputin. Stalin.<br/>LSS × Machiavelli × Orwell.</p>
-                    </div>
-
-                    <!-- Project 06 -->
-                    <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 06</span>
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
-                        </div>
-                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Original Spec</p>
-                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Sacred Texts. The Bible. The Bhagavad Gita. The Quran.<br/>LSS × Kierkegaard.</p>
-                    </div>
-
-                    <!-- Project 07 -->
-                    <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 07</span>
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
-                        </div>
-                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Single Point of Failure</p>
-                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Cult Leaders. Jim Jones. David Koresh. Charles Manson. Sun Myung Moon. Shoko Asahara.<br/>LSS × Cialdini × Fromm.</p>
-                    </div>
-
-                    <!-- Project 08 -->
-                    <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 08</span>
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
-                        </div>
-                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Externality</p>
-                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Historical Empires & Institutions. Rome. The British Empire. Modern corporations. Religious institutions.<br/>LSS × Marx × Chomsky × Kaczynski.</p>
-                    </div>
-
-                    <!-- Project 09 -->
-                    <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 09</span>
-                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
-                        </div>
-                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Diagnostic</p>
-                        <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Psychological & Personality Frameworks. MBTI. Enneagram. Big Five. CBT. IFS.<br/>LSS × Adler × Kahneman.</p>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Footer line -->
-            <div style="width: 60px; height: 1px; background: var(--border); margin-bottom: 1.5rem;"></div>
-            <p style="font-size: 0.55rem; color: var(--text-secondary); letter-spacing: 0.15em;">LSS IS THE SPINE. EVERYTHING ELSE IS A SCALPEL.</p>
 
         </div>
     </div>
 
+
+
+    <!-- INDEX PAGE -->
+    <div id="index-page" class="page-section">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <p style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1rem;">THE INDEX</p>
+            <div style="border-left: 2px solid var(--gold); padding-left: 1.25rem; margin-bottom: 3rem;">
+                <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 2.2; font-style: italic; font-family: 'Cormorant Garamond', serif;">Nine projects. No exemptions. The methodology does not negotiate.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem;">
+
+                <!-- Project 01 — ACTIVE -->
+                <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border); border-top: 2px solid var(--gold); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 01</span>
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--gold); background: rgba(201,168,76,0.1); padding: 2px 8px; border-radius: 2px;">ACTIVE</span>
+                    </div>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Optimized Void</p>
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">80 Penguin Little Black Classics.<br/>LSS × Foucault × Nietzsche × Jungian Archetypes × Cognitive Bias.</p>
+                    <p style="font-size: 0.55rem; color: var(--text-secondary); letter-spacing: 0.1em;">03 / 80 AUDITED — UPDATED EVERY SUNDAY</p>
+                    <button class="enter-btn" style="margin-top: 0.4rem; padding: 0.65rem 1.25rem; font-size: 0.6rem;" onclick="enterSite()">ENTER →</button>
+                </div>
+
+                <!-- Project 02 -->
+                <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 02</span>
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                    </div>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Cipher</p>
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Shakespeare. 20 plays.<br/>LSS × Dr. Dre × Eminem × Snoop Dogg × 50 Cent.</p>
+                </div>
+
+                <!-- Project 03 -->
+                <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 03</span>
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                    </div>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Acceptable Loss</p>
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Japanese Literature. Dazai. Soseki. Kawabata. Mishima.<br/>LSS × mono no aware.</p>
+                </div>
+
+                <!-- Project 04 -->
+                <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 04</span>
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                    </div>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Null Hypothesis</p>
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Belief Systems Under Collapse. Lewis. Dostoevsky. Kafka. Bukowski. Hemingway. In that order, for a reason.<br/>LSS × Camus.</p>
+                </div>
+
+                <!-- Project 05 -->
+                <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 05</span>
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                    </div>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Prince Variations</p>
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Political Figures. Adolf Hitler. Genghis Khan. Che Guevara. Rasputin. Stalin.<br/>LSS × Machiavelli × Orwell.</p>
+                </div>
+
+                <!-- Project 06 -->
+                <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 06</span>
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                    </div>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Original Spec</p>
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Sacred Texts. The Bible. The Bhagavad Gita. The Quran.<br/>LSS × Kierkegaard.</p>
+                </div>
+
+                <!-- Project 07 -->
+                <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 07</span>
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                    </div>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Single Point of Failure</p>
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Cult Leaders. Jim Jones. David Koresh. Charles Manson. Sun Myung Moon. Shoko Asahara.<br/>LSS × Cialdini × Fromm.</p>
+                </div>
+
+                <!-- Project 08 -->
+                <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 08</span>
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                    </div>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Externality</p>
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Historical Empires & Institutions. Rome. The British Empire. Modern corporations. Religious institutions.<br/>LSS × Marx × Chomsky × Kaczynski.</p>
+                </div>
+
+                <!-- Project 09 -->
+                <div style="padding: 1.1rem 1.25rem; border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; gap: 0.6rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 09</span>
+                        <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                    </div>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-primary); line-height: 1.2;">The Diagnostic</p>
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); line-height: 1.8;">Psychological & Personality Frameworks. MBTI. Enneagram. Big Five. CBT. IFS.<br/>LSS × Adler × Kahneman.</p>
+                </div>
+
+            </div>
+            <div style="width: 60px; height: 1px; background: var(--border); margin-top: 3rem;"></div>
+        </div>
+    </div>
+
+    <!-- THE STILL CASE PAGE -->
+    <div id="stillcase-page" class="page-section">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <p style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1rem;">THE STILL CASE</p>
+            <div style="border-left: 2px solid var(--gold); padding-left: 1.25rem; margin-bottom: 3rem;">
+                <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 2.2; font-style: italic; font-family: 'Cormorant Garamond', serif;">One painting. One audit. The brief was never written.</p>
+            </div>
+            <p style="font-size: 0.55rem; color: var(--text-secondary); letter-spacing: 0.1em; margin-bottom: 1.5rem;">LENS STACK — ALL PAINTINGS: LSS × PANOFSKY × BERGER × BATAILLE</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.75rem;">
+
+                <!-- Painting 01 -->
+                <div style="border: 1px solid var(--border); border-top: 2px solid var(--gold); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden;">
+                    <div style="width: 100%; height: 200px; overflow: hidden; background: #050505;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Leon_spilliaert_faun.jpg/800px-Leon_spilliaert_faun.jpg" alt="Faun by Moonlight" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(20%) contrast(1.1); opacity: 0.85;" onerror="this.parentElement.style.background='#0A0A0A'; this.style.display='none';" />
+                    </div>
+                    <div style="padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 01</span>
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--gold); background: rgba(201,168,76,0.1); padding: 2px 8px; border-radius: 2px;">ACTIVE</span>
+                        </div>
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-primary); line-height: 1.2;">Faun by Moonlight</p>
+                        <p style="font-size: 0.55rem; color: var(--text-secondary); line-height: 1.8;">Léon Spilliaert — 1900</p>
+                    </div>
+                </div>
+
+                <!-- Painting 02 -->
+                <div style="border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden;">
+                    <div style="width: 100%; height: 200px; overflow: hidden; background: #050505;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Francisco_de_Goya%2C_Saturno_devorando_a_su_hijo_%281819-1823%29.jpg/800px-Francisco_de_Goya%2C_Saturno_devorando_a_su_hijo_%281819-1823%29.jpg" alt="Saturn Devouring His Son" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(10%) contrast(1.1); opacity: 0.85;" onerror="this.parentElement.style.background='#0A0A0A'; this.style.display='none';" />
+                    </div>
+                    <div style="padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 02</span>
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                        </div>
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-primary); line-height: 1.2;">Saturn Devouring His Son</p>
+                        <p style="font-size: 0.55rem; color: var(--text-secondary); line-height: 1.8;">Francisco Goya — 1819</p>
+                    </div>
+                </div>
+
+                <!-- Painting 03 -->
+                <div style="border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden;">
+                    <div style="width: 100%; height: 200px; overflow: hidden; background: #050505;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Arnold_Böcklin_-_Die_Toteninsel_III_%28Kunstmuseum_Basel%29.jpg/800px-Arnold_Böcklin_-_Die_Toteninsel_III_%28Kunstmuseum_Basel%29.jpg" alt="Isle of the Dead" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(20%) contrast(1.1); opacity: 0.85;" onerror="this.parentElement.style.background='#0A0A0A'; this.style.display='none';" />
+                    </div>
+                    <div style="padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 03</span>
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                        </div>
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-primary); line-height: 1.2;">Isle of the Dead</p>
+                        <p style="font-size: 0.55rem; color: var(--text-secondary); line-height: 1.8;">Arnold Böcklin — 1880</p>
+                    </div>
+                </div>
+
+                <!-- Painting 04 -->
+                <div style="border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden;">
+                    <div style="width: 100%; height: 200px; overflow: hidden; background: #050505;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Caravaggio_Judith_Beheading_Holofernes.jpg/800px-Caravaggio_Judith_Beheading_Holofernes.jpg" alt="Judith Beheading Holofernes" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(10%) contrast(1.1); opacity: 0.85;" onerror="this.parentElement.style.background='#0A0A0A'; this.style.display='none';" />
+                    </div>
+                    <div style="padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 04</span>
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                        </div>
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-primary); line-height: 1.2;">Judith Beheading Holofernes</p>
+                        <p style="font-size: 0.55rem; color: var(--text-secondary); line-height: 1.8;">Caravaggio — 1599</p>
+                    </div>
+                </div>
+
+                <!-- Painting 05 -->
+                <div style="border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden;">
+                    <div style="width: 100%; height: 200px; overflow: hidden; background: #050505;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Edvard_Munch_-_The_Dead_Mother_-_Google_Art_Project.jpg/800px-Edvard_Munch_-_The_Dead_Mother_-_Google_Art_Project.jpg" alt="The Dead Mother" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(20%) contrast(1.1); opacity: 0.85;" onerror="this.parentElement.style.background='#0A0A0A'; this.style.display='none';" />
+                    </div>
+                    <div style="padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 05</span>
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                        </div>
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-primary); line-height: 1.2;">The Dead Mother</p>
+                        <p style="font-size: 0.55rem; color: var(--text-secondary); line-height: 1.8;">Edvard Munch — 1900</p>
+                    </div>
+                </div>
+
+                <!-- Painting 06 -->
+                <div style="border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden;">
+                    <div style="width: 100%; height: 200px; overflow: hidden; background: #050505;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Black_square.jpg/800px-Black_square.jpg" alt="Black Square" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(0%) contrast(1.2); opacity: 0.85;" onerror="this.parentElement.style.background='#0A0A0A'; this.style.display='none';" />
+                    </div>
+                    <div style="padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 06</span>
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                        </div>
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-primary); line-height: 1.2;">Black Square</p>
+                        <p style="font-size: 0.55rem; color: var(--text-secondary); line-height: 1.8;">Kazimir Malevich — 1915</p>
+                    </div>
+                </div>
+
+                <!-- Painting 07 -->
+                <div style="border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden;">
+                    <div style="width: 100%; height: 200px; overflow: hidden; background: #050505;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Stuck_s%C3%BCnde.jpg/800px-Stuck_s%C3%BCnde.jpg" alt="The Sin" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(20%) contrast(1.1); opacity: 0.85;" onerror="this.parentElement.style.background='#0A0A0A'; this.style.display='none';" />
+                    </div>
+                    <div style="padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 07</span>
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                        </div>
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-primary); line-height: 1.2;">The Sin</p>
+                        <p style="font-size: 0.55rem; color: var(--text-secondary); line-height: 1.8;">Franz von Stuck — 1893</p>
+                    </div>
+                </div>
+
+                <!-- Painting 08 -->
+                <div style="border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden;">
+                    <div style="width: 100%; height: 200px; overflow: hidden; background: #050505;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Gustave_Moreau_-_Salome_-_Google_Art_Project.jpg/800px-Gustave_Moreau_-_Salome_-_Google_Art_Project.jpg" alt="Salome" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(20%) contrast(1.1); opacity: 0.85;" onerror="this.parentElement.style.background='#0A0A0A'; this.style.display='none';" />
+                    </div>
+                    <div style="padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 08</span>
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                        </div>
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-primary); line-height: 1.2;">Salome with the Head of John the Baptist</p>
+                        <p style="font-size: 0.55rem; color: var(--text-secondary); line-height: 1.8;">Gustave Moreau — 1876</p>
+                    </div>
+                </div>
+
+                <!-- Painting 09 -->
+                <div style="border: 1px solid var(--border-subtle); border-top: 2px solid var(--border-subtle); border-radius: 2px; background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden;">
+                    <div style="width: 100%; height: 200px; overflow: hidden; background: #050505;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/John_Henry_Fuseli_-_The_Nightmare.JPG/800px-John_Henry_Fuseli_-_The_Nightmare.JPG" alt="The Nightmare" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(20%) contrast(1.1); opacity: 0.85;" onerror="this.parentElement.style.background='#0A0A0A'; this.style.display='none';" />
+                    </div>
+                    <div style="padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary);">Nº 09</span>
+                            <span style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); padding: 2px 8px;">COMING</span>
+                        </div>
+                        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-primary); line-height: 1.2;">The Nightmare</p>
+                        <p style="font-size: 0.55rem; color: var(--text-secondary); line-height: 1.8;">Henry Fuseli — 1781</p>
+                    </div>
+                </div>
+
+            </div>
+            <div style="width: 60px; height: 1px; background: var(--border); margin-top: 3rem;"></div>
+        </div>
+    </div>
 
     <!-- ABOUT PAGE -->
     <div id="about-page" class="page-section">
@@ -670,13 +842,15 @@
     function showPage(page) {
         // Hide all sections
         document.getElementById('homepage').style.display = 'none';
+        document.getElementById('index-page').classList.remove('visible');
+        document.getElementById('stillcase-page').classList.remove('visible');
         document.getElementById('about-page').classList.remove('visible');
         document.getElementById('contact-page').classList.remove('visible');
         document.getElementById('main-site').classList.remove('visible');
         document.getElementById('main-nav').style.display = 'flex';
 
         // Update nav active state
-        ['home','about','contact'].forEach(p => {
+        ['home','index','stillcase','about','contact'].forEach(p => {
             const el = document.getElementById('nav-' + p);
             if (el) el.classList.remove('active');
         });
@@ -684,6 +858,12 @@
         if (page === 'home') {
             document.getElementById('homepage').style.display = 'flex';
             document.getElementById('nav-home').classList.add('active');
+        } else if (page === 'index') {
+            document.getElementById('index-page').classList.add('visible');
+            document.getElementById('nav-index').classList.add('active');
+        } else if (page === 'stillcase') {
+            document.getElementById('stillcase-page').classList.add('visible');
+            document.getElementById('nav-stillcase').classList.add('active');
         } else if (page === 'about') {
             document.getElementById('about-page').classList.add('visible');
             document.getElementById('nav-about').classList.add('active');
