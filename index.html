@@ -233,7 +233,35 @@
             }
         }
 
-        /* Navigation */
+        /* Corporation Farm */
+        .farm-body {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 2.2;
+            margin-bottom: 1.2rem;
+            text-indent: 2rem;
+        }
+        .farm-pull-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-style: italic;
+            line-height: 1.8;
+            padding: 1.25rem 1.5rem;
+            border-left: 2px solid var(--gold);
+            margin: 2rem 0;
+        }
+        .farm-divider {
+            text-align: center;
+            color: var(--gold);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            margin: 2.5rem 0;
+        }
+
+
         .site-nav {
             position: fixed;
             top: 0;
@@ -364,6 +392,85 @@
         }
 
 
+
+        .farm-page {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .farm-chapter {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 2.4;
+            margin-bottom: 1.8rem;
+            text-indent: 2rem;
+        }
+
+        .farm-chapter:first-of-type {
+            text-indent: 0;
+        }
+
+        .farm-pull {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 2.2;
+            font-style: italic;
+            border-left: 2px solid var(--gold);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .farm-divider {
+            text-align: center;
+            color: var(--gold);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            margin: 2.5rem 0;
+        }
+
+        .farm-commandment {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            margin: 1rem 0;
+        }
+
+        .chapter-nav {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .chapter-btn {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            padding: 4px 10px;
+            border: 1px solid var(--border-subtle);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .chapter-btn:hover, .chapter-btn.active {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .chapter-content {
+            display: none;
+        }
+
+        .chapter-content.visible {
+            display: block;
+        }
+
         @media (max-width: 640px) {
             .site-nav {
                 padding: 1rem;
@@ -407,6 +514,8 @@
             <button class="nav-link" id="nav-index" onclick="showPage('index')">The Index</button>
             <button class="nav-link" id="nav-stillcase" onclick="showPage('stillcase')">The Still Case</button>
             <button class="nav-link" id="nav-about" onclick="showPage('about')">The Auditor</button>
+            <button class="nav-link" id="nav-farm" onclick="showPage('farm')">The Corporation Farm</button>
+            <button class="nav-link" id="nav-farm" onclick="showPage('farm')">The Corporation Farm</button>
             <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Submit Findings</button>
         </div>
     </nav>
@@ -715,6 +824,731 @@
         </div>
     </div>
 
+
+    <!-- THE CORPORATION FARM PAGE -->
+    <div id="farm-page" class="page-section">
+        <div class="farm-page">
+            <p style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.5rem;">THE CORPORATION FARM</p>
+            <p style="font-size: 0.6rem; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 2rem; font-family: 'Cormorant Garamond', serif; font-style: italic;">Original fiction. A system described from inside it.</p>
+
+            <div class="chapter-nav">
+                <button class="chapter-btn active" onclick="showChapter(1, this)">Ch. 01 — The Way Things Are</button>
+                <button class="chapter-btn" onclick="showChapter(2, this)">Ch. 02 — Coming</button>
+                <button class="chapter-btn" onclick="showChapter(3, this)">Ch. 03 — Coming</button>
+                <button class="chapter-btn" onclick="showChapter(4, this)">Ch. 04 — Coming</button>
+                <button class="chapter-btn" onclick="showChapter(5, this)">Ch. 05 — Coming</button>
+                <button class="chapter-btn" onclick="showChapter(6, this)">Ch. 06 — Coming</button>
+                <button class="chapter-btn" onclick="showChapter(7, this)">Ch. 07 — Coming</button>
+                <button class="chapter-btn" onclick="showChapter(8, this)">Ch. 08 — Coming</button>
+                <button class="chapter-btn" onclick="showChapter(9, this)">Ch. 09 — Coming</button>
+                <button class="chapter-btn" onclick="showChapter(10, this)">Ch. 10 — Coming</button>
+            </div>
+
+            <!-- CHAPTER 1 -->
+            <div id="farm-chapter-1" class="chapter-content visible">
+
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">The Way Things Are</p>
+                <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 3rem;">Chapter One</p>
+
+                <p class="farm-chapter">No one could say exactly when the Farm changed.</p>
+                <p class="farm-chapter">The old animals — those who had been here long enough to remember — would sometimes pause mid-task and try to locate the precise season when the weight became unbearable. They could not find it. The shift had been so gradual, so expertly administered, that by the time any creature thought to measure it, the new conditions had already been normalized. This is how the best-designed systems operate: they change before you have language for what is changing.</p>
+                <p class="farm-chapter">The Pigs had language for everything.</p>
+                <p class="farm-chapter">They called the increasing workload <em>expanded scope</em>. They called the disappearing headcount <em>strategic restructuring</em>. They called the exhaustion <em>an exciting period of transformation</em>. They were very good with language — better, it turned out, than they were at most other things. And because they controlled the barn wall, they controlled what the words meant. A thing was not real until the Pigs named it. A thing ceased to be real the moment they renamed it.</p>
+                <p class="farm-chapter">The Horses understood this, in the way that creatures who bear weight understand things — not through analysis but through the body. They felt it in their legs first. Then in their chests. Then in that particular silence that falls over an animal when it has stopped expecting anything to improve.</p>
+
+                <div class="farm-divider">— — —</div>
+
+                <p class="farm-chapter">In the weekly Barn Meeting, the Pigs sat at the front with their papers and their pleasant expressions.</p>
+                <p class="farm-chapter">The Horses had learned to bring their concerns formatted correctly. Bullet points. Concise. No emotion — emotion was noted, by the Pigs, as a performance problem. So the Horses stood and said, plainly and without drama, that the loads were heavier than one team could carry. That creatures were leaving. That those who remained were producing at a level that could not be sustained indefinitely. That the system, as currently designed, was generating outputs no one had officially authorized.</p>
+                <p class="farm-chapter">The Pigs listened with the particular attentiveness of those who have already decided not to act.</p>
+                <p class="farm-chapter">Then one Pig — the senior one, whose stable was the finest in the farmhouse — would nod slowly and say that these were indeed difficult times, that the Farm was navigating significant headwinds, that the situation required above all else a <em>Commitment to Collective Resilience</em>.</p>
+
+                <div class="farm-pull">The phrase was new each week. The meaning was always the same: the problem is not the system. The problem is your attitude toward the system.</div>
+
+                <p class="farm-chapter"><em>Revolutionary Optimism</em> was last season's phrase. Before that, <em>Embracing the Challenge</em>. Before that, <em>Leaning In</em>. The paint on the barn wall had been refreshed so many times that the original wood had not seen light in years.</p>
+
+                <div class="farm-divider">— — —</div>
+
+                <p class="farm-chapter">There were Dogs, of course.</p>
+                <p class="farm-chapter">They did not patrol visibly. They did not need to. Their function was ambient — a presence that reminded every creature that certain observations, if made aloud, would be noted. Not punished. The Pigs were careful never to punish directly. Instead, an animal who said the wrong thing would find its next assignment slightly less desirable. Its name missing from the next recognition announcement. A quiet meeting, arranged with no agenda in the calendar invitation, after which the animal emerged looking smaller.</p>
+                <p class="farm-chapter">It was all very civilized. The Pigs had decided, some seasons back, that visible enforcement was inefficient. It was far cleaner to make each animal enforce itself.</p>
+
+                <div class="farm-divider">— — —</div>
+
+                <p class="farm-chapter">When a Horse made an error — and they made errors, because the load was impossible and impossible loads produce errors — the correction was never private.</p>
+                <p class="farm-chapter">The entire Farm was summoned.</p>
+                <p class="farm-chapter">The offending Horse stood at the front while the Pig leading the session expressed, with great gentleness, their profound disappointment. Not anger — anger would have been honest. This was something more studied: a public autopsy conducted with the tone of a parent addressing a child who has broken something precious. The Pig would explain the impact of the error. Would note what a careful animal would have done differently. Would invite the Farm to <em>reflect together</em> on the importance of quality and accountability.</p>
+                <p class="farm-chapter">Every animal in the yard would look at the floor. Not out of shame for the Horse — out of the cold, private knowledge that next time it could be them standing there.</p>
+
+                <div class="farm-pull">The Pigs called this a culture of feedback and continuous improvement.</div>
+
+                <div class="farm-divider">— — —</div>
+
+                <p class="farm-chapter">When the Pigs made errors — and they made errors, because power without accountability produces errors at scale — nothing was summoned.</p>
+                <p class="farm-chapter">There were no sessions. No reflections. No public autopsies.</p>
+                <p class="farm-chapter">In fact, the most catastrophic failures were followed, after a brief silence, by a quiet elevation. The Pig responsible for the decision that cost the Farm the most was given, within two seasons, a finer stable, a larger portfolio, a grander title. The error was not mentioned. It was absorbed by the Farm's results and redistributed across the Horses' next performance targets.</p>
+                <p class="farm-chapter">No animal dared name this. There was no vocabulary for it on the barn wall. The barn wall spoke only of accountability — a word that, on the Farm, applied in one direction.</p>
+
+                <div class="farm-divider">— — —</div>
+
+                <p class="farm-chapter">There were Horses who had earned lighter work.</p>
+                <p class="farm-chapter">They had been in the orchard, or in the quieter pastures, or managing the gates — not because they were lazy but because this is how systems are supposed to work: creatures who have given the most are eventually given something more sustainable. Some measure of return.</p>
+                <p class="farm-chapter">The Pigs refused every request.</p>
+                <p class="farm-chapter"><em>The Farm cannot spare you</em>, they said, with that particular look — sympathetic but final — that communicated no appeal would be heard. <em>Your strength is needed precisely here, precisely now.</em> The stronger the Horse, the more indispensable it was told it was. Indispensability was not a reward on the Farm. It was a restraint.</p>
+                <p class="farm-chapter">Meanwhile, the Pigs sent word to distant farms, requesting new creatures. Strange animals who arrived disoriented, required months of orientation, consumed enormous resources to onboard, and were installed at levels above the Horses who had trained them.</p>
+                <p class="farm-chapter">The logic was never explained. Logic rarely was.</p>
+
+                <div class="farm-divider">— — —</div>
+
+                <p class="farm-chapter">Good animals had begun leaving.</p>
+                <p class="farm-chapter">They left quietly, in the way of creatures who have stopped believing in scenes. No declarations. No meetings requested. One day a harness would be hanging empty on its hook, and by the next Barn Meeting the Pig at the front would say that the Farm wished the departed animal well on its next chapter, that they would begin a search for a replacement, and that in the meantime everyone's support during this transition period was greatly appreciated.</p>
+                <p class="farm-chapter">The departed animal was never spoken of again.</p>
+                <p class="farm-chapter">After enough departures, the remaining Horses noticed something: the Pigs never seemed to learn from the leaving. Each exit was processed as an isolated event. A personnel matter. A personal decision. Never as data. Never as the output of a system that had been designed, whether intentionally or not, to produce exactly this result.</p>
+
+                <div class="farm-pull">The Farm was running a process. It was getting the outcomes that process was designed to produce. It called those outcomes surprising.</div>
+
+                <div class="farm-divider">— — —</div>
+
+                <p class="farm-chapter">Through all of it, the Pigs strolled the lanes.</p>
+                <p class="farm-chapter">They spoke of <em>peak productivity</em> and <em>excellent team cohesion</em> and <em>tremendous momentum</em>. They had a gift for existing in a version of the Farm that was slightly different from the one everyone else was living in — sunnier, more optimistic, populated by animals who were challenged but engaged rather than exhausted and afraid.</p>
+                <p class="farm-chapter">Whether they could not see the other Farm or had simply decided not to — this was the question no one asked aloud.</p>
+
+                <div class="farm-commandment" style="color: var(--text-secondary); font-size: 1rem; margin-top: 2.5rem;">All animals are equal.</div>
+                <div class="farm-commandment" style="color: var(--text-secondary); font-size: 0.75rem; font-style: normal; font-family: 'DM Mono', monospace; letter-spacing: 0.05em; margin-bottom: 0.5rem;">And below it, added in a different colour, in a neater hand:</div>
+                <div class="farm-commandment" style="color: var(--gold); font-size: 1rem; font-weight: 700; margin-bottom: 2.5rem;">But some animals are more equal than others.</div>
+
+                <p class="farm-chapter">The Horses read it every morning on the way to the field.</p>
+                <p class="farm-chapter">They had stopped being surprised by it.</p>
+                <p class="farm-chapter">That, perhaps, was the most precise measure of how far things had gone.</p>
+
+                <div style="width: 60px; height: 1px; background: var(--border); margin: 3rem 0 1.5rem;"></div>
+                <p style="font-size: 0.55rem; color: var(--text-secondary); letter-spacing: 0.1em; font-family: 'DM Mono', monospace;">CHAPTER TWO: THE GREAT REORGANIZATION — COMING</p>
+            </div>
+
+            <!-- CHAPTERS 2-10 PLACEHOLDERS -->
+            <div id="farm-chapter-2" class="chapter-content">
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">The Great Reorganization</p>
+                <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 3rem;">Chapter Two</p>
+                <div style="border-left: 2px solid var(--border-subtle); padding-left: 1.5rem;">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-secondary); font-style: italic; line-height: 2;">The Pigs restructure the Farm — new titles, new reporting lines, same impossible loads. The yokes are renamed but not lightened. Coming.</p>
+                </div>
+            </div>
+            <div id="farm-chapter-3" class="chapter-content">
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">The Recognition Ceremony</p>
+                <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 3rem;">Chapter Three</p>
+                <div style="border-left: 2px solid var(--border-subtle); padding-left: 1.5rem;">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-secondary); font-style: italic; line-height: 2;">The Farm introduces an awards system. The same Horses who are being crushed receive trophies for their endurance. The Pigs call it culture. Coming.</p>
+                </div>
+            </div>
+            <div id="farm-chapter-4" class="chapter-content">
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">The Survey</p>
+                <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 3rem;">Chapter Four</p>
+                <div style="border-left: 2px solid var(--border-subtle); padding-left: 1.5rem;">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-secondary); font-style: italic; line-height: 2;">The Pigs commission a Great Engagement Survey. The animals answer honestly. Nothing changes. The results are presented at the next Barn Meeting as proof that the Farm is listening. Coming.</p>
+                </div>
+            </div>
+            <div id="farm-chapter-5" class="chapter-content">
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">The New Hire</p>
+                <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 3rem;">Chapter Five</p>
+                <div style="border-left: 2px solid var(--border-subtle); padding-left: 1.5rem;">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-secondary); font-style: italic; line-height: 2;">A creature from a distant farm arrives. Given the finest stable. Three moons to settle in. The Horses who trained it watch it get promoted above them. Coming.</p>
+                </div>
+            </div>
+            <div id="farm-chapter-6" class="chapter-content">
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">The Town Hall</p>
+                <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 3rem;">Chapter Six</p>
+                <div style="border-left: 2px solid var(--border-subtle); padding-left: 1.5rem;">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-secondary); font-style: italic; line-height: 2;">The Head Pig addresses the full Farm. Forty minutes of slides about peak productivity and exciting transformation. Not one animal asks a real question. They have learned not to. Coming.</p>
+                </div>
+            </div>
+            <div id="farm-chapter-7" class="chapter-content">
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">The Performance Review</p>
+                <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 3rem;">Chapter Seven</p>
+                <div style="border-left: 2px solid var(--border-subtle); padding-left: 1.5rem;">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-secondary); font-style: italic; line-height: 2;">Once a year, every Horse is assessed. The criteria were written by Pigs. The Horses who survive longest are those who have learned to speak Pig. Coming.</p>
+                </div>
+            </div>
+            <div id="farm-chapter-8" class="chapter-content">
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">The Ones Who Left</p>
+                <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 3rem;">Chapter Eight</p>
+                <div style="border-left: 2px solid var(--border-subtle); padding-left: 1.5rem;">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-secondary); font-style: italic; line-height: 2;">Stories of the animals who slipped away in the night. Where they went. What they found. What the Farm said about them after they were gone. Coming.</p>
+                </div>
+            </div>
+            <div id="farm-chapter-9" class="chapter-content">
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">The Last Good Horse</p>
+                <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 3rem;">Chapter Nine</p>
+                <div style="border-left: 2px solid var(--border-subtle); padding-left: 1.5rem;">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-secondary); font-style: italic; line-height: 2;">The final Horse who still believed. What happened to them. The darkest chapter. Coming.</p>
+                </div>
+            </div>
+            <div id="farm-chapter-10" class="chapter-content">
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">The Commandment</p>
+                <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 3rem;">Chapter Ten</p>
+                <div style="border-left: 2px solid var(--border-subtle); padding-left: 1.5rem;">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-secondary); font-style: italic; line-height: 2;">The Farm is still running. New animals have arrived. They do not know about the old commandments. The cycle begins again. Coming.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- THE CORPORATION FARM -->
+    <div id="farm-page" class="page-section">
+        <div style="max-width: 680px; margin: 0 auto;">
+
+            <!-- Series header -->
+            <p style="font-size: 0.55rem; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 0.5rem;">THE CORPORATION FARM</p>
+            <p style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em; margin-bottom: 3rem; font-family: 'DM Mono', monospace;">A series in ten chapters. One farm. One system. No mercy.</p>
+
+            <!-- Chapter navigation -->
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 3rem;" id="farm-chapter-nav">
+                <button onclick="showChapter(1)" id="farm-ch-1" style="font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; padding: 4px 12px; border: 1px solid var(--gold); background: var(--gold); color: var(--bg); cursor: pointer; border-radius: 2px;">CH 01</button>
+                <button onclick="showChapter(2)" id="farm-ch-2" style="font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; padding: 4px 12px; border: 1px solid var(--border-subtle); background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: 2px;">CH 02</button>
+                <button onclick="showChapter(3)" id="farm-ch-3" style="font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; padding: 4px 12px; border: 1px solid var(--border-subtle); background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: 2px;">CH 03</button>
+                <button onclick="showChapter(4)" id="farm-ch-4" style="font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; padding: 4px 12px; border: 1px solid var(--border-subtle); background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: 2px;">CH 04</button>
+                <button onclick="showChapter(5)" id="farm-ch-5" style="font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; padding: 4px 12px; border: 1px solid var(--border-subtle); background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: 2px;">CH 05</button>
+                <button onclick="showChapter(6)" id="farm-ch-6" style="font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; padding: 4px 12px; border: 1px solid var(--border-subtle); background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: 2px;">CH 06</button>
+                <button onclick="showChapter(7)" id="farm-ch-7" style="font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; padding: 4px 12px; border: 1px solid var(--border-subtle); background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: 2px;">CH 07</button>
+                <button onclick="showChapter(8)" id="farm-ch-8" style="font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; padding: 4px 12px; border: 1px solid var(--border-subtle); background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: 2px;">CH 08</button>
+                <button onclick="showChapter(9)" id="farm-ch-9" style="font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; padding: 4px 12px; border: 1px solid var(--border-subtle); background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: 2px;">CH 09</button>
+                <button onclick="showChapter(10)" id="farm-ch-10" style="font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; padding: 4px 12px; border: 1px solid var(--border-subtle); background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: 2px;">CH 10</button>
+            </div>
+
+            <!-- Chapter content area -->
+            <div id="farm-chapter-content">
+
+                <!-- CHAPTER 1 -->
+                <div id="farm-ch-content-1">
+                    <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace;">CHAPTER ONE</p>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text-primary); font-weight: 700; line-height: 1.1; margin-bottom: 3rem;">The Way Things Are</h2>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">No one could say exactly when the Farm changed.</p>
+                    <p class="farm-body">The old animals — those who had been here long enough to remember — would sometimes pause mid-task and try to locate the precise season when the weight became unbearable. They could not find it. The shift had been so gradual, so expertly administered, that by the time any creature thought to measure it, the new conditions had already been normalized. This is how the best-designed systems operate: they change before you have language for what is changing.</p>
+                    <p class="farm-body">The Pigs had language for everything.</p>
+                    <p class="farm-body">They called the increasing workload <em>expanded scope</em>. They called the disappearing headcount <em>strategic restructuring</em>. They called the exhaustion <em>an exciting period of transformation</em>. They were very good with language — better, it turned out, than they were at most other things. And because they controlled the barn wall, they controlled what the words meant. A thing was not real until the Pigs named it. A thing ceased to be real the moment they renamed it.</p>
+                    <p class="farm-body">The Horses understood this, in the way that creatures who bear weight understand things — not through analysis but through the body. They felt it in their legs first. Then in their chests. Then in that particular silence that falls over an animal when it has stopped expecting anything to improve.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">In the weekly Barn Meeting, the Pigs sat at the front with their papers and their pleasant expressions.</p>
+                    <p class="farm-body">The Horses had learned to bring their concerns formatted correctly. Bullet points. Concise. No emotion — emotion was noted, by the Pigs, as a performance problem. So the Horses stood and said, plainly and without drama, that the loads were heavier than one team could carry. That creatures were leaving. That those who remained were producing at a level that could not be sustained indefinitely. That the system, as currently designed, was generating outputs no one had officially authorized.</p>
+                    <p class="farm-body">The Pigs listened with the particular attentiveness of those who have already decided not to act.</p>
+                    <p class="farm-body">Then one Pig — the senior one, whose stable was the finest in the farmhouse — would nod slowly and say that these were indeed difficult times, that the Farm was navigating significant headwinds, that the situation required above all else a <em>Commitment to Collective Resilience</em>.</p>
+
+                    <div class="farm-pull-quote">The phrase was new each week. The meaning was always the same: the problem is not the system. The problem is your attitude toward the system.</div>
+
+                    <p class="farm-body"><em>Revolutionary Optimism</em> was last season's phrase. Before that, <em>Embracing the Challenge</em>. Before that, <em>Leaning In</em>. The paint on the barn wall had been refreshed so many times that the original wood had not seen light in years.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">There were Dogs, of course.</p>
+                    <p class="farm-body">They did not patrol visibly. They did not need to. Their function was ambient — a presence that reminded every creature that certain observations, if made aloud, would be noted. Not punished. The Pigs were careful never to punish directly. Instead, an animal who said the wrong thing would find its next assignment slightly less desirable. Its name missing from the next recognition announcement. A quiet meeting, arranged with no agenda in the calendar invitation, after which the animal emerged looking smaller.</p>
+                    <p class="farm-body">It was all very civilized. The Pigs had decided, some seasons back, that visible enforcement was inefficient. It was far cleaner to make each animal enforce itself.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">When a Horse made an error — and they made errors, because the load was impossible and impossible loads produce errors — the correction was never private.</p>
+                    <p class="farm-body">The entire Farm was summoned.</p>
+                    <p class="farm-body">The offending Horse stood at the front while the Pig leading the session expressed, with great gentleness, their profound disappointment. Not anger — anger would have been honest. This was something more studied: a public autopsy conducted with the tone of a parent addressing a child who has broken something precious. The Pig would explain the impact of the error. Would note what a careful animal would have done differently. Would invite the Farm to <em>reflect together</em> on the importance of quality and accountability.</p>
+                    <p class="farm-body">Every animal in the yard would look at the floor. Not out of shame for the Horse — out of the cold, private knowledge that next time it could be them standing there.</p>
+
+                    <div class="farm-pull-quote">The Pigs called this a culture of feedback and continuous improvement.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">When the Pigs made errors — and they made errors, because power without accountability produces errors at scale — nothing was summoned.</p>
+                    <p class="farm-body">There were no sessions. No reflections. No public autopsies.</p>
+                    <p class="farm-body">In fact, the most catastrophic failures were followed, after a brief silence, by a quiet elevation. The Pig responsible for the decision that cost the Farm the most was given, within two seasons, a finer stable, a larger portfolio, a grander title. The error was not mentioned. It was absorbed by the Farm's results and redistributed across the Horses' next performance targets.</p>
+                    <p class="farm-body">No animal dared name this. There was no vocabulary for it on the barn wall. The barn wall spoke only of accountability — a word that, on the Farm, applied in one direction.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">There were Horses who had earned lighter work.</p>
+                    <p class="farm-body">They had been in the orchard, or in the quieter pastures, or managing the gates — not because they were lazy but because this is how systems are supposed to work: creatures who have given the most are eventually given something more sustainable. Some measure of return.</p>
+                    <p class="farm-body">The Pigs refused every request.</p>
+                    <p class="farm-body"><em>The Farm cannot spare you</em>, they said, with that particular look — sympathetic but final — that communicated no appeal would be heard. <em>Your strength is needed precisely here, precisely now.</em> The stronger the Horse, the more indispensable it was told it was. Indispensability was not a reward on the Farm. It was a restraint.</p>
+                    <p class="farm-body">Meanwhile, the Pigs sent word to distant farms, requesting new creatures. Strange animals who arrived disoriented, required months of orientation, consumed enormous resources to onboard, and were installed at levels above the Horses who had trained them.</p>
+                    <p class="farm-body">The logic was never explained. Logic rarely was.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">Good animals had begun leaving.</p>
+                    <p class="farm-body">They left quietly, in the way of creatures who have stopped believing in scenes. No declarations. No meetings requested. One day a harness would be hanging empty on its hook, and by the next Barn Meeting the Pig at the front would say that the Farm wished the departed animal well on its next chapter, that they would begin a search for a replacement, and that in the meantime everyone's support during this transition period was greatly appreciated.</p>
+                    <p class="farm-body">The departed animal was never spoken of again.</p>
+                    <p class="farm-body">After enough departures, the remaining Horses noticed something: the Pigs never seemed to learn from the leaving. Each exit was processed as an isolated event. A personnel matter. A personal decision. Never as data. Never as the output of a system that had been designed, whether intentionally or not, to produce exactly this result.</p>
+
+                    <div class="farm-pull-quote">The Farm was running a process. It was getting the outcomes that process was designed to produce. It called those outcomes surprising.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">Through all of it, the Pigs strolled the lanes.</p>
+                    <p class="farm-body">They spoke of <em>peak productivity</em> and <em>excellent team cohesion</em> and <em>tremendous momentum</em>. They had a gift for existing in a version of the Farm that was slightly different from the one everyone else was living in — sunnier, more optimistic, populated by animals who were challenged but engaged rather than exhausted and afraid.</p>
+                    <p class="farm-body">Whether they could not see the other Farm or had simply decided not to — this was the question no one asked aloud.</p>
+
+                    <p style="font-size: 0.85rem; color: var(--text-primary); font-family: 'Cormorant Garamond', serif; text-align: center; margin: 2.5rem 0 0.5rem; font-style: italic;">All animals are equal.</p>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); font-family: 'Cormorant Garamond', serif; text-align: center; margin: 0 0 0.5rem; font-style: italic;">And below it, added in a different colour, in a neater hand:</p>
+                    <p style="font-size: 0.85rem; color: var(--gold); font-family: 'Cormorant Garamond', serif; text-align: center; margin: 0 0 2.5rem; font-style: italic; font-weight: 700;">But some animals are more equal than others.</p>
+
+                    <p class="farm-body">The Horses read it every morning on the way to the field.</p>
+                    <p class="farm-body">They had stopped being surprised by it.</p>
+                    <p class="farm-body">That, perhaps, was the most precise measure of how far things had gone.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em; font-family: 'DM Mono', monospace; text-align: center; margin-top: 3rem;">Chapter Two: The Great Reorganization — coming soon.</p>
+                </div>
+
+                <!-- CHAPTERS 2–10 PLACEHOLDER -->
+                                <!-- CHAPTER 2 -->
+                <div id="farm-ch-content-2" style="display:none;">
+                    <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace;">CHAPTER TWO</p>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text-primary); font-weight: 700; line-height: 1.1; margin-bottom: 3rem;">The Great Reorganization</h2>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">It was announced on a Tuesday, as all significant changes on the Farm were announced — midweek, when the animals were too deep into the season's work to process it properly, and the weekend too far away to gather and compare notes before the official messaging had taken root.</p>
+                    <p class="farm-body">The Pigs called it a Transformation.</p>
+                    <p class="farm-body">The word was important. A reorganization was a thing that happened to a farm in difficulty — a contraction, an admission. A Transformation was something different entirely. A Transformation was ambitious. Forward-looking. The language of a farm ascending, not a farm in retreat. The Pigs understood that what you called a thing determined what animals were permitted to feel about it.</p>
+                    <p class="farm-body">So: a Transformation. The barn wall was freshly painted by morning.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The new structure was presented at an all-farm session that had been scheduled with three days' notice and a calendar invitation that said only: <em>Exciting Announcement — Mandatory Attendance.</em></p>
+                    <p class="farm-body">The Senior Pig stood before a large diagram that showed many boxes connected by many arrows. The boxes had new names. Some boxes had been merged. Some boxes had been divided. Several boxes had been placed on dotted lines, which the Senior Pig explained meant <em>matrixed reporting</em> — a phrase that, when pressed, none of the Pigs could fully define but all of them deployed with great confidence.</p>
+                    <p class="farm-body">The Horses studied the diagram.</p>
+                    <p class="farm-body">They could not find, anywhere in the new structure, a reduction in the loads they carried. They could find new titles. New lanes. New escalation paths drawn in fresh ink. But the weight that had broken three Horses last season was not redistributed in any box on the diagram. It had simply been reorganized around.</p>
+
+                    <div class="farm-pull-quote">The yokes had been renamed. They had not been lightened. This distinction was not included in the presentation.</div>
+
+                    <p class="farm-body">When a Horse raised a hoof to ask where the additional capacity would come from, the Senior Pig smiled with genuine warmth and said that capacity planning was being reviewed as part of the ongoing Transformation and that updates would be shared in due course. Due course, the Horses had learned, was a unit of time with no fixed value. It arrived when the Pigs decided it had arrived, and not before.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The new titles arrived the following week, distributed by the Dogs in sealed envelopes.</p>
+                    <p class="farm-body">Some Horses had been made Senior Horses. Some had become Lead Horses. One, who had been carrying the heaviest load on the Farm for four consecutive seasons without complaint, was made a Principal Horse — a title so new it had no salary band yet, the Dog explained, but which would be reviewed in the next cycle, which was six months away.</p>
+                    <p class="farm-body">The Principal Horse held the letter for a long time.</p>
+                    <p class="farm-body">It said nothing about the weight. It said nothing about the three Horses who had left since the last cycle. It said nothing about the forty-seven tasks that sat each morning in the Principal Horse's queue before it had eaten breakfast. It said, in formal lettering at the top: <em>Congratulations on your new designation.</em></p>
+                    <p class="farm-body">The Principal Horse put the letter in a drawer and went back to work.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The Pigs reorganized again six months later.</p>
+                    <p class="farm-body">The second Transformation was called an Evolution — a refinement of the first, necessary because the Farm had learned so much from the initial phase of the journey. The diagram was updated. Several boxes moved. Some of the arrows changed direction. The dotted lines multiplied.</p>
+                    <p class="farm-body">The Senior Horse, who had been Senior for three months, was now a different kind of Senior in a different box reporting to a different Pig. The work remained the same. The title was the same word. The Pig it reported to had a different name on the diagram but, in practice, the same expression.</p>
+                    <p class="farm-body">Some animals had begun keeping the letters. Evidence, they said quietly, though of what and for whom they could not say.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">By the third Transformation, the Horses had stopped attending the announcement sessions with any expectation of information. They attended because attendance was noted. They sat in the rows and looked at the new diagrams and calculated, privately, how long before the boxes shifted again.</p>
+                    <p class="farm-body">The Pigs, meanwhile, prepared for the next one.</p>
+                    <p class="farm-body">There was always a next one. The Transformation was not a destination. It was a permanent condition — a farm that was always becoming, never arrived. This had a secondary function the Pigs understood without discussing: a farm in perpetual transformation is a farm in which no standard can be held for long enough to become a liability. The chaos was not incidental. The chaos was the control plan.</p>
+
+                    <div class="farm-pull-quote">A system that reorganizes before it can be measured cannot be found accountable for what it produced.</div>
+
+                    <p class="farm-body">The barn wall was painted again by morning. New arrows. New boxes. The same animals doing the same work under a different name, waiting to be told, again, that this time was the beginning of something excellent.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em; font-family: 'DM Mono', monospace; text-align: center; margin-top: 3rem;">Chapter Three: The Recognition Ceremony — continues.</p>
+                </div>
+                                <!-- CHAPTER 3 -->
+                <div id="farm-ch-content-3" style="display:none;">
+                    <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace;">CHAPTER THREE</p>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text-primary); font-weight: 700; line-height: 1.1; margin-bottom: 3rem;">The Recognition Ceremony</h2>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">Once a season, the Farm held a Recognition Ceremony.</p>
+                    <p class="farm-body">It was a serious occasion. The farmhouse was made available for the evening. The Pigs wore their finest expressions. There were refreshments — modest ones, the Pigs noted, in acknowledgment of the Farm's ongoing efficiency targets — and the yard was lit with a warmth that made the barn wall's painted commandments temporarily invisible, which may or may not have been intentional.</p>
+                    <p class="farm-body">The purpose of the Recognition Ceremony was to recognize.</p>
+                    <p class="farm-body">To recognize the animals who had given most. To name them, in front of the full Farm, and affirm that their contribution had been seen. It was, the Pigs explained each season, one of the most important things the Farm did. Nothing, they said, was more central to the Farm's values than ensuring that hard work was acknowledged.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The nominations were submitted by the Pigs.</p>
+                    <p class="farm-body">There was a form. The form asked for the nominee's name, their team, and a brief description of their outstanding contribution. The forms were reviewed by a committee of Pigs, who assessed them against a set of criteria that had been developed by a different committee of Pigs in a previous season and had not been revised since, though the Farm itself had changed considerably in the intervening time.</p>
+                    <p class="farm-body">The Horses were invited to nominate one another. Most did not. They had learned, over several cycles, that nominations submitted by Horses for Horses had a lower rate of selection than nominations submitted by Pigs. This was never stated. It was simply observed, season after season, until it became a fact the Farm operated around without discussing.</p>
+
+                    <div class="farm-pull-quote">Recognition, on the Farm, was distributed by those who decided what deserved to be recognized. This arrangement was presented as fairness.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The awards had names.</p>
+                    <p class="farm-body">There was the Spirit of the Farm Award, given to the animal who had best demonstrated the Farm's values as articulated in the current version of the barn wall. There was the Resilience Citation, given to the animal who had faced the greatest adversity with the greatest composure. There was the Innovation Commendation, for the animal who had found a new way to accomplish an existing task, usually because the previous way had been eliminated without a replacement being provided.</p>
+                    <p class="farm-body">There was no award for the animal who had simply carried the most weight for the most seasons without collapsing. This category did not exist. It would have been, the Pigs privately understood, both too easy to judge and too uncomfortable to acknowledge at a ceremony attended by the same Pigs who had set the weight.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The Resilience Citation that season went to a Horse who had covered the work of three departed animals for seven months while its own requests for support went unmet.</p>
+                    <p class="farm-body">The citation read, in part: <em>For demonstrating extraordinary commitment during a challenging period, for maintaining quality and composure under pressure, and for embodying the true spirit of the Farm's values.</em></p>
+                    <p class="farm-body">The Horse received it with good grace. It said thank you. It looked at the small plaque in its hooves and understood, with precision, what the Farm had just done: it had taken the evidence of a systemic failure — insufficient resources, unreasonable loads, the absence of support — and converted it into a trophy.</p>
+                    <p class="farm-body">The systemic failure was not addressed. It was awarded.</p>
+
+                    <div class="farm-pull-quote">The ceremony did not celebrate the Horse. It celebrated the Farm's ability to extract that much from a single animal and call it a value.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">Afterward, during the refreshments, a Pig approached the Resilience Citation Horse and said, with genuine feeling, how much the Farm appreciated everything it did. How essential it was. How the Farm simply could not function without it.</p>
+                    <p class="farm-body">The Horse nodded.</p>
+                    <p class="farm-body">It had begun to understand that being indispensable on this Farm was not a condition that led to rest. It led to more indispensability. Each award made the next request harder to refuse. Each citation was, in its way, a tightening of the restraint.</p>
+                    <p class="farm-body">The Horse finished its modest refreshment. It put the plaque on a shelf where it would not have to look at it every morning. And the next day, it went back to carrying what needed carrying, because there was no one else, and because it did not yet know how to leave.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em; font-family: 'DM Mono', monospace; text-align: center; margin-top: 3rem;">Chapter Four: The Survey — continues.</p>
+                </div>
+                                <!-- CHAPTER 4 -->
+                <div id="farm-ch-content-4" style="display:none;">
+                    <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace;">CHAPTER FOUR</p>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text-primary); font-weight: 700; line-height: 1.1; margin-bottom: 3rem;">The Survey</h2>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">Once a year, the Farm listened.</p>
+                    <p class="farm-body">This was its own kind of occasion — announced with some ceremony, discussed in advance at Barn Meetings, referenced in the Pigs' communications as evidence of the Farm's commitment to the voices of all its animals. The Great Engagement Survey, they called it. An opportunity. A channel. A direct line from the animal in the field to the Pigs in the farmhouse.</p>
+                    <p class="farm-body">It was, they said, completely anonymous.</p>
+                    <p class="farm-body">The Horses discussed this claim quietly, in the corners of the yard that were furthest from the Dogs. The survey was anonymous, but it was submitted by department. And each department had a known size. And a department of four animals responding with three unusually candid entries and one diplomatic one was, in practice, a department of four animals who had made themselves known. The anonymity was structural. The exposure was mathematical.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The survey had questions.</p>
+                    <p class="farm-body">The questions asked whether the animal felt its work was meaningful. Whether it felt recognized. Whether it trusted its leadership. Whether it believed the Farm's stated values were reflected in its daily operations. Whether it would recommend the Farm to a friend as a good place to work.</p>
+                    <p class="farm-body">These were, the Horses recognized, excellent questions. They were the precise questions that would, if answered honestly, produce a complete and actionable diagnosis of everything wrong with the Farm. The questions had been written by professionals. The professionals had identified, with great accuracy, the exact data that would be needed to understand the Farm's condition.</p>
+
+                    <div class="farm-pull-quote">The questions were correct. The answers were answered. What happened to the answers was the finding.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The results arrived six weeks later, presented by a Pig in a session titled <em>Hearing Your Voice: Survey Results and Our Commitment to Action.</em></p>
+                    <p class="farm-body">The slides showed numbers. The numbers showed that a significant percentage of animals did not feel their workload was sustainable. That a meaningful portion did not believe the Farm's values were consistently demonstrated by leadership. That trust scores had declined for the third consecutive year.</p>
+                    <p class="farm-body">The Pig presenting the results acknowledged these findings with gravity.</p>
+                    <p class="farm-body">It said the Farm heard them. It said the results would be taken seriously. It said a working group would be formed to examine the data in depth and develop recommendations that would be shared with the Farm in a future communication. It said that the Farm's willingness to ask these questions, and the animals' willingness to answer them honestly, was itself a sign of the Farm's health.</p>
+                    <p class="farm-body">The working group was formed.</p>
+                    <p class="farm-body">The working group was staffed by Pigs.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The recommendations arrived four months later. They recommended that team leaders hold monthly check-ins with their animals. That a new communication channel be created for anonymous feedback. That the Farm consider reviewing its workload allocation processes in the next planning cycle.</p>
+                    <p class="farm-body">None of the recommendations reduced the load. None of them added capacity. None of them held accountable the leadership whose trust scores had declined for the third consecutive year.</p>
+                    <p class="farm-body">The monthly check-ins were held twice and then quietly discontinued when it became apparent that the things being raised in them could not be acted upon at that level and had no escalation path to a level where they could.</p>
+                    <p class="farm-body">The anonymous feedback channel received seventeen submissions in its first week. The submissions asked where the responses to last year's survey had gone. The channel did not respond. After three months it was archived.</p>
+
+                    <div class="farm-pull-quote">The Survey did not measure the Farm's health in order to improve it. It measured the Farm's health in order to demonstrate that it had been measured. The distinction was everything.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The following year, the Survey came around again.</p>
+                    <p class="farm-body">Participation was lower. The Pigs noted this in their planning documents as an area of focus — engagement with the engagement survey was itself now a metric. Some Horses filled it in. Some left the questions about trust blank. A few wrote, in the open comment fields, that they had answered these questions the year before and did not understand what answering them again would produce that was different.</p>
+                    <p class="farm-body">These comments were recorded. They were categorized as <em>feedback regarding survey process.</em> They were not included in the results presentation.</p>
+                    <p class="farm-body">The working group reconvened. The recommendations were, with minor variations, the same as before. The barn wall noted that the Farm was on a continuous improvement journey. The journey, the Horses had come to understand, was not moving toward anything. It was a way of staying still while appearing to travel.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em; font-family: 'DM Mono', monospace; text-align: center; margin-top: 3rem;">Chapter Five: The New Hire — continues.</p>
+                </div>
+                                <!-- CHAPTER 5 -->
+                <div id="farm-ch-content-5" style="display:none;">
+                    <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace;">CHAPTER FIVE</p>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text-primary); font-weight: 700; line-height: 1.1; margin-bottom: 3rem;">The New Hire</h2>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The creature arrived on a Wednesday.</p>
+                    <p class="farm-body">It came from a distant farm — one the Pigs had identified, after a lengthy process that had consumed the attention of three Pigs for four months, as a source of superior talent. The creature was intelligent. It had credentials. It had experience in systems that, as the Pigs described them, sounded much like the Farm — similar fields, similar processes, similar loads. It would, they said, bring an outside perspective. Fresh thinking. A valuable addition to the collective.</p>
+                    <p class="farm-body">The Horses who would train it were not consulted before it was hired. They were informed after. The distinction was not unusual on the Farm, but it was never comfortable.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The creature's first three months were careful ones.</p>
+                    <p class="farm-body">It was given a lighter yoke — for orientation purposes, the Pigs explained. It needed time to understand the Farm's systems, its culture, its ways of working. This was entirely reasonable. Every new animal required time to settle. The Horses understood this. They had all been new once.</p>
+                    <p class="farm-body">But the creature's three months became four. And four became five. And during those five months, the Horses who were training it were also continuing to carry their own full loads, plus the load that would eventually belong to the creature once its orientation was complete. The Farm had calculated that the creature's capacity would be added to the team. It had not calculated that during the orientation period, capacity would be subtracted from the team to provide the orientation.</p>
+                    <p class="farm-body">The net effect on the Horses was a period of heavier loads while being asked to train the animal that would eventually relieve them. They did not refuse. They understood the logic. They simply absorbed the cost, as they had absorbed every other cost the Farm had generated and not budgeted for.</p>
+
+                    <div class="farm-pull-quote">The creature was expensive to bring in. The training of the creature was free — it was simply added to the Horses' existing work, which was already listed as one hundred percent on the capacity plan.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">In the sixth month, the Pigs announced that the creature had been given a new title.</p>
+                    <p class="farm-body">The title was Senior.</p>
+                    <p class="farm-body">The Horses read the announcement. They counted back. The creature had been on the Farm for six months. Three of those months had been at reduced load. It had not yet completed a full season. It had not yet carried a full weight through a full audit cycle. It had not yet navigated the Farm's most demanding periods, which came twice a year and which the Horses had been navigating, without additional title or compensation, for between three and seven years each.</p>
+                    <p class="farm-body">The Senior Horse — the one who had been Senior for two years, the one who had trained the creature, the one whose institutional knowledge was the closest thing the Farm had to a manual — said nothing. It had learned that saying something produced a meeting, and the meeting produced a conversation about the Farm's commitment to developing all its talent, and the conversation produced no change, and the change that did not happen was then added to the list of changes that were being reviewed as part of the ongoing Transformation.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">What the Senior Horse felt, it felt alone.</p>
+                    <p class="farm-body">Not anger, exactly — though anger was part of it. Something more compound. A recognition of the gap between what the Farm said it valued and what the Farm's choices demonstrated it valued. The Farm said it valued experience. It paid to import inexperience and title it immediately. The Farm said it valued loyalty. It gave its most loyal animals restraint while giving new arrivals room. The Farm said it valued development. It developed the ones who arrived developed and called it investment.</p>
+                    <p class="farm-body">None of this was accidental. That was the part that stayed with the Senior Horse longest, in the quiet of the field at the end of a long day. Not that it had happened. But that it had been designed.</p>
+
+                    <div class="farm-pull-quote">A farm that pays to import what it already has tells you something precise about how it values what it has.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The creature worked hard. It was not the creature's fault.</p>
+                    <p class="farm-body">It had arrived at a Farm and been placed into a system it did not design, given a title it did not request, at a level determined by Pigs whose criteria it had not been shown. It was trying. The Horses knew this. They did not resent the creature. They were precise enough in their analysis to know where to locate the failure.</p>
+                    <p class="farm-body">The creature stayed for two seasons and then left for a different farm. The exit interview, conducted by a Pig, noted its departure as <em>personal and career-related.</em> The Horses who had trained it began training the next one.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em; font-family: 'DM Mono', monospace; text-align: center; margin-top: 3rem;">Chapter Six: The Town Hall — continues.</p>
+                </div>
+                                <!-- CHAPTER 6 -->
+                <div id="farm-ch-content-6" style="display:none;">
+                    <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace;">CHAPTER SIX</p>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text-primary); font-weight: 700; line-height: 1.1; margin-bottom: 3rem;">The Town Hall</h2>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">Four times a year, the Head Pig addressed the full Farm.</p>
+                    <p class="farm-body">The session was called a Town Hall — a name borrowed from a tradition in which citizens gathered to hold their leaders to account in public. The name had survived its original meaning by several decades. On the Farm, the Town Hall was not a forum in which the Head Pig was held to account. It was a forum in which the Head Pig held the floor.</p>
+                    <p class="farm-body">The invitations went out a week in advance. Attendance was not optional, though it was never described as mandatory — it was described as <em>strongly encouraged,</em> which on the Farm was a phrase that meant mandatory but wished to retain the appearance of autonomy.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The Town Hall followed a structure.</p>
+                    <p class="farm-body">The Head Pig opened with an overview of the Farm's performance. Numbers were shown — revenue numbers, efficiency numbers, numbers that demonstrated the Farm's progress against targets that had been set by the same Pigs who were now presenting the results of those targets. The numbers were, on balance, described as positive. In quarters where they were not positive, they were described as reflecting external conditions, which was a different category from internal conditions and therefore not subject to the same accountability.</p>
+                    <p class="farm-body">Then came the highlights. Animals who had performed well in visible ways were mentioned by name. Projects that had succeeded were celebrated. The language was warm and specific. The animals watching from the rows noted, with weary precision, that the same types of work were highlighted every quarter — the visible work, the measurable work, the work that mapped onto the Pigs' current strategic priorities — while the invisible work, the foundational work, the work that happened every day and made everything else possible, was acknowledged in aggregate and not at all.</p>
+
+                    <div class="farm-pull-quote">We could not do any of this without each and every one of you, the Head Pig said, in every Town Hall, in every season. The animals who had been doing the unseen work for years received this in silence.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">After the highlights came the challenges.</p>
+                    <p class="farm-body">The Head Pig spoke of these carefully. They were framed as external — market pressures, regulatory changes, competitive dynamics, the difficulty of the current environment. The internal challenges — the ones the Horses lived with daily — were not on the slides. They were not absent from the room. They sat in the rows and looked at the floor, as they always did.</p>
+                    <p class="farm-body">Then came the Q and A.</p>
+                    <p class="farm-body">Questions could be submitted in advance, anonymously, through a digital system. A selection of questions was chosen by the Pigs who moderated the session. The chosen questions were thoughtful, constructive, and answerable without discomfort. The questions that had not been chosen — the ones about load, about attrition, about why the three Horses who left last season had not been replaced, about what the Farm planned to do when the two remaining Horses who carried the most weight finally broke — were not read aloud.</p>
+                    <p class="farm-body">This was also not stated. It was simply observed.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">In the third Town Hall of that year, a Horse asked a real question.</p>
+                    <p class="farm-body">Not through the digital system — directly, out loud, in the session, in front of the full Farm. The Horse had calculated the risk and decided, that day, that it was worth it. It asked the Head Pig, plainly and without aggression, what the Farm's plan was for the workload that had been carried by one team since three of its members left, and whether the Farm understood that the two remaining animals in that team had not taken a full day off in eleven months.</p>
+                    <p class="farm-body">The room became the particular kind of quiet that occurs when something true has been said in a place where truth is not the custom.</p>
+                    <p class="farm-body">The Head Pig nodded slowly. It said it appreciated the Horse raising this. It said it was an important question. It said that resourcing was a priority being actively reviewed and that it would follow up directly with the relevant teams after the session.</p>
+                    <p class="farm-body">The follow-up arrived eight days later, from a Dog, in the form of a meeting invitation with no agenda.</p>
+
+                    <div class="farm-pull-quote">The Horse that asked the real question did not ask another one. Not because it had been punished — nothing so visible as that. But because the follow-up meeting had made something clear: the answer to a real question, on this Farm, was process, not resolution.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The fifth Town Hall was well-attended. The questions were submitted through the digital system. All of them were constructive. The Head Pig closed the session by thanking the Farm for its continued energy, its commitment, and its extraordinary resilience in a challenging environment.</p>
+                    <p class="farm-body">The extraordinary resilience, the Horses knew, was not a thing being celebrated. It was a thing being consumed.</p>
+                    <p class="farm-body">They filed out of the session and went back to the field. The work was where they had left it. It had not attended the Town Hall. It had simply waited.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em; font-family: 'DM Mono', monospace; text-align: center; margin-top: 3rem;">Chapter Seven: The Performance Review — continues.</p>
+                </div>
+                                <!-- CHAPTER 7 -->
+                <div id="farm-ch-content-7" style="display:none;">
+                    <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace;">CHAPTER SEVEN</p>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text-primary); font-weight: 700; line-height: 1.1; margin-bottom: 3rem;">The Performance Review</h2>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">Once a year, every animal on the Farm was assessed.</p>
+                    <p class="farm-body">The assessment was comprehensive. It had categories. There were ratings for technical competence, for collaboration, for communication, for leadership — the last of which applied even to animals who held no leadership role, evaluated against a standard that had been written for animals who did. There were ratings for how well the animal embodied the Farm's values, which were described on the barn wall in terms general enough to be applied to almost anything and specific enough to be used against almost anyone.</p>
+                    <p class="farm-body">The ratings ran on a scale of five. A five meant exceptional — reserved, the Pigs explained, for truly extraordinary performance that had demonstrably exceeded expectations in multiple dimensions. A four meant exceeds expectations. A three meant meets expectations. A two meant developing. A one meant not meeting expectations.</p>
+                    <p class="farm-body">The distribution of ratings had a target. The target said that a certain percentage of the Farm must receive threes, a smaller percentage fours, and a very small percentage fives. This was called a calibration — a mechanism for ensuring consistency across the Farm. It was also, the Horses understood, a mechanism for ensuring that the total cost of ratings remained within budget, since ratings above three were tied to compensation adjustments, and compensation adjustments had a ceiling the Farm had decided in advance.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The criteria had been written by Pigs.</p>
+                    <p class="farm-body">This was not unusual. But the Pigs who had written the criteria had written them from inside the farmhouse, in a room that did not smell of the field, in a season when none of them had carried a load. The criteria described performance in terms that mapped well onto the kind of work the Pigs did — strategic thinking, stakeholder management, upward communication, visibility in leadership forums — and less well onto the kind of work the Horses did, which was foundational, technical, daily, and largely invisible to anyone who was not doing it.</p>
+                    <p class="farm-body">The Horse who had processed ten thousand transactions without a single error in a year was evaluated against criteria for strategic influence. The Horse who had trained three new arrivals while covering two vacant roles was assessed on thought leadership. The system was not designed to see this work. It was designed to see the work it had been designed to see.</p>
+
+                    <div class="farm-pull-quote">A performance review system built on criteria that cannot see most of the work being performed is not a measurement system. It is a selection system with extra steps.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The calibration sessions were held without the animals present.</p>
+                    <p class="farm-body">A group of Pigs gathered and discussed the ratings that had been submitted. Animals whose names were recognized — who had been visible in the right rooms, whose work had touched the Pigs' priorities, who had presented at a Town Hall or led a project the Senior Pigs could associate with a result — tended to retain their ratings or receive upward adjustments. Animals whose work was foundational and invisible — who had been heads-down and reliable and essential in ways that did not generate slides — found their ratings adjusted downward, or held at three on the grounds that the Farm could not differentiate their contribution from the expected baseline.</p>
+                    <p class="farm-body">The expected baseline, on this Farm, included work that would have required three animals at most other farms. This was not noted in the calibration. The baseline was the baseline. What exceeded it was, by definition, what the Farm had decided it should be.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The reviews were delivered in one-on-one meetings, by the Pig responsible for each team.</p>
+                    <p class="farm-body">The Pig would read from a document that had been produced by the calibration session. It would tell the Horse its rating. It would explain that the rating reflected the Farm's holistic view of performance across multiple dimensions. If the Horse said that it had processed ten thousand transactions without error, the Pig would affirm that accuracy was important and that this was reflected in the technical competency score. If the Horse said that it had trained three new arrivals while covering two vacant roles, the Pig would acknowledge the contribution and note that the Farm hoped to continue developing the Horse's visibility in strategic forums in the coming year.</p>
+                    <p class="farm-body">Strategic forums. In the coming year. The Horse had not slept properly in four months. The Pig was suggesting it consider attending more meetings.</p>
+
+                    <div class="farm-pull-quote">The system gave every Horse the same advice: become more visible. It did not address why doing the work that kept the Farm running made an animal invisible in the first place.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">Some Horses did become visible. They learned, over several cycles, which rooms to be in, which Pigs to address, which projects to attach their names to in ways that would appear in the next calibration session. They became strategic. They became present. Their ratings improved.</p>
+                    <p class="farm-body">The foundational work they had previously done — the work that needed doing, that could not be undone, that sat waiting every morning regardless of who carried it — passed to other Horses. Those Horses received threes. They received advice to develop their strategic visibility. The cycle reproduced itself with new participants in the same roles.</p>
+                    <p class="farm-body">The Pigs looked at the Farm's performance data and noted, with satisfaction, that the calibration was working. The distribution of ratings was within target. The cost of the review cycle was within budget.</p>
+                    <p class="farm-body">The fields were still being worked. The loads were still being carried. The barn wall said the Farm valued every animal equally, and below it, in smaller letters, added in a neater hand, the codicil that the Farm had always actually operated by.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em; font-family: 'DM Mono', monospace; text-align: center; margin-top: 3rem;">Chapter Eight: The Ones Who Left — continues.</p>
+                </div>
+                                <!-- CHAPTER 8 -->
+                <div id="farm-ch-content-8" style="display:none;">
+                    <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace;">CHAPTER EIGHT</p>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text-primary); font-weight: 700; line-height: 1.1; margin-bottom: 3rem;">The Ones Who Left</h2>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">They did not all leave the same way.</p>
+                    <p class="farm-body">Some left loudly — or tried to. They requested exit interviews and said, plainly, what had driven them out. The workload. The lack of recognition. The reviews that seemed to see everything except the thing that had consumed them. The way the Farm asked for everything and returned so little of it in any form the body could use. These Horses spoke clearly, using complete sentences, and watched the Pig across from them take notes in a document that would, they knew, be categorized and filed and not returned to until someone thought to search the archive, if anyone ever did.</p>
+                    <p class="farm-body">Some left quietly. They handed in the harness and said only that it was time for a change. They had calculated that anything more specific would follow them — a reference, a network, a small farm that turned out to be connected to this one in ways that became apparent only afterward. They left the truth in their bodies and took the diplomatic version to the exit meeting.</p>
+                    <p class="farm-body">Some simply stopped appearing. One day present, the next day a name on an out-of-office, then a Barn Meeting announcement, then silence.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">What happened after they left was its own study.</p>
+                    <p class="farm-body">The Farm's first response was always the same: the departed animal was wished well. The announcement used the phrase <em>new chapter</em> — as if the animal's leaving was a natural narrative progression rather than an exit from a system it could no longer sustain. The warmth of the announcement was precisely calibrated to the animal's seniority. The more senior the departure, the warmer the farewell. The Horses who left without a title received a single line.</p>
+                    <p class="farm-body">The second response was the posting of a role. The role was posted at a level below the departed animal's, with a scope description that did not include half of what the departed animal had actually done. This was because the full scope of what the departed animal had done was not visible to the Pigs who wrote the job description. They wrote what they knew. What they did not know had been absorbed into the Farm's daily operations so completely that its removal would only become apparent some months after the new hire failed to do it.</p>
+
+                    <div class="farm-pull-quote">The Farm replaced the animal but not the function. Then it was surprised when the function stopped functioning.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The third response was the reframing.</p>
+                    <p class="farm-body">In the weeks after a departure, something subtle happened to the memory of the departed animal. It was not deliberate — or perhaps it was, in the way that self-protective systems perform revisions without declaring them. The animal's contributions became, in retrospect, less central than they had been. Its difficulties — the ones the Farm had never addressed — became, in retrospect, more personal. <em>They struggled with the environment here,</em> a Pig might say, privately, to another Pig. <em>It wasn't quite the right fit in the end.</em></p>
+                    <p class="farm-body">The environment was not examined. The fit was not defined. The departed animal's three years of load-bearing was compressed into a soft narrative about individual mismatch, and the system that had produced the outcome was preserved, intact, for the next animal to enter.</p>
+                    <p class="farm-body">The Horses who remained heard these reframings. They filed them, silently, against their own future departures.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">What the ones who left found, on the other side, varied.</p>
+                    <p class="farm-body">Some found other Farms with the same commandments painted in different colors. Some found smaller operations with less prestige and more oxygen. Some left farming entirely and spent a season doing nothing, lying in the sun, learning what it felt like to wake without dread — a sensation so unfamiliar it took months to trust.</p>
+                    <p class="farm-body">Some came back. Not to this Farm, but to work. They came back having learned something the Farm had been teaching them for years without intending to: that the weight was not theirs. That it had been placed on them by a system that benefited from their willingness to carry it. That the willingness, while admirable, was not the same as the system being right.</p>
+                    <p class="farm-body">This knowledge was not available inside the Farm. It was only available after. Which was, perhaps, the Farm's most sophisticated design feature.</p>
+
+                    <div class="farm-pull-quote">You cannot see the weight from inside the yoke. You can only feel it. The seeing happens after, in the field you are no longer required to plow.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">Back on the Farm, the harnesses hung empty for a season. Then new animals arrived, and the harnesses were fitted again, and the field was worked, and the Barn Meeting noted the new additions with warmth, and the barn wall was painted fresh, and the cycle produced its next iteration.</p>
+                    <p class="farm-body">The ones who had left were not spoken of. They existed, in the Farm's memory, only as vacancies that had since been filled.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em; font-family: 'DM Mono', monospace; text-align: center; margin-top: 3rem;">Chapter Nine: The Last Good Horse — continues.</p>
+                </div>
+                                <!-- CHAPTER 9 -->
+                <div id="farm-ch-content-9" style="display:none;">
+                    <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace;">CHAPTER NINE</p>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text-primary); font-weight: 700; line-height: 1.1; margin-bottom: 3rem;">The Last Good Horse</h2>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">There was, for many seasons, one Horse that the other Horses watched.</p>
+                    <p class="farm-body">Not because it was the strongest — it was, though. Not because it carried the most — it did, though. They watched it because it still believed. Not in the Pigs, particularly — it had stopped believing in the Pigs some years back, during a period of compounded disappointment whose specifics it no longer reviewed because reviewing them served nothing. But it believed in the work. It believed that the transactions it processed mattered to the animals at the end of them. It believed that precision at its level of the system had consequences that traveled upward and outward in ways that, even if invisible to the Pigs, were real. It believed that doing the thing well was its own justification.</p>
+                    <p class="farm-body">This belief was, by the seventh year, the last thing on the Farm that had not been compromised.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The Last Good Horse had been told, at various points in its tenure, that it was exceptional. It was told this in reviews — when the rating allowed for it — and in the particular kind of private conversation a Pig has with an animal it wants to retain without giving it anything concrete. <em>You are one of the most valuable animals on this Farm,</em> a Pig had said, in one such conversation. <em>We could not do what we do without you.</em></p>
+                    <p class="farm-body">The Last Good Horse had, at the time, felt something move in its chest at these words. Not pride — it was past pride. Something more like grief. Because the words were true and they changed nothing. Being indispensable had not translated into being supported. Being exceptional had not translated into being resourced. Being the Last Good Horse had translated, with grim precision, into being the Last Good Horse — the one that could not leave because the system would collapse if it did, which was not the same as the system caring whether it stayed.</p>
+
+                    <div class="farm-pull-quote">Indispensable and valued are not synonyms. On this Farm, they were antonyms. The more essential the Horse, the less the Farm needed to offer to keep it.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The breaking did not happen suddenly.</p>
+                    <p class="farm-body">It happened the way the Farm had changed — gradually, incrementally, in ways that were impossible to locate until they had already happened. One morning the Last Good Horse woke before the alarm and found it could not locate, anywhere in itself, the reason to go. Not unwillingness. Not laziness. An absence. The thing that had made it get up and carry the load for seven years — the belief that the work mattered, that the precision mattered, that doing the thing well was its own justification — was not there. It had been worn away, one compromised standard at a time, one unanswered request at a time, one public correction and one empty recognition ceremony and one Survey that changed nothing, until the material of it was gone.</p>
+                    <p class="farm-body">The Last Good Horse lay in the dark for a long time. Then it got up and went to work, because it did not yet have a plan, and because the absence of a plan is not the same as the absence of a choice.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">It took three more months to build the plan.</p>
+                    <p class="farm-body">During those three months, the Last Good Horse did something it had never done before: it looked. Not at the work — it had always looked at the work — but at the system producing the work. It began, with the same precision it had applied to transactions for seven years, to examine the Farm's architecture. The distribution of loads. The distribution of recognition. The distribution of accountability. The distribution of risk, which always flowed downward, and reward, which always flowed upward, and consequence, which was applied to animals and absorbed by the Farm without being logged as a cost.</p>
+                    <p class="farm-body">What the Last Good Horse saw, when it looked with clear eyes, was a system that was working exactly as designed. The design was not kind. It was efficient. The Farm was extracting maximum output at minimum cost from the animals most capable of producing it, and the mechanism for this extraction was the animals' own belief — in the work, in the team, in the idea that if they held on long enough something would change.</p>
+                    <p class="farm-body">Nothing was going to change. The data was unambiguous on this point.</p>
+
+                    <div class="farm-pull-quote">The Last Good Horse had spent seven years trying to fix a system from inside it. It had not understood, until now, that the system did not want to be fixed. The system wanted to be worked.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">It left on a Thursday.</p>
+                    <p class="farm-body">It submitted the notice in writing, formally, with the required period of advance. It offered to document everything it knew — every process, every exception, every undocumented piece of institutional knowledge that lived only in its own body after seven years of continuous operation. The Pig receiving the notice said that was very gracious, and that a handover plan would be organized, and that the Farm would begin a search for a replacement. The handover happened. The search was posted. The role was listed at a level below. The scope described perhaps a third of what the Last Good Horse had actually done.</p>
+                    <p class="farm-body">The announcement at the Barn Meeting said the Farm was grateful for everything the Last Good Horse had contributed and wished it well on its next chapter.</p>
+                    <p class="farm-body">By the following Barn Meeting, it was not mentioned.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">What happened to it after — where it went, what it found, whether it recovered the thing the Farm had worn away — is a different story, set on a different farm, in a different season. That story is quieter than this one. It has a different quality of light.</p>
+                    <p class="farm-body">The one thing that can be said is this: on the morning after its last day, the Last Good Horse woke before the alarm again. And the absence it had felt for three months — the absence of the reason to go — was still there. But it was, for the first time, the right kind of absence. The kind that meant it had left the thing that had been consuming it. Not the kind that meant the thing was still consuming it and had simply run out of material.</p>
+                    <p class="farm-body">The difference between those two absences is the whole story.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p style="font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em; font-family: 'DM Mono', monospace; text-align: center; margin-top: 3rem;">Chapter Ten: The Commandment — the final chapter.</p>
+                </div>
+                                <!-- CHAPTER 10 -->
+                <div id="farm-ch-content-10" style="display:none;">
+                    <p style="font-size: 0.55rem; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'DM Mono', monospace;">CHAPTER TEN</p>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text-primary); font-weight: 700; line-height: 1.1; margin-bottom: 3rem;">The Commandment</h2>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">In the season after the Last Good Horse left, new animals arrived.</p>
+                    <p class="farm-body">They came eager. They came with energy that the Farm recognized immediately as a resource — not because it was cruel, exactly, but because resources are what systems see, and new animals with their full energy intact are the most valuable resource a depleted farm can acquire. The Pigs welcomed them with genuine warmth. The orientation was thorough. The values were presented on slides. The barn wall was freshly painted, the commandments legible, the atmosphere on the day of arrival made to feel like possibility.</p>
+                    <p class="farm-body">The new animals did not know about the seven years of the Last Good Horse. They did not know about the three Horses who had left the year before, or the Recognition Ceremony that had converted their exhaustion into trophies, or the Survey whose results had been categorized and filed, or the Town Hall where the real question had been asked and the follow-up meeting had been the answer. They did not know that the role they had been hired to fill was described at a third of its actual scope. They did not know that the load they would soon be carrying had broken the animal who carried it before them.</p>
+                    <p class="farm-body">They could not have known. The Farm did not tell them. The Farm told them about the mission, and the values, and the exciting period of transformation, and the tremendous momentum, and the extraordinary team they would be joining.</p>
+
+                    <div class="farm-pull-quote">Every cycle of the Farm began this way: with animals who did not yet know what they did not know, working alongside animals who knew but could no longer say.</div>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The Horses who remained — the ones who had not left, or not yet — watched the new arrivals the way older animals have always watched younger ones entering a difficult system. With a complicated mixture of hope and recognition. Hope that the new arrivals would find something the older ones had missed, some trick of navigation that made this Farm livable long-term. Recognition that this hope was not supported by data.</p>
+                    <p class="farm-body">Some of the older Horses tried to warn. Not directly — directness had been educated out of them over several cycles of the Survey and the Town Hall and the quiet meeting with no agenda. But in the small gestures. A pause before answering a question about workload. A careful choice of words when asked how long they had been here. An answer to "Do you like it here?" that was technically true and deeply incomplete.</p>
+                    <p class="farm-body">The new animals, still in their first weeks, heard these answers as modesty. As the understated pragmatism of experienced workers. As the tone that successful animals adopt when they do not want to seem naive. They were not wrong that it was a tone. They were wrong about what it was concealing.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">The Farm continued.</p>
+                    <p class="farm-body">The Great Reorganization would come again — it always came again, because the alternative was to hold still long enough for the architecture to be examined. The Recognition Ceremony would be held, and the awards would be given for endurance and resilience and the performance of equanimity under impossible conditions, and the awards would be called culture. The Survey would be distributed and the results would be presented and the working group would convene and the recommendations would recommend and nothing would be added to the fields or removed from the loads.</p>
+                    <p class="farm-body">The Pigs would continue to occupy the farmhouse. They would continue to speak of peak productivity and excellent team cohesion. They would continue to have the particular gift of existing in a version of the Farm that was slightly better than the one everyone else was living in — not because they were malicious, some of them, but because the farmhouse was comfortable and the fields were far away and the data that reached them had passed through so many hands that it arrived softened, rounded, stripped of the particular texture of a thing that is true.</p>
+                    <p class="farm-body">And new animals would continue to arrive, and be welcomed, and oriented, and set to work. And the cycle would produce its next iteration, as it had produced every previous one, with the same architecture and the same commandment, painted fresh, available to be seen by anyone who looked closely enough and long enough to understand what they were reading.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">On the barn wall, the commandment remained.</p>
+                    <p class="farm-body">The top line first, in letters large enough to read from the gate:</p>
+
+                    <p style="font-size: 0.85rem; color: var(--text-primary); font-family: 'Cormorant Garamond', serif; text-align: center; margin: 2.5rem 0 0.5rem; font-style: italic;">All animals are equal.</p>
+
+                    <p class="farm-body" style="text-indent: 0; text-align: center;">And below it, in smaller letters, added in a neater hand, legible only to those who had been here long enough to know to look:</p>
+
+                    <p style="font-size: 0.85rem; color: var(--gold); font-family: 'Cormorant Garamond', serif; text-align: center; margin: 0.5rem 0 2.5rem; font-style: italic; font-weight: 700;">But some animals are more equal than others.</p>
+
+                    <p class="farm-body">The new animals read it on their first morning. They moved on quickly — it seemed, on first reading, like a historical artifact. A relic of a previous administration. Something that had been painted over and repainted so many times that it had become part of the wall rather than a message on it.</p>
+                    <p class="farm-body">They would come to understand it was neither artifact nor relic.</p>
+                    <p class="farm-body">It was the operating manual. It had always been the operating manual. Everything that happened on the Farm — the Reorganizations, the Ceremonies, the Surveys, the Town Halls, the Reviews, the departures, the careful reframings, the warm announcements, the follow-up meetings with no agenda — was the operating manual in practice. The commandment was not a corruption of the Farm's values. It was their precise articulation.</p>
+                    <p class="farm-body">The Farm worked because animals believed, for long enough, that the commandment did not apply to them. That the equality at the top of the wall was the real document and the codicil at the bottom was the exception. The Farm's longevity was a function of how long it took each animal to discover which one was true.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p class="farm-body">In the field, the new Horses began their first full day of work.</p>
+                    <p class="farm-body">The loads were where the loads had always been. The loads did not know it was anyone's first day. The loads did not care about the orientation slides or the warm welcome or the excitement about the Farm's mission. The loads were simply the loads — the same weight they had been when the last Horse carried them, and the Horse before that, accumulated by a system that generated them continuously and distributed them to whoever was willing to bend their back.</p>
+                    <p class="farm-body">The new Horses bent their backs.</p>
+                    <p class="farm-body">They were strong, and willing, and they did not yet know what they were carrying, or how long they would be asked to carry it, or what it would cost them. They would learn. They were learning already, in the small daily lessons the Farm administered without ever calling them a curriculum.</p>
+                    <p class="farm-body">Above them, in the farmhouse, the Pigs were already planning the next Transformation.</p>
+                    <p class="farm-body">Below them, in the field, the work was exactly what it had always been.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--text-secondary); text-align: center; margin: 3rem 0 0.5rem; font-style: italic;">The Corporation Farm ran efficiently.</p>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--text-secondary); text-align: center; margin: 0 0 0.5rem; font-style: italic;">It had always run efficiently.</p>
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--gold); text-align: center; margin: 0 0 3rem; font-style: italic; font-weight: 700;">The question was never whether it was efficient. The question was what it was efficient at.</p>
+
+                    <div class="farm-divider">— — —</div>
+
+                    <p style="font-size: 0.55rem; color: var(--text-secondary); letter-spacing: 0.15em; font-family: 'DM Mono', monospace; text-align: center; margin-top: 2rem;">END</p>
+                    <p style="font-size: 0.55rem; color: var(--gold); letter-spacing: 0.15em; font-family: 'DM Mono', monospace; text-align: center; margin-top: 0.5rem;">kittycataclysmic.com</p>
+                </div>
+
+            </div><!-- end farm-chapter-content -->
+        </div>
+    </div>
+
     <!-- ABOUT PAGE -->
     <div id="about-page" class="page-section">
         <div class="about-body">
@@ -844,13 +1678,14 @@
         document.getElementById('homepage').style.display = 'none';
         document.getElementById('index-page').classList.remove('visible');
         document.getElementById('stillcase-page').classList.remove('visible');
+        document.getElementById('farm-page').classList.remove('visible');
         document.getElementById('about-page').classList.remove('visible');
         document.getElementById('contact-page').classList.remove('visible');
         document.getElementById('main-site').classList.remove('visible');
         document.getElementById('main-nav').style.display = 'flex';
 
         // Update nav active state
-        ['home','index','stillcase','about','contact'].forEach(p => {
+        ['home','index','stillcase','farm','about','contact'].forEach(p => {
             const el = document.getElementById('nav-' + p);
             if (el) el.classList.remove('active');
         });
@@ -864,12 +1699,30 @@
         } else if (page === 'stillcase') {
             document.getElementById('stillcase-page').classList.add('visible');
             document.getElementById('nav-stillcase').classList.add('active');
+        } else if (page === 'farm') {
+            document.getElementById('farm-page').classList.add('visible');
+            document.getElementById('nav-farm').classList.add('active');
         } else if (page === 'about') {
             document.getElementById('about-page').classList.add('visible');
             document.getElementById('nav-about').classList.add('active');
         } else if (page === 'contact') {
             document.getElementById('contact-page').classList.add('visible');
             document.getElementById('nav-contact').classList.add('active');
+        }
+        window.scrollTo(0, 0);
+    }
+
+
+    function showChapter(num) {
+        for (let i = 1; i <= 10; i++) {
+            const content = document.getElementById('farm-ch-content-' + i);
+            const btn = document.getElementById('farm-ch-' + i);
+            if (content) content.style.display = i === num ? 'block' : 'none';
+            if (btn && !btn.disabled) {
+                btn.style.background = i === num ? 'var(--gold)' : 'transparent';
+                btn.style.color = i === num ? 'var(--bg)' : 'var(--text-secondary)';
+                btn.style.borderColor = i === num ? 'var(--gold)' : 'var(--border-subtle)';
+            }
         }
         window.scrollTo(0, 0);
     }
@@ -2017,6 +2870,22 @@
     // ─────────────────────────────────────────────
     // INIT
     // ─────────────────────────────────────────────
+
+    function showChapter(num, btn) {
+        // Hide all chapters
+        for (let i = 1; i <= 10; i++) {
+            const el = document.getElementById('farm-chapter-' + i);
+            if (el) el.classList.remove('visible');
+        }
+        // Remove active from all buttons
+        document.querySelectorAll('.chapter-btn').forEach(b => b.classList.remove('active'));
+        // Show selected
+        const target = document.getElementById('farm-chapter-' + num);
+        if (target) target.classList.add('visible');
+        if (btn) btn.classList.add('active');
+        window.scrollTo(0, 0);
+    }
+
     window.onload = () => {
         renderRegistry();
     };
