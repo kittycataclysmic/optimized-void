@@ -739,7 +739,7 @@
             <div style="border-left: 2px solid var(--gold); padding-left: 1.5rem; margin-bottom: 3rem;">
                 <p style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--text-primary); line-height: 1.5; font-style: italic;">The audit is open. Submit your findings here:</p>
             </div>
-            <a href="mailto:hey@kittycataclysmic.com" style="font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--gold); letter-spacing: 0.1em; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">hey@kittycataclysmic.com</a>
+            <a href="/cdn-cgi/l/email-protection#e68e839fa68d8f92929f85879287858a9f958b8f85c885898b" style="font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--gold); letter-spacing: 0.1em; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'"><span class="__cf_email__" data-cfemail="afc7cad6efc4c6dbdbd6cccedbceccc3d6dcc2c6cc81ccc0c2">[email&#160;protected]</span></a>
             <div style="width: 60px; height: 1px; background: var(--border); margin-top: 4rem;"></div>
             <p style="font-size: 0.55rem; color: var(--text-secondary); letter-spacing: 0.15em; margin-top: 1.5rem;">NO GUARANTEES. BUT THE CASE FILE STAYS OPEN.</p>
         </div>
@@ -834,7 +834,7 @@
 
     </div><!-- end main-site -->
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ─────────────────────────────────────────────
     // HOMEPAGE ENTER
     // ─────────────────────────────────────────────
@@ -1071,13 +1071,418 @@
                 explanation: "Four lenses align cleanly, one dissents usefully. LSS, Foucault, Jung, and Cognitive Bias all reach the same finding through different routes: the system was never designed to hear Helga, and every participant's behavior was predictable output of that design. Where Nietzsche breaks rank: he would not call this a failure. He would call it will to power operating exactly as it should — the strongest will prevailed, the outcome was determined by the architecture of dominance, and Helga's silence is not a bug but the system performing within spec. That dissent is the most important audit finding in this text. The saga doesn't fail by Nietzsche's standard. Which means Nietzsche's standard is the defect."
             }
         },
-        { id: "004", title: "On Murder Considered as One of the Fine Arts", author: "Thomas De Quincey", status: "pending", cell: "Foundations" },
-        { id: "005", title: "Aphorisms on Love and Hate", author: "Friedrich Nietzsche", status: "pending", cell: "Foundations" },
-        { id: "006", title: "Traffic", author: "John Ruskin", status: "pending", cell: "Foundations" },
-        { id: "007", title: "Goblin Market", author: "Christina Rossetti", status: "pending", cell: "Foundations" },
-        { id: "008", title: "The Atheist's Mass", author: "Honoré de Balzac", status: "pending", cell: "Foundations" },
-        { id: "009", title: "The Yellow Wall-Paper", author: "Charlotte Perkins Gilman", status: "pending", cell: "Foundations" },
-        { id: "010", title: "Lord Arthur Savile's Crime", author: "Oscar Wilde", status: "pending", cell: "Foundations" },
+        {
+            id: "004",
+            title: "On Murder Considered as One of the Fine Arts",
+            author: "Thomas De Quincey, ~1827",
+            status: "audited",
+            cell: "Foundations",
+            lss: {
+                process: "Murder as a quality control problem.",
+                input: "A society that cannot prevent violence",
+                intended: "Justice. Deterrence. Moral order.",
+                actual: "Inconsistent verdicts. Celebrated violence. Differential application of law by the same institutions.",
+                waste: [
+                    { type: "Defects", detail: "Moral outrage applied inconsistently — some murders prosecuted, others celebrated, by the same institutions" },
+                    { type: "Overprocessing", detail: "Elaborate legal and moral machinery applied to individual acts while systemic violence goes unaudited" },
+                    { type: "Motion", detail: "The performance of moral seriousness by institutions with no mechanism to produce moral outcomes" }
+                ],
+                failure: "De Quincey builds no corrective system — he demonstrates that the system is so broken the only honest response is connoisseurship. The essay is a CAPA that concludes the root cause is structural and irreparable. Beautiful diagnosis. No control plan. No corrective action.",
+                verdict: {
+                    systemDesign: { score: "5/5", note: "Identifies the inconsistency in moral application with surgical precision." },
+                    wasteProfile: { score: "HIGH", note: "Systemic waste across every category of moral enforcement.", cls: "score-HIGH" },
+                    scalability: { score: "1/5", note: "Satire is not a control plan. It is a root cause indicator dressed as entertainment." },
+                    savingGrace: "The method: using the output to audit the system that produced it."
+                }
+            },
+            nietzsche: {
+                concept: "Master Morality / The Will to Power as Aesthetic",
+                analysis: "De Quincey's connoisseur applies Nietzschean master morality to an act the herd has categorized as beyond evaluation. By treating murder as an aesthetic object, he refuses the slave morality framework that would require only moral condemnation. The will to power operates here as critical intelligence — refusing to accept the system's own classification of its outputs as beyond audit."
+            },
+            archetype: {
+                primary: "The Trickster — De Quincey as critic",
+                shadow: "The Shadow — societal violence the system officially condemns but structurally produces",
+                analysis: "The critic-as-connoisseur is a Trickster figure: he doesn't attack the system frontally, he applies its own logic in a domain it declared off-limits. The Shadow is the state violence, judicial violence, and institutional violence that the system never audits because it never classifies it as murder."
+            },
+            bias: {
+                primary: "Moral Licensing",
+                secondary: "In-group / Out-group Bias",
+                analysis: "The same act receives radically different moral classification depending on who commits it and against whom. Institutional actors who commit violence are morally licensed by their role. Individual actors without institutional cover are not. The bias is not in the audience — it is embedded in the classification system itself."
+            },
+            foucault: {
+                concept: "Disciplinary Power / Spectacle of Punishment",
+                normalizes: "The idea that some violence is categorically different from other violence based on who executes it and through which channel.",
+                invisible: "That the legal system's selective prosecution of violence is itself a form of violence — one that is structurally invisible because it controls the classification.",
+                analysis: "Foucault's *Discipline and Punish* opens with a public execution — the spectacle of sovereign power. De Quincey's essay is an inversion: he treats individual murder as a spectacle worthy of the same critical attention the state gives to its own theatrical violence. The satire works because it applies the same framework to both."
+            },
+            provocation: "If the system applies moral outrage selectively by perpetrator category, what exactly is the defect definition — and who wrote it?",
+            chart: {
+                type: "pareto",
+                label: "DEFECT DISTRIBUTION — VIOLENCE BY CLASSIFICATION",
+                data: {
+                    labels: ["Prosecuted (individual)", "Justified (institutional)", "Celebrated (war/sport)", "Unclassified (systemic)"],
+                    values: [35, 30, 22, 13],
+                    cumulative: [35, 65, 87, 100]
+                }
+            },
+            synthesis: {
+                score: "4/5",
+                explanation: "Four lenses converge on one finding: the classification system is the defect. LSS names it as inconsistent defect definition. Foucault explains who controls the classification and why. Nietzsche identifies the aesthetic inversion as the only honest critical response. Cognitive Bias maps how the classification is maintained across populations. Jung dissents slightly — the Shadow reading works but De Quincey's text doesn't fully engage with the psychological dimension of violence as repressed material. The finding stands: selective measurement is not a quality system."
+            }
+        },
+        {
+            id: "005",
+            title: "Aphorisms on Love and Hate",
+            author: "Friedrich Nietzsche, ~1878",
+            status: "audited",
+            cell: "Foundations",
+            lss: {
+                process: "Human psychology as a quality system attempting to produce self-knowledge.",
+                input: "A person with drives, instincts, and biological imperatives",
+                intended: "Authentic self-understanding. Honest motivation. Coherent relationship.",
+                actual: "Self-deception. Performance of virtue. Drives disguised as values.",
+                waste: [
+                    { type: "Defects", detail: "Any emotion that is performed rather than felt — especially love, which Nietzsche reads as possession dressed as devotion" },
+                    { type: "Overprocessing", detail: "Moral frameworks layered onto base drives that already know what they want and don't need labeling" },
+                    { type: "Non-utilized talent", detail: "The will to power redirected inward as self-punishment instead of outward as creation" }
+                ],
+                failure: "Nietzsche identifies the root cause — ressentiment — and deliberately withholds the corrective action. He provides the diagnosis and withdraws. Useful if you are an auditor. Useless if you are trying to fix anything. Beautiful diagnosis. No CAPA. No control plan.",
+                verdict: {
+                    systemDesign: { score: "5/5", note: "Identifies the self-deception mechanism with clinical precision." },
+                    wasteProfile: { score: "HIGH", note: "Systematic waste at the level of the measurement tool itself.", cls: "score-HIGH" },
+                    scalability: { score: "0/5", note: "Deliberately withheld. The absence of prescription is the philosophy." },
+                    savingGrace: "The vocabulary: ressentiment, slave morality, the herd. LSS defect categories before LSS existed."
+                }
+            },
+            nietzsche: {
+                concept: "Ressentiment / Master and Slave Morality",
+                analysis: "This is Nietzsche auditing Nietzsche. The aphorisms operate as a self-referential defect report: the framework that identifies psychological self-deception is itself subject to the same critique. The will to power that drives Nietzsche's diagnosis is the same will to power he identifies in every emotional performance he dissects. The most interesting audit finding is that the auditor cannot stand outside the system being audited."
+            },
+            archetype: {
+                primary: "The Wise Old Man — Nietzsche as diagnostician",
+                shadow: "The Shadow — ressentiment, the inverted will that cannot acknowledge itself",
+                analysis: "Nietzsche positions himself as the Wise Old Man who can see what others cannot. The Shadow in his framework is ressentiment — the will to power that has turned against itself and cannot admit what it is. The irony the text does not address: diagnosing ressentiment in others while withholding corrective action is itself an assertion of power over the reader."
+            },
+            bias: {
+                primary: "Introspection Illusion",
+                secondary: "Fundamental Attribution Error",
+                analysis: "Nietzsche's core claim is that people cannot accurately report their own motivations — the introspective report is always a falsification of the underlying drive. This maps directly onto the introspection illusion in cognitive psychology: subjects consistently generate post-hoc rationalisations and experience them as genuine insight. The aphorisms are a pre-empirical catalog of this phenomenon."
+            },
+            foucault: {
+                concept: "Power/Knowledge / Technologies of the Self",
+                normalizes: "The idea that self-knowledge is achievable through introspection — which Nietzsche is dismantling from inside.",
+                invisible: "That the framework Nietzsche uses to diagnose self-deception is itself a technology of power: it creates a position of superior insight from which the reader is always already found wanting.",
+                analysis: "Foucault's technologies of the self — practices through which individuals act on themselves to transform their own conduct — are exactly what Nietzsche's aphorisms perform on the reader. The text does not merely describe self-deception. It demonstrates it, produces it, and then watches to see if the reader notices."
+            },
+            provocation: "If your measurement tool is subject to the same bias it is designed to detect, what are you actually measuring?",
+            chart: {
+                type: "radar",
+                label: "DIAGNOSTIC CAPABILITY PROFILE",
+                data: {
+                    labels: ["Defect Detection", "Root Cause Accuracy", "Control Plan", "Scalability", "Self-Audit"],
+                    values: [10, 9, 0, 3, 2]
+                }
+            },
+            synthesis: {
+                score: "3/5",
+                explanation: "The lenses are in productive conflict. LSS and Foucault converge: the measurement tool is compromised, and the framework that claims to detect self-deception is itself a performance of power. Nietzsche's own lens, applied reflexively, indicts the text. Jung finds ressentiment maps cleanly onto the Shadow — but notes Nietzsche provides no individuation path. Cognitive Bias confirms the introspection illusion is real but notes the aphorisms cannot escape it either. The synthesis collapses at exactly the right point: the framework for detecting falsified reports is itself a falsified report."
+            }
+        },
+        {
+            id: "006",
+            title: "Traffic",
+            author: "John Ruskin, ~1864",
+            status: "audited",
+            cell: "Foundations",
+            lss: {
+                process: "A society's stated values vs. its actual resource allocation.",
+                input: "Merchants with money and a desire for a prestigious exchange building",
+                intended: "A building that reflects Bradford's values",
+                actual: "A building that reflects Bradford's actual god: Getting-on.",
+                waste: [
+                    { type: "Defects", detail: "Every building, law, and institution designed to serve profit while claiming to serve beauty or justice" },
+                    { type: "Overprocessing", detail: "Elaborate aesthetic debate about design when the root cause is a values misalignment no design can fix" },
+                    { type: "Waiting", detail: "The society's potential for genuine beauty, perpetually deferred by the demands of commerce" }
+                ],
+                failure: "Ruskin correctly identifies that you cannot design a beautiful building for an ugly purpose. The merchants wanted an architectural solution to a theological problem. He refuses to provide one. His corrective action: change what you worship. Not scalable. Not actionable. Correct.",
+                verdict: {
+                    systemDesign: { score: "5/5", note: "Names the gap between stated values and actual values with zero ambiguity." },
+                    wasteProfile: { score: "HIGH", note: "The entire output stream is waste relative to the stated specification.", cls: "score-HIGH" },
+                    scalability: { score: "0/5", note: "'Change what you worship' is not a CAPA. It is the most honest possible root cause statement." },
+                    savingGrace: "The method: using the output — the building — to reverse-engineer the values system that produced it."
+                }
+            },
+            nietzsche: {
+                concept: "Will to Power / Values Revaluation",
+                analysis: "Ruskin and Nietzsche are running the same audit from opposite directions. Nietzsche says the herd's morality is a disguised will to power — and would find Bradford's Getting-on theology a textbook case. But where Nietzsche celebrates the honest assertion of will, Ruskin demands its sublimation into beauty. The tension: both are correct about the diagnosis, both are useless on the corrective action."
+            },
+            archetype: {
+                primary: "The Prophet — Ruskin",
+                shadow: "The Shadow — commercial appetite the Victorians officially condemned and structurally organized their entire civilization around",
+                analysis: "Ruskin arrives as the Prophet archetype — warning, indicting, refusing consolation. The Shadow in the text is Getting-on: the drive that the Victorian establishment officially described as secondary to higher values while designing every institution to serve it exclusively. The exchange building is the Shadow made architectural."
+            },
+            bias: {
+                primary: "Moral Licensing",
+                secondary: "Status Quo Bias",
+                analysis: "The Bradford merchants believe their commercial success licenses aesthetic aspiration. The wealth generated by the system they worship funds the building they want to be beautiful. The moral licensing operates architecturally: the exchange building is intended to prove that commerce and beauty are compatible, which is exactly what Ruskin argues they are not. Status quo bias prevents the merchants from questioning the system that their building is supposed to celebrate."
+            },
+            foucault: {
+                concept: "Biopolitics / The Productive Body",
+                normalizes: "The idea that commerce and cultivation are compatible — that wealth accumulation and aesthetic refinement serve the same civilizational project.",
+                invisible: "That the exchange itself — the architectural form — is a technology of power: it makes the commercial system visible and monumental, lending it permanence and prestige that its actual operations do not deserve.",
+                analysis: "Foucault would read the Bradford exchange not as a building but as a statement: the market is civilization. The aesthetic debate Ruskin is invited to participate in is itself a power move — it co-opts the critic into legitimizing the project by engaging with its surface. Ruskin refuses to be co-opted. That refusal is the most Foucauldian moment in the text."
+            },
+            provocation: "Your outputs are your values. Not your stated values. Your actual values. If you cannot reverse-engineer your belief system from your output, what is your measurement tool actually measuring?",
+            chart: {
+                type: "pareto",
+                label: "VALUE ALLOCATION — STATED VS ACTUAL",
+                data: {
+                    labels: ["Commerce (actual)", "Beauty (stated)", "Justice (stated)", "Community (stated)"],
+                    values: [68, 16, 10, 6],
+                    cumulative: [68, 84, 94, 100]
+                }
+            },
+            synthesis: {
+                score: "4/5",
+                explanation: "Four lenses align precisely on one finding: the stated specification and the actual output are different documents, and the gap is a design feature. LSS names it as values misalignment. Foucault explains the architectural mechanism that makes the misalignment invisible. Nietzsche complicates it — he would not call Getting-on a failure but a frank assertion of will the Victorians lacked the honesty to name. Jung identifies the Shadow operating openly as civilization. Cognitive Bias confirms moral licensing is structural. The synthesis: every institution that produces outputs contrary to its stated specification is either incompetent or dishonest. Ruskin's finding is that Bradford is neither — it simply worships something it cannot admit."
+            }
+        },
+        {
+            id: "007",
+            title: "Goblin Market",
+            author: "Christina Rossetti, ~1862",
+            status: "audited",
+            cell: "Foundations",
+            lss: {
+                process: "Desire as a procurement system.",
+                input: "Two sisters, one uncontrolled appetite, one with full process discipline",
+                intended: "Safe consumption. No dependency. Maintained capacity.",
+                actual: "Laura: full addiction, system shutdown. Lizzie: successful corrective action, antidote output delivered.",
+                waste: [
+                    { type: "Non-utilized talent", detail: "Laura's full capacity, arrested by uncontrolled desire" },
+                    { type: "Defects", detail: "The goblin fruit — input with no specification, no supplier qualification, no tolerance limit" },
+                    { type: "Overprocessing", detail: "Lizzie's heroic intervention, required only because Laura bypassed all controls at the point of entry" }
+                ],
+                failure: "The failure mode is desire without a control plan. No control plan for the next sister who walks past the market. Lizzie's intervention works once and cannot scale — it is a heroic CAPA, not a process improvement.",
+                verdict: {
+                    systemDesign: { score: "5/5", note: "Uncontrolled input entering an unqualified system. Precisely named." },
+                    wasteProfile: { score: "HIGH", note: "Complete procurement failure cascade from point of entry.", cls: "score-HIGH" },
+                    scalability: { score: "2/5", note: "Lizzie's intervention works once. Not repeatable. Not documented. Cannot scale." },
+                    savingGrace: "The procurement failure logic maps cleanly onto any supply chain audit of an unvetted vendor."
+                }
+            },
+            nietzsche: {
+                concept: "Will to Power / Dionysian vs Apollonian",
+                analysis: "The goblin market is Dionysian — excessive, sensory, boundary-dissolving. Laura submits to it because her system has no Apollonian structure to contain desire. Lizzie is Apollonian: she enters the Dionysian space with full discipline and emerges intact. Nietzsche would not moralize this. He would note that the will to power operating without structure destroys itself, while the will operating within chosen constraint creates."
+            },
+            archetype: {
+                primary: "The Hero — Lizzie as controlled sacrifice",
+                shadow: "The Shadow — desire itself, present in both sisters, contained by one and consuming the other",
+                analysis: "Lizzie is not the opposite of Laura — she contains the same desire and chooses the constraint. The archetypal reading is not good sister vs. bad sister. It is a study in whether the Shadow can be engaged without being consumed. Lizzie's heroism is not innocence. It is controlled exposure — she runs a bounded contact with the Shadow and returns with the antidote."
+            },
+            bias: {
+                primary: "Present Bias",
+                secondary: "Optimism Bias",
+                analysis: "Laura's failure is present bias — the immediate reward of the fruit overwhelms the future cost of dependency. Optimism bias operates as the enabler: she hears the goblin call and does not believe the consequence will apply to her. These are not moral failures. They are the predictable outputs of a system with no gatekeeping at the point of entry."
+            },
+            foucault: {
+                concept: "Biopower / The Disciplined Body",
+                normalizes: "Female desire as inherently dangerous and requiring external management — the poem's corrective action reproduces this even as it subverts it.",
+                invisible: "That the goblin market itself is a system: it has suppliers, customers, a product, and a very specific target demographic. The goblins are not random. They know exactly who to call to.",
+                analysis: "The goblins' marketing is precise: they call only to women who are alone, at twilight, at the boundary of the domestic space. This is not temptation — it is targeted supply. Foucault would read the market as a biopower mechanism: it operates on bodies, produces dependency, and is invisible to the systems nominally responsible for protecting those bodies."
+            },
+            provocation: "A system without a supplier qualification process is not a system. It is an open intake. What is your goblin market, and who is monitoring the entry point?",
+            chart: {
+                type: "pareto",
+                label: "DEFECT CASCADE — PROCUREMENT FAILURE SEQUENCE",
+                data: {
+                    labels: ["No supplier qual.", "No input spec.", "No intake control", "No escalation path"],
+                    values: [40, 28, 20, 12],
+                    cumulative: [40, 68, 88, 100]
+                }
+            },
+            synthesis: {
+                score: "3/5",
+                explanation: "Three lenses converge cleanly, two require more work. LSS, Cognitive Bias, and Foucault agree: this is a procurement failure enabled by a system with no gatekeeping and a marketing apparatus that exploits the gap. Nietzsche complicates the reading — he would not see Laura's failure as a defect but as an insufficient will, and Lizzie's success as master morality. Jung's reading is the most interesting: the Sisters are not two people but two modes of engaging the Shadow, and the poem's real subject is whether integration is possible without destruction. The synthesis score is limited by the poem's own resolution: Lizzie's corrective action works but produces no control plan. The system is as open as it was on page one."
+            }
+        },
+        {
+            id: "008",
+            title: "The Atheist's Mass",
+            author: "Honoré de Balzac, ~1836",
+            status: "audited",
+            cell: "Foundations",
+            lss: {
+                process: "A human belief system attempting to produce consistent output.",
+                input: "A surgeon with atheist convictions and an irreducible debt of gratitude",
+                intended: "Rational consistency. No supernatural acknowledgment.",
+                actual: "Four masses per year. Funded in secret. Attended in silence.",
+                waste: [
+                    { type: "Defects", detail: "The gap between documented belief and actual behavioral output — though the defect is also the most human data point in the system" },
+                    { type: "Overprocessing", detail: "The elaborate secrecy — he could simply not attend, but attends and conceals it, at greater cost than going openly" },
+                    { type: "Non-utilized capacity", detail: "Desplein's gratitude, which has no native format in his belief system and can only be expressed borrowed" }
+                ],
+                failure: "Desplein's belief system has no mechanism for gratitude that doesn't require its own contradiction. He cannot thank Bourgeat with atheism. The only available vocabulary is the dead man's. The system continues to produce contradictory output until Desplein's death. No documentation. No corrective action.",
+                verdict: {
+                    systemDesign: { score: "4/5", note: "The gap between stated belief and behavioral output is named. Balzac frames it as beautiful rather than defective. Both readings are correct." },
+                    wasteProfile: { score: "MODERATE", note: "Waste exists in the secrecy, not the attendance.", cls: "score-MID" },
+                    scalability: { score: "0/5", note: "No documentation. No corrective action. The system continues until Desplein's death." },
+                    savingGrace: "A system that outputs in contradiction to its own specification is not always broken. Sometimes it is the most honest system in the room."
+                }
+            },
+            nietzsche: {
+                concept: "Gratitude as Will to Power / Beyond Good and Evil",
+                analysis: "Nietzsche would find Desplein's four masses more honest than any official piety. He acts not from doctrine but from an unclassifiable drive that predates his belief system. This is will to power in its most direct form: not asking for permission from the framework, not consulting the specification, simply producing the output the drive demands. Nietzsche would call Desplein's atheism the official document and the mass the real one."
+            },
+            archetype: {
+                primary: "The Wise Old Man — Desplein as diagnostician of his own failure",
+                shadow: "The Shadow — the gratitude the belief system cannot contain",
+                analysis: "Desplein knows exactly what he is doing and why. The archetypal Wise Old Man contains his own contradictions consciously — this is not hypocrisy but integration. The Shadow is the gratitude that his intellectual framework cannot classify. Rather than suppress it, he gives it the only form available. This is the most psychologically complete act in the corpus so far."
+            },
+            bias: {
+                primary: "Cognitive Dissonance",
+                secondary: "Consistency Bias",
+                analysis: "Desplein maintains his public atheism while privately producing contradictory output — a textbook cognitive dissonance resolution through compartmentalization. Consistency bias explains the secrecy: revealing the mass would require reconciling the contradiction publicly, which threatens the intellectual identity he has built. The compartmentalization is not weakness. It is the only available system architecture for a belief structure with no native format for this kind of debt."
+            },
+            foucault: {
+                concept: "Technologies of the Self / Confession",
+                normalizes: "The idea that belief systems must produce internally consistent behavioral output — which Desplein's four masses directly contradict.",
+                invisible: "That the mass itself is a technology of remembrance: it is not belief, it is maintenance of a relational debt across the boundary of death. The Church's format is being used for a function the Church did not design it for.",
+                analysis: "Foucault's technologies of the self are practices through which individuals act on themselves. Desplein's mass is a private technology — he has no confessor, no priest who knows his purpose, no institutional acknowledgment. He has appropriated the Church's format for a use that is structurally illegible to the institution. The most Foucauldian reading: he is using power's own tool against power's own categories."
+            },
+            provocation: "The most revealing audit finding is not what a system says it produces. It is what it actually produces when no one is supposed to be watching.",
+            chart: {
+                type: "cycle",
+                label: "BEHAVIORAL OUTPUT — DOCUMENTED BELIEF VS ACTUAL",
+                data: {
+                    labels: ["Jan", "Apr", "Jul", "Oct", "Annual"],
+                    values: [0, 100, 0, 100, 50]
+                }
+            },
+            synthesis: {
+                score: "3/5",
+                explanation: "The lenses split productively. LSS names the gap between specification and output but cannot classify it as defect or feature — both readings are defensible. Foucault reads the appropriated mass as a subversive technology. Nietzsche reads it as an honest will operating outside its official classification. Jung finds it the most integrated act in the corpus: the Shadow acknowledged, given form, maintained across time. Cognitive Bias names the compartmentalization but cannot explain why it is more moving than any internally consistent belief system in the series. The synthesis score is limited not by failure but by irreducible ambiguity: this text refuses to resolve, and the refusal is the finding."
+            }
+        },
+        {
+            id: "009",
+            title: "The Yellow Wall-Paper",
+            author: "Charlotte Perkins Gilman, ~1892",
+            status: "audited",
+            cell: "Foundations",
+            lss: {
+                process: "19th century medical management of female psychological distress.",
+                input: "A woman with creative intelligence, emotional distress, and a physician husband",
+                intended: "Rest. Recovery. Return to domestic function.",
+                actual: "Complete psychological breakdown. Dissociation. Delusion.",
+                waste: [
+                    { type: "Non-utilized talent", detail: "The narrator's creative and intellectual capacity, explicitly prohibited as 'overstimulation'" },
+                    { type: "Defects", detail: "The rest cure itself — the corrective action is the root cause" },
+                    { type: "Overprocessing", detail: "The elaborate management of her entire environment to eliminate the inputs that might have stabilized her" },
+                    { type: "Waiting", detail: "Her own agency. Permanently suspended. Never returned." }
+                ],
+                failure: "The failure mode is single-source diagnosis. One person defines the problem, prescribes the solution, controls the environment, and evaluates the outcome. No external audit. No voice of the customer. No deviation from the control plan even as the control plan is visibly failing. The measurement tool is the defect.",
+                verdict: {
+                    systemDesign: { score: "5/5", note: "The defect is the system itself. Named through the narrator's deterioration with zero ambiguity." },
+                    wasteProfile: { score: "HIGH", note: "Every waste category active. The corrective action is the primary waste source.", cls: "score-HIGH" },
+                    scalability: { score: "0/5", note: "No control plan because the system cannot detect its own failure." },
+                    savingGrace: "The most complete LSS audit in the corpus. A corrective action that eliminates the capacity to detect the defect it was designed to prevent."
+                }
+            },
+            nietzsche: {
+                concept: "Slave Morality / The Suppression of Will",
+                analysis: "The narrator's will — to write, to think, to be heard — is systematically suppressed by a system that classifies it as pathology. This is slave morality operating as medical science: the dominant party's preferences are coded as health, the subordinate party's drives are coded as symptoms. Nietzsche would find the husband's protocol not cruel but perfectly consistent with a system that has classified the wrong thing as the defect."
+            },
+            archetype: {
+                primary: "The Shadow — the narrator's repressed creative self, finally manifesting in the wall",
+                shadow: "The Persona — the domestic wife the system demands she perform",
+                analysis: "The woman in the wallpaper is the narrator's Shadow — her suppressed self made visible. As the Persona (dutiful wife, compliant patient) is systematically reinforced, the Shadow grows proportionally. The final breakdown is not madness — it is the Shadow finally overwhelming the Persona that was never authentically hers. Jung would find this the most clinically precise archetypal case in the corpus."
+            },
+            bias: {
+                primary: "Confirmation Bias",
+                secondary: "Authority Bias",
+                analysis: "The husband interprets every symptom of deterioration as confirmation that more rest is required. The control plan that is failing produces output that he classifies as requiring the same control plan. Confirmation bias is structural: the measurement tool (his diagnosis) cannot distinguish between improvement and deterioration because it was calibrated to produce only one reading. Authority bias ensures the narrator cannot contest the diagnosis — his credential is the measurement tool."
+            },
+            foucault: {
+                concept: "Medical Gaze / Biopower",
+                normalizes: "The physician's authority to define female psychological states as pathology requiring containment and management.",
+                invisible: "That the rest cure is not a medical protocol but a power architecture: it removes mobility, voice, agency, and creative output — everything that might allow the patient to contest the diagnosis.",
+                analysis: "Foucault's medical gaze — the clinical eye that transforms the patient into an object of knowledge — operates here with perfect efficiency. The narrator's subjective experience is structurally inadmissible as evidence. Her husband can only see what his diagnostic framework allows him to see. The gaze does not distort reality. It constitutes a reality in which she cannot exist as a subject."
+            },
+            provocation: "A system that controls its own measurement tool cannot detect its own failure. If the only person evaluating the outcome is the same person who designed the intervention, the audit is not an audit. It is a ratification.",
+            chart: {
+                type: "cycle",
+                label: "MENTAL STATE — CONTROL LIMITS VS ACTUAL OUTPUT",
+                data: {
+                    labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8"],
+                    values: [60, 45, 35, 20, 15, 10, 5, 0]
+                }
+            },
+            synthesis: {
+                score: "5/5",
+                explanation: "All five lenses reach the same finding through different routes without a single productive disagreement. LSS: the corrective action is the root cause. Foucault: the medical gaze constitutes the patient as an object who cannot contest the diagnosis. Nietzsche: the will is classified as pathology by the system that profits from its suppression. Jung: the Shadow grows in exact proportion to the suppression of the Persona — the breakdown is the Shadow finally asserting priority. Cognitive Bias: confirmation bias and authority bias are so deeply embedded in the protocol that the system cannot receive the signal that it is failing. Five frameworks. One root cause. The measurement tool is the defect. This is the highest-convergence audit in the corpus."
+            }
+        },
+        {
+            id: "010",
+            title: "Lord Arthur Savile's Crime",
+            author: "Oscar Wilde, ~1887",
+            status: "audited",
+            cell: "Foundations",
+            lss: {
+                process: "Prophylactic murder as a quality management strategy.",
+                input: "A palmist's prediction, a conscience, an upcoming marriage, insufficient operational intelligence",
+                intended: "Prophecy fulfilled cleanly. Marriage unaffected. Life proceeding on schedule.",
+                actual: "Two botched attempts. The elimination of the prophetic source. The prophecy fulfilled ironically by the act of trying to prevent it.",
+                waste: [
+                    { type: "Defects", detail: "Both murder attempts — wrong target selection, unreliable method, no verification of outcome" },
+                    { type: "Overprocessing", detail: "The elaborate moral framework Arthur constructs to justify scheduling a murder as a duty" },
+                    { type: "Motion", detail: "Misdirected effort across two failed targets before the correct process map is identified" },
+                    { type: "Unvalidated input", detail: "The palmist's reading, accepted as a production specification without verification" }
+                ],
+                failure: "Arthur's failure mode is accepting an unvalidated specification as ground truth. He never questions the palmist's reading — only how to satisfy the requirement. His corrective action eliminates the palmist, retroactively validating the prediction. The system produces exactly what it was trying to prevent.",
+                verdict: {
+                    systemDesign: { score: "5/5", note: "Treating an unvalidated prophecy as a production requirement. Named precisely." },
+                    wasteProfile: { score: "HIGH", note: "Systematic waste from point of specification acceptance.", cls: "score-HIGH" },
+                    scalability: { score: "1/5", note: "The control plan works once and produces the defect it was designed to prevent. Self-referential. Irrecoverable." },
+                    savingGrace: "The satirical method: Wilde audits upper-class moral seriousness using the language of duty and scheduling. The comedy is the finding."
+                }
+            },
+            nietzsche: {
+                concept: "Will to Power / Bad Conscience",
+                analysis: "Arthur's bad conscience — his inability to act until he discharges what he perceives as a duty — is a Nietzschean slave morality trap. He has internalized a moral framework (duty, honor, protecting Sybil) so completely that it prevents him from doing the obvious thing: ignoring the palmist. The will to power operating through the bad conscience produces exactly the outcome that unconstrained will would have prevented."
+            },
+            archetype: {
+                primary: "The Hero — Arthur attempting to fulfill his destiny",
+                shadow: "The Trickster — Wilde himself, auditing the Hero's moral seriousness from outside the frame",
+                analysis: "Arthur is a sincere Hero archetype in an absurdist world. The Trickster is not a character in the story — it is Wilde operating from outside, applying the Hero's own logic to reveal its absurdity. The comedy works because Arthur never breaks character: his sincerity is total, which means the system's failure is total, which means the audit finding is total."
+            },
+            bias: {
+                primary: "Specification Acceptance Bias",
+                secondary: "Sunk Cost Fallacy",
+                analysis: "Arthur accepts the palmist's prediction as a production specification without any verification protocol. Once accepted, every subsequent action is oriented toward satisfying the specification rather than questioning it. Sunk cost takes over at the point of the first failed attempt: he has already committed to the process, the emotional investment is already made, abandonment is now structurally impossible. The sequence is predetermined from the moment he accepts the input."
+            },
+            foucault: {
+                concept: "Discipline and Punish / The Conscience as Surveillance Architecture",
+                normalizes: "The idea that prophecy — external authority — constitutes a legitimate production specification for personal conduct.",
+                invisible: "That the palmist's power is not supernatural but social: his reading functions because Arthur's class has trained him to defer to credentialed authority even when the credential is occult rather than institutional.",
+                analysis: "Foucault would find Arthur's internalized conscience a perfect example of disciplinary power: he has become his own jailer. The palmist does not coerce him. He produces in Arthur a self-regulating subject who monitors his own conduct, identifies a defect (unmurdered person), and applies a corrective action — all without external enforcement. The power apparatus has been fully internalized."
+            },
+            provocation: "An unvalidated input specification will produce a defect regardless of how rigorously the process is executed. What are you running your process against?",
+            chart: {
+                type: "pareto",
+                label: "ROOT CAUSE ANALYSIS — PROCESS FAILURE CONTRIBUTORS",
+                data: {
+                    labels: ["Unvalidated spec", "No target qual.", "No method validation", "No outcome verify", "Self-referential CAPA"],
+                    values: [38, 25, 18, 12, 7],
+                    cumulative: [38, 63, 81, 93, 100]
+                }
+            },
+            synthesis: {
+                score: "3/5",
+                explanation: "Three lenses converge cleanly, two add texture without full alignment. LSS, Cognitive Bias, and Foucault agree: the failure begins at specification acceptance and every subsequent step is predictably wrong. Nietzsche's reading is the most uncomfortable — he would not find Arthur's failure absurd but tragic: a sincere will, fully deployed, in service of an unexamined premise. Jung finds the Trickster most interesting — not in the text but outside it, in Wilde's authorial position. The synthesis is limited by Wilde's own refusal to fully commit to either satire or tragedy: the comedy is too precise to be accidental, the absurdity too systematic to be mere entertainment. The audit agrees with both readings. The most dangerous requirement is the one nobody questioned because questioning it felt impolite."
+            }
+        },
         { id: "011", title: "The Dhammapada", author: "Anon", status: "pending", cell: "Foundations" },
         { id: "012", title: "On the Shortness of Life", author: "Seneca", status: "pending", cell: "Foundations" },
         { id: "013", title: "The Great Winglebury Duel", author: "Charles Dickens", status: "pending", cell: "Foundations" },
@@ -1609,13 +2014,4 @@
         }
     }
 
-    // ─────────────────────────────────────────────
-    // INIT
-    // ─────────────────────────────────────────────
-    window.onload = () => {
-        renderRegistry();
-    };
-
-    </script>
-</body>
-</html>
+    // ───────────────────────────────────────────�
