@@ -1545,18 +1545,18 @@
 
 
     function showChapter(num) {
+        // Show selected chapter, hide others
         for (let i = 1; i <= 10; i++) {
-            const content = document.getElementById('farm-ch-content-' + i);
+            const chContent = document.getElementById('farm-ch-content-' + i);
+            if (chContent) chContent.style.display = i === num ? 'block' : 'none';
             const btn = document.getElementById('farm-ch-' + i);
-            if (content) content.style.display = i === num ? 'block' : 'none';
-            if (btn && !btn.disabled) {
-                btn.style.background = i === num ? 'var(--gold)' : 'transparent';
-                btn.style.color = i === num ? 'var(--bg)' : 'var(--text-secondary)';
-                btn.style.borderColor = i === num ? 'var(--gold)' : 'var(--border-subtle)';
+            if (btn) {
+                btn.style.borderColor = i === num ? 'var(--gold)' : '';
+                btn.style.color = i === num ? 'var(--gold)' : '';
             }
         }
         window.scrollTo(0, 0);
-    }
+    }}
 
     function enterSite() {
         document.getElementById('homepage').style.display = 'none';
@@ -2702,18 +2702,17 @@
     // INIT
     // ─────────────────────────────────────────────
 
-    function showChapter(num, btn) {
-        // Hide all chapters
+    function showChapter(num) {
+        // Show selected chapter, hide others
         for (let i = 1; i <= 10; i++) {
-            const el = document.getElementById('farm-chapter-' + i);
-            if (el) el.classList.remove('visible');
+            const chContent = document.getElementById('farm-ch-content-' + i);
+            if (chContent) chContent.style.display = i === num ? 'block' : 'none';
+            const btn = document.getElementById('farm-ch-' + i);
+            if (btn) {
+                btn.style.borderColor = i === num ? 'var(--gold)' : '';
+                btn.style.color = i === num ? 'var(--gold)' : '';
+            }
         }
-        // Remove active from all buttons
-        document.querySelectorAll('.chapter-btn').forEach(b => b.classList.remove('active'));
-        // Show selected
-        const target = document.getElementById('farm-chapter-' + num);
-        if (target) target.classList.add('visible');
-        if (btn) btn.classList.add('active');
         window.scrollTo(0, 0);
     }
 
