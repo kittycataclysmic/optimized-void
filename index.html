@@ -508,6 +508,10 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
 .still-card__title{font-family:var(--serif);font-size:1rem;color:var(--text);line-height:1.2}
 .still-card__meta{font-size:.55rem;color:var(--muted)}
 .still-card__status{font-size:.5rem;color:var(--muted)}
+.still-card__status--active{
+  color:var(--gold);background:var(--gold-dim);
+  padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.12em;
+}
 
 /* ── RESPONSIVE ─────────────────────────────────────────────────────── */
 @media(max-width:1023px){
@@ -548,6 +552,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
       <button class="nav__link" id="nl-still" onclick="showPage('still')">The Still Case</button>
       <button class="nav__link" id="nl-auditor" onclick="showPage('auditor')">The Auditor</button>
       <button class="nav__link" id="nl-contact" onclick="showPage('contact')">Contact</button>
+      <a class="nav__link" href="https://themanifesto.kittycataclysmic.com" target="_blank" rel="noopener">The Manifesto</a>
     </div>
     <button class="nav__hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -563,6 +568,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
   <button class="nav__drawer-link" onclick="showPage('still');closeMenu()">The Still Case</button>
   <button class="nav__drawer-link" onclick="showPage('auditor');closeMenu()">The Auditor</button>
   <button class="nav__drawer-link" onclick="showPage('contact');closeMenu()">Contact</button>
+  <a class="nav__drawer-link" href="https://themanifesto.kittycataclysmic.com" target="_blank" rel="noopener">The Manifesto</a>
 </div>
 
 <!-- ── HOMEPAGE ─────────────────────────────── -->
@@ -608,7 +614,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
         <div class="home__project-card">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span class="label">Nine paintings.</span>
-            <span class="home__project-status">COMING</span>
+            <span class="home__project-status">ACTIVE</span>
           </div>
           <div class="home__project-title">The Still Case</div>
           <div class="home__project-desc">One painting. One audit. LSS × Panofsky × Berger × Bataille</div>
@@ -793,7 +799,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
           <div class="still-card__body">
             <div style="display:flex;justify-content:space-between;align-items:center">
               <span class="still-card__num">Nº 01</span>
-              <span class="still-card__status">COMING</span>
+              <span class="still-card__status still-card__status--active">ACTIVE</span>
             </div>
             <div class="still-card__title">Faun by Moonlight</div>
             <div class="still-card__meta">Léon Spilliaert — 1900</div>
@@ -806,7 +812,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
           <div class="still-card__body">
             <div style="display:flex;justify-content:space-between;align-items:center">
               <span class="still-card__num">Nº 02</span>
-              <span class="still-card__status">COMING</span>
+              <span class="still-card__status still-card__status--active">ACTIVE</span>
             </div>
             <div class="still-card__title">Saturn Devouring His Son</div>
             <div class="still-card__meta">Francisco Goya — 1819</div>
@@ -819,7 +825,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
           <div class="still-card__body">
             <div style="display:flex;justify-content:space-between;align-items:center">
               <span class="still-card__num">Nº 03</span>
-              <span class="still-card__status">COMING</span>
+              <span class="still-card__status still-card__status--active">ACTIVE</span>
             </div>
             <div class="still-card__title">Isle of the Dead</div>
             <div class="still-card__meta">Arnold Böcklin — 1880</div>
@@ -832,7 +838,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
           <div class="still-card__body">
             <div style="display:flex;justify-content:space-between;align-items:center">
               <span class="still-card__num">Nº 04</span>
-              <span class="still-card__status">COMING</span>
+              <span class="still-card__status still-card__status--active">ACTIVE</span>
             </div>
             <div class="still-card__title">Judith Beheading Holofernes</div>
             <div class="still-card__meta">Caravaggio — 1599</div>
@@ -845,7 +851,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
           <div class="still-card__body">
             <div style="display:flex;justify-content:space-between;align-items:center">
               <span class="still-card__num">Nº 05</span>
-              <span class="still-card__status">COMING</span>
+              <span class="still-card__status still-card__status--active">ACTIVE</span>
             </div>
             <div class="still-card__title">The Dead Mother</div>
             <div class="still-card__meta">Edvard Munch — 1900</div>
@@ -858,7 +864,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
           <div class="still-card__body">
             <div style="display:flex;justify-content:space-between;align-items:center">
               <span class="still-card__num">Nº 06</span>
-              <span class="still-card__status">COMING</span>
+              <span class="still-card__status still-card__status--active">ACTIVE</span>
             </div>
             <div class="still-card__title">Black Square</div>
             <div class="still-card__meta">Kazimir Malevich — 1915</div>
@@ -871,7 +877,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
           <div class="still-card__body">
             <div style="display:flex;justify-content:space-between;align-items:center">
               <span class="still-card__num">Nº 07</span>
-              <span class="still-card__status">COMING</span>
+              <span class="still-card__status still-card__status--active">ACTIVE</span>
             </div>
             <div class="still-card__title">The Sin</div>
             <div class="still-card__meta">Franz von Stuck — 1893</div>
@@ -884,7 +890,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
           <div class="still-card__body">
             <div style="display:flex;justify-content:space-between;align-items:center">
               <span class="still-card__num">Nº 08</span>
-              <span class="still-card__status">COMING</span>
+              <span class="still-card__status still-card__status--active">ACTIVE</span>
             </div>
             <div class="still-card__title">Salome with the Head of John the Baptist</div>
             <div class="still-card__meta">Gustave Moreau — 1876</div>
@@ -897,7 +903,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
           <div class="still-card__body">
             <div style="display:flex;justify-content:space-between;align-items:center">
               <span class="still-card__num">Nº 09</span>
-              <span class="still-card__status">COMING</span>
+              <span class="still-card__status still-card__status--active">ACTIVE</span>
             </div>
             <div class="still-card__title">The Nightmare</div>
             <div class="still-card__meta">Henry Fuseli — 1781</div>
