@@ -223,7 +223,64 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
 }
 .section-header__sub{font-size:.72rem;color:var(--muted);line-height:2;max-width:520px}
 
-/* ── THE OPTIMIZED VOID ─────────────────────────────────────────────────────── */
+/* ── THE MISCELLANY ─────────────────────────────────────────────────────── */
+.miscellany-page{padding:4rem 0 6rem}
+.miscellany-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:.75rem;
+  margin-top:2.5rem;
+}
+.misc-card{
+  background:var(--bg1);
+  border:1px solid var(--border);
+  border-top:2px solid var(--gold);
+  padding:1.5rem 1.25rem 1.25rem;
+  display:flex;flex-direction:column;gap:.65rem;
+  transition:border-color .2s;
+  text-decoration:none;
+}
+.misc-card:hover{border-color:var(--gold-border)}
+.misc-card__tag{
+  font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);background:var(--gold-dim);
+  padding:2px 8px;border-radius:2px;display:inline-block;width:fit-content;
+}
+.misc-card__name{
+  font-family:var(--serif);font-size:1.5rem;font-weight:700;
+  color:var(--text);line-height:1.1;letter-spacing:.01em;
+}
+.misc-card__desc{
+  font-size:.62rem;color:var(--muted);line-height:1.95;
+  flex:1;
+}
+.misc-card__meta{
+  font-size:.52rem;letter-spacing:.1em;color:var(--dim);
+  border-top:1px solid var(--border);
+  padding-top:.75rem;margin-top:.25rem;
+}
+.misc-card__cta{
+  font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--gold-border);
+  padding:.6rem 1rem;display:inline-block;width:fit-content;
+  transition:background .2s,color .2s;margin-top:.25rem;
+}
+.misc-card__cta:hover{background:var(--gold);color:var(--bg)}
+.miscellany-note{
+  margin-top:3.5rem;
+  padding-top:2rem;
+  border-top:1px solid var(--border);
+  max-width:600px;
+}
+.miscellany-note p{
+  font-family:var(--serif);font-size:1rem;font-style:italic;
+  color:var(--muted);line-height:2;margin-bottom:.75rem;
+}
+.miscellany-note p:last-child{margin-bottom:0}
+.miscellany-note__attr{
+  font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--dim);font-family:var(--mono);font-style:normal;
+}
 .void-page{padding:0}
 .void-header{
   padding:3rem 1.25rem 2rem;
@@ -551,6 +608,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
       <button class="nav__link" id="nl-farm" onclick="showPage('farm');showChapter(1)">The Corporation Farm</button>
       <button class="nav__link" id="nl-still" onclick="showPage('still')">The Still Case</button>
       <button class="nav__link" id="nl-auditor" onclick="showPage('auditor')">The Auditor</button>
+      <button class="nav__link" id="nl-miscellany" onclick="showPage('miscellany')">The Miscellany</button>
       <button class="nav__link" id="nl-contact" onclick="showPage('contact')">Contact</button>
       <a class="nav__link" href="https://themanifesto.kittycataclysmic.com" target="_blank" rel="noopener">The Manifesto</a>
     </div>
@@ -567,6 +625,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
   <button class="nav__drawer-link" onclick="showPage('farm');showChapter(1);closeMenu()">The Corporation Farm</button>
   <button class="nav__drawer-link" onclick="showPage('still');closeMenu()">The Still Case</button>
   <button class="nav__drawer-link" onclick="showPage('auditor');closeMenu()">The Auditor</button>
+  <button class="nav__drawer-link" onclick="showPage('miscellany');closeMenu()">The Miscellany</button>
   <button class="nav__drawer-link" onclick="showPage('contact');closeMenu()">Contact</button>
   <a class="nav__drawer-link" href="https://themanifesto.kittycataclysmic.com" target="_blank" rel="noopener">The Manifesto</a>
 </div>
@@ -957,6 +1016,56 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.1}
       <p class="auditor-body">I am not here to be fair to these works. Fairness is a courtesy extended to systems that have earned it. I am here to find the defect, name it precisely, and move on to the next file.</p>
       <p class="auditor-body">The findings are rarely comfortable. I am not uncomfortable about that.</p>
       <div style="width:48px;height:1px;background:var(--gold);margin-top:2.5rem"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── THE MISCELLANY ─────────────────────────────────────────────────────── -->
+<div id="page-miscellany" class="page">
+  <div class="miscellany-page">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header__eyebrow">The Miscellany</div>
+        <h2 class="section-header__title">Things that escaped<br>the audit process.</h2>
+        <p class="section-header__sub">Not every output fits a case file. These are the ones that didn't — built quietly, deployed without ceremony, offered without condition.</p>
+      </div>
+
+      <div class="miscellany-grid">
+
+        <!-- POLI -->
+        <div class="misc-card">
+          <span class="misc-card__tag">Productivity · Web App</span>
+          <div class="misc-card__name">Poli</div>
+          <div class="misc-card__desc">An adult productivity tool. The system that started the P naming convention — before there was a convention. Built for the kind of person who cannot encounter a task without needing to know exactly where it breaks.</div>
+          <div class="misc-card__meta">Single-file HTML · Vanilla JS · Dark theme</div>
+          <a class="misc-card__cta" href="https://poli-ausome.vercel.app/" target="_blank" rel="noopener">Open Poli →</a>
+        </div>
+
+        <!-- POLO -->
+        <div class="misc-card">
+          <span class="misc-card__tag">Education · Children's Game</span>
+          <div class="misc-card__name">Polo</div>
+          <div class="misc-card__desc">Calm dino sorting for AUsome kids. A gift to the neurodivergent community — free, unmonetized, deployed without a domain. Dinosaurs, badges, voice narration, and no noise that wasn't earned. A sibling to Poli in name only; in purpose, something else entirely.</div>
+          <div class="misc-card__meta">Single-file HTML · Web Audio · Web Speech API · 50 collectible dinosaurs</div>
+          <a class="misc-card__cta" href="https://polo-ausome-game.vercel.app/" target="_blank" rel="noopener">Open Polo →</a>
+        </div>
+
+        <!-- PURR -->
+        <div class="misc-card">
+          <span class="misc-card__tag">Ambient Audio · Sleep Tool</span>
+          <div class="misc-card__name">Purr</div>
+          <div class="misc-card__desc">Nine lives of quiet. Generative sleep music synthesized entirely in the browser — no subscription, no stream, no tracking. A black cat with ice-blue eyes closes its eyes when you press play and wags its tail while you drift. Nietzsche closes it out.</div>
+          <div class="misc-card__meta">Single-file HTML · Web Audio API · 9 scenes · 1–2 hr sessions</div>
+          <a class="misc-card__cta" href="https://purr-kitty.vercel.app/" target="_blank" rel="noopener">Open Purr →</a>
+        </div>
+
+      </div>
+
+      <div class="miscellany-note">
+        <p>These are not products. They are not part of The Index. They are outputs that occurred anyway — unsanctioned, unscheduled, and released into the world without expectation of return.</p>
+        <p>The P is not a brand. It is a coincidence that became a pattern — or a pattern that was always there, waiting to be named. The auditor notes this. The auditor does not explain it.</p>
+      </div>
+
     </div>
   </div>
 </div>
